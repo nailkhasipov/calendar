@@ -1,10 +1,24 @@
 import React, { Component } from 'react';
-import { getDateTitle }from './helpers';
+import { DAY_VIEW, WEEK_VIEW, MONTH_VIEW } from './constants';
+import { getDateTitle } from './helpers';
 import { MonthTable } from './components/MonthTable';
 import { DayView } from './components/DayView';
+import { WeekView } from './components/WeekView';
+import { MonthView } from './components/MonthView';
 import './App.css';
 
 class App extends Component {
+  constructor( props ) {
+    super( props );
+    this.state = {
+      view: DAY_VIEW
+    }
+  }
+
+  changeView( view ) {
+    this.setState( { view: view } );
+  }
+
   render() {
     return (
       <div className="app calendar">
@@ -16,9 +30,9 @@ class App extends Component {
         </div>
         <h2 className="date-info">{getDateTitle(new Date().getTime())}</h2>
         <div className="view-change">
-          <button>DAY</button>
-          <button>WEEK</button>
-          <button>MONTH</button>
+          <button onClick={() => this.changeView( DAY_VIEW )}>DAY</button>
+          <button onClick={() => this.changeView( WEEK_VIEW )}>WEEK</button>
+          <button onClick={() => this.changeView( MONTH_VIEW )}>MONTH</button>
         </div>
         </div>
         <div className="main">
@@ -28,7 +42,15 @@ class App extends Component {
             </div>
           </div>
           <div className="view">
-            <DayView />
+            {this.state.view === DAY_VIEW &&
+              <DayView />
+            }
+            {this.state.view === WEEK_VIEW &&
+              <WeekView />
+            }
+            {this.state.view === MONTH_VIEW &&
+              <MonthView />
+            }
           </div>
         </div>
       </div>
