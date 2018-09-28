@@ -181,3 +181,8 @@ html, body {
   position: relative;
   width: 100%;
 }
+
+.calendar .main .view-week .day-grid {
+  width: 14.285713%;
+  border-right: 1px solid #e2e2e2;
+}
