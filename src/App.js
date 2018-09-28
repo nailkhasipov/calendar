@@ -1,18 +1,36 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+import { getDateTitle }from './helpers';
+import { MonthTable } from './MonthTable';
 import './App.css';
 
 class App extends Component {
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+      <div className="app calendar">
+        <div className="top">
+        <div className="navigation">
+          <button>TODAY</button>
+          <button>{'<'}</button>
+          <button>{'>'}</button>
+        </div>
+        <h2 className="date-info">{getDateTitle(new Date().getTime())}</h2>
+        <div className="view-change">
+          <button>DAY</button>
+          <button>WEEK</button>
+          <button>MONTH</button>
+        </div>
+        </div>
+        <div className="main">
+          <div className="sidebar">
+            <div className="sidebar-month" id="sidebar-month">
+              <MonthTable></MonthTable>
+            </div>
+            {/* <EventForm></EventForm> */}
+          </div>
+          <div className="view">
+            {/* <View></View> */}
+          </div>
+        </div>
       </div>
     );
   }
