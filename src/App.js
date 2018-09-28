@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { getDateTitle }from './helpers';
-import { MonthTable } from './MonthTable';
+import { MonthTable } from './components/MonthTable';
+import { DayView } from './components/DayView';
 import './App.css';
 
 class App extends Component {
@@ -25,10 +26,9 @@ class App extends Component {
             <div className="sidebar-month" id="sidebar-month">
               <MonthTable></MonthTable>
             </div>
-            {/* <EventForm></EventForm> */}
           </div>
           <div className="view">
-            {/* <View></View> */}
+            <DayView />
           </div>
         </div>
       </div>

@@ -1,5 +1,5 @@
 import React from 'react';
-import { getMonthArray } from './helpers';
+import { getMonthArray } from '../helpers';
 
 export const MonthTable = ( props ) => {
   const month = getMonthArray( new Date().getTime() );
