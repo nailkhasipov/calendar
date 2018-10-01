@@ -31,7 +31,7 @@ html, body {
   padding: 0 15px;
 }
 
-.calendar .top .navigation, .calendar .top .view-change {
+.calendar .top .add, .calendar .top .view-change {
   display: flex;
   align-items: center;
 }
@@ -58,6 +58,17 @@ html, body {
 
 .calendar .sidebar #sidebar-month table tr {
   height: 30px;
+}
+
+.calendar .main .view-wrapper {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.calendar .main .view-wrapper .navigation {
+  display: flex;
+  justify-content: flex-end;
 }
 
 .calendar .main .view {
