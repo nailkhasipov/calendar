@@ -23,34 +23,40 @@ class App extends Component {
     return (
       <div className="app calendar">
         <div className="top">
-        <div className="navigation">
-          <button>TODAY</button>
-          <button>{'<'}</button>
-          <button>{'>'}</button>
-        </div>
-        <h2 className="date-info">{getDateTitle(new Date().getTime())}</h2>
-        <div className="view-change">
-          <button onClick={() => this.changeView( DAY_VIEW )}>DAY</button>
-          <button onClick={() => this.changeView( WEEK_VIEW )}>WEEK</button>
-          <button onClick={() => this.changeView( MONTH_VIEW )}>MONTH</button>
-        </div>
+          <div className="add">
+            <button>{'+'}</button>
+          </div>
+          <div className="view-change">
+            <button onClick={() => this.changeView( DAY_VIEW )}>DAY</button>
+            <button onClick={() => this.changeView( WEEK_VIEW )}>WEEK</button>
+            <button onClick={() => this.changeView( MONTH_VIEW )}>MONTH</button>
+          </div>
         </div>
         <div className="main">
           <div className="sidebar">
             <div className="sidebar-month" id="sidebar-month">
+              <h2 className="date-info">{getDateTitle(new Date().getTime())}</h2>
               <MonthTable></MonthTable>
             </div>
           </div>
-          <div className="view">
-            {this.state.view === DAY_VIEW &&
-              <DayView />
-            }
-            {this.state.view === WEEK_VIEW &&
-              <WeekView />
-            }
-            {this.state.view === MONTH_VIEW &&
-              <MonthView />
-            }
+          <div className="view-wrapper">
+            <div className="navigation">
+              <button>TODAY</button>
+              <button>{'<'}</button>
+              <button>{'>'}</button>
+            </div>
+
+            <div className="view">
+              {this.state.view === DAY_VIEW &&
+                <DayView />
+              }
+              {this.state.view === WEEK_VIEW &&
+                <WeekView />
+              }
+              {this.state.view === MONTH_VIEW &&
+                <MonthView />
+              }
+            </div>
           </div>
         </div>
       </div>
