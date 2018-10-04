@@ -5,6 +5,7 @@ import { MonthTable } from './components/MonthTable';
 import { DayView } from './components/DayView';
 import { WeekView } from './components/WeekView';
 import { MonthView } from './components/MonthView';
+import { NewEvent } from './components/NewEvent';
 import './App.css';
 
 class App extends Component {
@@ -59,6 +60,8 @@ class App extends Component {
             </div>
           </div>
         </div>
+
+        <NewEvent />
       </div>
     );
   }
