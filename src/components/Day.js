@@ -1,6 +1,7 @@
 import React from 'react';
+import './Day.css';
 
-export const DayView = () => (
+export const Day = () => (
   <div className="views view-day" id="view-day">
     <ul className="labels">
       {Array(...Array(24)).map((value, index) => <li className="hour">{ String(index).padStart(2, '0') }</li>)}
@@ -11,4 +12,4 @@ export const DayView = () => (
   </div>
 );
 
-export default DayView;
+export default Day;

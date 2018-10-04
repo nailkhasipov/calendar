@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { DAY_VIEW, WEEK_VIEW, MONTH_VIEW } from './constants';
 import { getDateTitle } from './helpers';
 import { MonthTable } from './components/MonthTable';
-import { DayView } from './components/DayView';
+import { Day } from './components/Day';
 import { WeekView } from './components/WeekView';
 import { MonthView } from './components/MonthView';
 import { NewEvent } from './components/NewEvent';
@@ -49,7 +49,7 @@ class App extends Component {
 
             <div className="view">
               {this.state.view === DAY_VIEW
-                && <DayView />
+                && <Day />
               }
               {this.state.view === WEEK_VIEW
                 && <WeekView />

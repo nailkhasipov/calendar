@@ -1,0 +1,23 @@
+.Day {
+
+}
+
+.day-grid .hour {
+  height: 40px;
+  border-top: 1px solid #e2e2e2;
+}
+
+.view-day {
+  padding-left: 40px;
+  padding-top: 10px;
+}
+
+.calendar .main .view-day .day-grid {
+  position: relative;
+  width: 100%;
+}
+
+.calendar .main .view-week .day-grid {
+  width: 14.285713%;
+  border-right: 1px solid #e2e2e2;
+}
