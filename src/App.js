@@ -9,15 +9,15 @@ import { NewEvent } from './components/NewEvent';
 import './App.css';
 
 class App extends Component {
-  constructor( props ) {
-    super( props );
+  constructor(props) {
+    super(props);
     this.state = {
-      view: DAY_VIEW
-    }
+      view: DAY_VIEW,
+    };
   }
 
-  changeView( view ) {
-    this.setState( { view: view } );
+  changeView(view) {
+    this.setState({ view });
   }
 
   render() {
@@ -25,19 +25,19 @@ class App extends Component {
       <div className="app calendar">
         <div className="top">
           <div className="add">
-            <button>{'+'}</button>
+            <button>+</button>
           </div>
           <div className="view-change">
-            <button onClick={() => this.changeView( DAY_VIEW )}>DAY</button>
-            <button onClick={() => this.changeView( WEEK_VIEW )}>WEEK</button>
-            <button onClick={() => this.changeView( MONTH_VIEW )}>MONTH</button>
+            <button onClick={() => this.changeView(DAY_VIEW)}>DAY</button>
+            <button onClick={() => this.changeView(WEEK_VIEW)}>WEEK</button>
+            <button onClick={() => this.changeView(MONTH_VIEW)}>MONTH</button>
           </div>
         </div>
         <div className="main">
           <div className="sidebar">
             <div className="sidebar-month" id="sidebar-month">
               <h2 className="date-info">{getDateTitle(new Date().getTime())}</h2>
-              <MonthTable></MonthTable>
+              <MonthTable />
             </div>
           </div>
           <div className="view-wrapper">
@@ -48,14 +48,14 @@ class App extends Component {
             </div>
 
             <div className="view">
-              {this.state.view === DAY_VIEW &&
-                <DayView />
+              {this.state.view === DAY_VIEW
+                && <DayView />
               }
-              {this.state.view === WEEK_VIEW &&
-                <WeekView />
+              {this.state.view === WEEK_VIEW
+                && <WeekView />
               }
-              {this.state.view === MONTH_VIEW &&
-                <MonthView />
+              {this.state.view === MONTH_VIEW
+                && <MonthView />
               }
             </div>
           </div>

@@ -1,18 +1,18 @@
 import React from 'react';
 import { getMonthArray } from '../helpers';
 
-export const MonthTable = ( props ) => {
-  const month = getMonthArray( new Date().getTime() );
+export const MonthTable = () => {
+  const month = getMonthArray(new Date().getTime());
 
-  const monthTable = month.map( ( week, index ) => 
-    <tr key={ index }>
-      {week.map( ( day, index ) =>
-        <td key={ index }>
+  const monthTable = month.map(week => (
+    <tr key={week}>
+      {week.map(day => (
+        <td key={week + day}>
           { day }
         </td>
-      )}
+      ))}
     </tr>
-  );
+  ));
 
   return (
     <table>
@@ -21,4 +21,6 @@ export const MonthTable = ( props ) => {
       </tbody>
     </table>
   );
-}
+};
+
+export default MonthTable;

@@ -1,7 +1,7 @@
 const initialState = {
-  currentDate: new Date().getTime()
+  currentDate: new Date().getTime(),
 };
 
-export function reducer( state = initialState, action ) {
+export default function reducer(state = initialState, action) {
   return state;
-};
+}
