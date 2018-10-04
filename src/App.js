@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { DAY_VIEW, WEEK_VIEW, MONTH_VIEW } from './constants';
 import { getDateTitle } from './helpers';
 import { MiniMonthNavigator } from './components/MiniMonthNavigator';
+import { Navigator } from './components/Navigator';
 import { Top } from './components/Top';
 import { Day } from './components/Day';
 import { WeekView } from './components/WeekView';
@@ -33,12 +34,6 @@ class App extends Component {
             </div>
           </div>
           <div className="view-wrapper">
-            <div className="navigation">
-              <button>TODAY</button>
-              <button>{'<'}</button>
-              <button>{'>'}</button>
-            </div>
-
             <div className="view">
               {this.state.view === DAY_VIEW
                 && <Day />

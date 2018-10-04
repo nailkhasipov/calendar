@@ -8,7 +8,7 @@
   padding: 0 15px;
 }
 
-.top__left, .top__right {
+.top__left, .top__middle, .top__right {
   display: flex;
   align-items: center;
 }
