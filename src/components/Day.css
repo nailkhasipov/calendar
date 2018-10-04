@@ -1,23 +1,29 @@
-.Day {
-
+.day-view {
+  padding-left: 45px;
 }
 
-.day-grid .hour {
+.day-view__labels {
+  margin: 0;
+  padding: 0;
+  padding-left: 5px;
+  position: absolute;
+  left: 0;
+  font-size: 12px;
+  color: #ccc;
+}
+
+.day-view__labels li {
+  list-style: none;
   height: 40px;
-  border-top: 1px solid #e2e2e2;
 }
 
-.view-day {
-  padding-left: 40px;
-  padding-top: 10px;
-}
-
-.calendar .main .view-day .day-grid {
+.day-view__grid  {
   position: relative;
   width: 100%;
+  margin-top: 6px;
 }
 
-.calendar .main .view-week .day-grid {
-  width: 14.285713%;
-  border-right: 1px solid #e2e2e2;
+.day-view__grid-hour {
+  height: 40px;
+  border-top: 1px solid #e2e2e2;
 }

@@ -40,17 +40,6 @@ html, body {
   padding: 15px;
 }
 
-.calendar .main .view-wrapper {
-  display: flex;
-  flex-direction: column;
-  flex: 1;
-}
-
-.calendar .main .view-wrapper .navigation {
-  display: flex;
-  justify-content: flex-end;
-}
-
 .calendar .main .view {
   flex: 1;
   display: flex;
@@ -60,20 +49,6 @@ html, body {
 .calendar .main .views {
   flex: 1;
   position: relative;
-}
-
-.labels {
-  margin: 0;
-  padding: 0;
-  position: absolute;
-  left: 0;
-  font-size: 13px;
-  color: #ccc;
-}
-
-.labels li {
-  list-style: none;
-  height: 40px;
 }
 
 .calendar .main .view-week {
@@ -86,8 +61,9 @@ html, body {
   top: 60px;
 }
 
-.calendar .main .view-month {
-  /* display: none; */
+.calendar .main .view-week .day-grid {
+  width: 14.285713%;
+  border-right: 1px solid #e2e2e2;
 }
 
 .view-month table {

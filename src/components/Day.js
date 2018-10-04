@@ -2,12 +2,12 @@ import React from 'react';
 import './Day.css';
 
 export const Day = () => (
-  <div className="views view-day" id="view-day">
-    <ul className="labels">
-      {Array(...Array(24)).map((value, index) => <li className="hour">{ String(index).padStart(2, '0') }</li>)}
+  <div className="views day-view">
+    <ul className="day-view__labels">
+      {Array(...Array(24)).map((value, index) => <li className="day-view__labels-hour">{ `${String(index).padStart(2, '0')}:00` }</li>)}
     </ul>
-    <div className="day-grid">
-      {Array(...Array(24)).map(() => <div className="hour" />)}
+    <div className="day-view__grid">
+      {Array(...Array(24)).map(() => <div className="day-view__grid-hour" />)}
     </div>
   </div>
 );
