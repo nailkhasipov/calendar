@@ -1,7 +1,8 @@
 import React from 'react';
+import './MiniMonthNavigator.css';
 import { getMonthArray } from '../helpers';
 
-export const MonthTable = () => {
+export const MiniMonthNavigator = () => {
   const month = getMonthArray(new Date().getTime());
 
   const monthTable = month.map(week => (
@@ -15,7 +16,7 @@ export const MonthTable = () => {
   ));
 
   return (
-    <table>
+    <table className="mini-month-navigator">
       <tbody>
         {monthTable}
       </tbody>
@@ -23,4 +24,4 @@ export const MonthTable = () => {
   );
 };
 
-export default MonthTable;
+export default MiniMonthNavigator;

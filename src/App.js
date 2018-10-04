@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { DAY_VIEW, WEEK_VIEW, MONTH_VIEW } from './constants';
 import { getDateTitle } from './helpers';
-import { MonthTable } from './components/MonthTable';
+import { MiniMonthNavigator } from './components/MiniMonthNavigator';
 import { Top } from './components/Top';
 import { Day } from './components/Day';
 import { WeekView } from './components/WeekView';
@@ -29,7 +29,7 @@ class App extends Component {
           <div className="sidebar">
             <div className="sidebar-month" id="sidebar-month">
               <h2 className="date-info">{getDateTitle(new Date().getTime())}</h2>
-              <MonthTable />
+              <MiniMonthNavigator />
             </div>
           </div>
           <div className="view-wrapper">
