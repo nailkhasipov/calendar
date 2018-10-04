@@ -1,10 +1,21 @@
 import React from 'react';
+import { getMonthArray } from '../helpers';
 
 export const MonthView = () => {
+  const month = getMonthArray( new Date().getTime() );
+  console.log(month)
 
   return (
-    <div>
-      Month
-    </div>
+    <table className="month-table">
+      <tbody>
+        {month.map( week => 
+          <tr>
+            {week.map( day => 
+              <td>{day}</td>
+            )}
+          </tr>  
+        )}
+      </tbody>
+    </table>
   );
 }
