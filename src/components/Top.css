@@ -1,0 +1,14 @@
+.calendar .top {
+  height: 40px;
+  width: 100%;
+  border-bottom: 1px solid #eee;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 0 15px;
+}
+
+.calendar .top .add, .calendar .top .view-change {
+  display: flex;
+  align-items: center;
+}

@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { DAY_VIEW, WEEK_VIEW, MONTH_VIEW } from './constants';
 import { getDateTitle } from './helpers';
 import { MonthTable } from './components/MonthTable';
+import { Top } from './components/Top';
 import { Day } from './components/Day';
 import { WeekView } from './components/WeekView';
 import { MonthView } from './components/MonthView';
@@ -23,16 +24,7 @@ class App extends Component {
   render() {
     return (
       <div className="app calendar">
-        <div className="top">
-          <div className="add">
-            <button>+</button>
-          </div>
-          <div className="view-change">
-            <button onClick={() => this.changeView(DAY_VIEW)}>DAY</button>
-            <button onClick={() => this.changeView(WEEK_VIEW)}>WEEK</button>
-            <button onClick={() => this.changeView(MONTH_VIEW)}>MONTH</button>
-          </div>
-        </div>
+        <Top />
         <div className="main">
           <div className="sidebar">
             <div className="sidebar-month" id="sidebar-month">
