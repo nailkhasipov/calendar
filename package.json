@@ -1,36 +1,21 @@
 {
   "name": "calendar",
-  "version": "0.1.0",
-  "private": true,
-  "dependencies": {
-    "localforage": "^1.7.2",
-    "normalize.css": "^8.0.0",
-    "react": "^16.5.2",
-    "react-dom": "^16.5.2",
-    "react-redux": "^5.0.7",
-    "react-scripts": "2.0.3",
-    "redux": "^4.0.0",
-    "redux-persist": "^5.10.0",
-    "redux-thunk": "^2.3.0"
-  },
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:nailkhasipov/calendar.git",
+  "author": "Nail Khasipov <nail.khasipov@gmail.com>",
+  "license": "MIT",
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "start": "parcel src/index.html"
+  },
+  "dependencies": {
+    "react": "^16.8.1",
+    "react-dom": "^16.8.1"
   },
   "devDependencies": {
-    "enzyme": "^3.6.0",
-    "enzyme-adapter-react-16": "^1.5.0",
-    "eslint-config-airbnb": "^17.1.0",
-    "eslint-plugin-import": "^2.14.0",
-    "eslint-plugin-jsx-a11y": "^6.1.1",
-    "eslint-plugin-react": "^7.11.1"
-  },
-  "browserslist": [
-    ">0.2%",
-    "not dead",
-    "not ie <= 11",
-    "not op_mini all"
-  ]
+    "babel-core": "^6.26.3",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-react": "^6.24.1",
+    "parcel-bundler": "^1.11.0"
+  }
 }

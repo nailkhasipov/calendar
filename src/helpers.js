@@ -48,6 +48,4 @@ function formatDate(date) {
   return [year, month, day].join('-');
 }
 
-export {
-  getMonthArray, getMondayDate, getDateTitle, formatDate,
-};
+export { getMonthArray, getMondayDate, getDateTitle, formatDate };
