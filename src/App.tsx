@@ -19,6 +19,9 @@ export class App extends React.Component<{}, { showModal: boolean }> {
   hideModal() {
     this.setState({ showModal: false });
   }
+  handleDayClick(day: string) {
+    console.log(day);
+  }
   render() {
     const date = new Date();
     return (
@@ -33,6 +36,7 @@ export class App extends React.Component<{}, { showModal: boolean }> {
               monthName={getDateTitle(date)}
               monthArray={getMonthArray(date)}
               currentDay={date.getDate()}
+              onDayClick={(day: string) => this.handleDayClick(day)}
             />
           </div>
           <div className='view'>

@@ -6,16 +6,21 @@ export const Navigator: React.FunctionComponent<{
   monthName: string;
   monthArray: [][];
   currentDay: number;
-}> = ({ monthName, monthArray, currentDay }) => {
+  onDayClick: Function;
+}> = ({ monthName, monthArray, currentDay, onDayClick }) => {
   const month_table = monthArray.map((week: any, index: number) => (
     <tr key={index}>
       {week.map((day: number, index: number) => {
-        let className = '';
+        let className = ''; //@TODO need refactor
         if (day) className += ' day';
         if (Number(day) === currentDay) className += ' current';
         return (
-          <td key={index} className={className}>
-            {day}
+          <td key={index}>
+            {day && (
+              <span className={className} onClick={() => onDayClick(day)}>
+                {day}
+              </span>
+            )}
           </td>
         );
       })}

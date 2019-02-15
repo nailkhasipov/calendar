@@ -15,183 +15,270 @@ exports[`<Navigator /> renders correctly 1`] = `
   >
     <tbody>
       <tr>
-        <td
-          className=""
-        >
+        <td>
           
         </td>
-        <td
-          className=""
-        >
+        <td>
           
         </td>
-        <td
-          className=""
-        >
+        <td>
           
         </td>
-        <td
-          className=" day current"
-        >
-          1
+        <td>
+          <span
+            className=" day current"
+            onClick={[Function]}
+          >
+            1
+          </span>
         </td>
-        <td
-          className=" day"
-        >
-          2
+        <td>
+          <span
+            className=" day"
+            onClick={[Function]}
+          >
+            2
+          </span>
         </td>
-        <td
-          className=" day"
-        >
-          3
+        <td>
+          <span
+            className=" day"
+            onClick={[Function]}
+          >
+            3
+          </span>
         </td>
-        <td
-          className=" day"
-        >
-          4
-        </td>
-      </tr>
-      <tr>
-        <td
-          className=" day"
-        >
-          5
-        </td>
-        <td
-          className=" day"
-        >
-          6
-        </td>
-        <td
-          className=" day"
-        >
-          7
-        </td>
-        <td
-          className=" day"
-        >
-          8
-        </td>
-        <td
-          className=" day"
-        >
-          9
-        </td>
-        <td
-          className=" day"
-        >
-          10
-        </td>
-        <td
-          className=" day"
-        >
-          11
+        <td>
+          <span
+            className=" day"
+            onClick={[Function]}
+          >
+            4
+          </span>
         </td>
       </tr>
       <tr>
-        <td
-          className=" day"
-        >
-          12
+        <td>
+          <span
+            className=" day"
+            onClick={[Function]}
+          >
+            5
+          </span>
         </td>
-        <td
-          className=" day"
-        >
-          13
+        <td>
+          <span
+            className=" day"
+            onClick={[Function]}
+          >
+            6
+          </span>
         </td>
-        <td
-          className=" day"
-        >
-          14
+        <td>
+          <span
+            className=" day"
+            onClick={[Function]}
+          >
+            7
+          </span>
         </td>
-        <td
-          className=" day"
-        >
-          15
+        <td>
+          <span
+            className=" day"
+            onClick={[Function]}
+          >
+            8
+          </span>
         </td>
-        <td
-          className=" day"
-        >
-          16
+        <td>
+          <span
+            className=" day"
+            onClick={[Function]}
+          >
+            9
+          </span>
         </td>
-        <td
-          className=" day"
-        >
-          17
+        <td>
+          <span
+            className=" day"
+            onClick={[Function]}
+          >
+            10
+          </span>
         </td>
-        <td
-          className=" day"
-        >
-          18
-        </td>
-      </tr>
-      <tr>
-        <td
-          className=" day"
-        >
-          19
-        </td>
-        <td
-          className=" day"
-        >
-          20
-        </td>
-        <td
-          className=" day"
-        >
-          21
-        </td>
-        <td
-          className=" day"
-        >
-          22
-        </td>
-        <td
-          className=" day"
-        >
-          23
-        </td>
-        <td
-          className=" day"
-        >
-          24
-        </td>
-        <td
-          className=" day"
-        >
-          25
+        <td>
+          <span
+            className=" day"
+            onClick={[Function]}
+          >
+            11
+          </span>
         </td>
       </tr>
       <tr>
-        <td
-          className=" day"
-        >
-          26
+        <td>
+          <span
+            className=" day"
+            onClick={[Function]}
+          >
+            12
+          </span>
         </td>
-        <td
-          className=" day"
-        >
-          27
+        <td>
+          <span
+            className=" day"
+            onClick={[Function]}
+          >
+            13
+          </span>
         </td>
-        <td
-          className=" day"
-        >
-          28
+        <td>
+          <span
+            className=" day"
+            onClick={[Function]}
+          >
+            14
+          </span>
         </td>
-        <td
-          className=" day"
-        >
-          29
+        <td>
+          <span
+            className=" day"
+            onClick={[Function]}
+          >
+            15
+          </span>
         </td>
-        <td
-          className=" day"
-        >
-          30
+        <td>
+          <span
+            className=" day"
+            onClick={[Function]}
+          >
+            16
+          </span>
         </td>
-        <td
-          className=" day"
-        >
-          31
+        <td>
+          <span
+            className=" day"
+            onClick={[Function]}
+          >
+            17
+          </span>
+        </td>
+        <td>
+          <span
+            className=" day"
+            onClick={[Function]}
+          >
+            18
+          </span>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <span
+            className=" day"
+            onClick={[Function]}
+          >
+            19
+          </span>
+        </td>
+        <td>
+          <span
+            className=" day"
+            onClick={[Function]}
+          >
+            20
+          </span>
+        </td>
+        <td>
+          <span
+            className=" day"
+            onClick={[Function]}
+          >
+            21
+          </span>
+        </td>
+        <td>
+          <span
+            className=" day"
+            onClick={[Function]}
+          >
+            22
+          </span>
+        </td>
+        <td>
+          <span
+            className=" day"
+            onClick={[Function]}
+          >
+            23
+          </span>
+        </td>
+        <td>
+          <span
+            className=" day"
+            onClick={[Function]}
+          >
+            24
+          </span>
+        </td>
+        <td>
+          <span
+            className=" day"
+            onClick={[Function]}
+          >
+            25
+          </span>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <span
+            className=" day"
+            onClick={[Function]}
+          >
+            26
+          </span>
+        </td>
+        <td>
+          <span
+            className=" day"
+            onClick={[Function]}
+          >
+            27
+          </span>
+        </td>
+        <td>
+          <span
+            className=" day"
+            onClick={[Function]}
+          >
+            28
+          </span>
+        </td>
+        <td>
+          <span
+            className=" day"
+            onClick={[Function]}
+          >
+            29
+          </span>
+        </td>
+        <td>
+          <span
+            className=" day"
+            onClick={[Function]}
+          >
+            30
+          </span>
+        </td>
+        <td>
+          <span
+            className=" day"
+            onClick={[Function]}
+          >
+            31
+          </span>
         </td>
       </tr>
     </tbody>
