@@ -2,7 +2,7 @@ import React from 'react';
 import { getMonthArray } from '../helpers';
 
 export const MonthView = () => {
-  const month = getMonthArray(new Date().getTime());
+  const month = getMonthArray(new Date());
 
   return (
     <table className='month-table'>
