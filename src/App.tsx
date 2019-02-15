@@ -1,7 +1,7 @@
 import React from 'react';
 import { DAY_VIEW, WEEK_VIEW, MONTH_VIEW } from './constants';
 import { getDateTitle } from './helpers';
-import { MiniMonthNavigator } from './components/MiniMonthNavigator';
+import { MiniMonthNavigator } from './components/SidebarMonthTable';
 import { Top } from './components/Top';
 import { Day } from './components/Day';
 import { WeekView } from './components/WeekView';
@@ -10,7 +10,7 @@ import { NewEventModal } from './components/NewEventModal';
 import './App.css';
 
 export class App extends React.Component<{}, { showModal: boolean }> {
-  constructor(props) {
+  constructor(props: any) {
     super(props);
     this.state = {
       showModal: false

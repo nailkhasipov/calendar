@@ -5,9 +5,9 @@ import { getMonthArray } from '../helpers';
 export const MiniMonthNavigator = () => {
   const month = getMonthArray(new Date().getTime());
 
-  const monthTable = month.map(week => (
+  const monthTable = month.map((week: any) => (
     <tr key={week}>
-      {week.map(day => (
+      {week.map((day: any) => (
         <td key={week + day}>{day}</td>
       ))}
     </tr>
