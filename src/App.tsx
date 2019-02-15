@@ -1,7 +1,7 @@
 import React from 'react';
 import { DAY_VIEW, WEEK_VIEW, MONTH_VIEW } from './constants';
 import { getDateTitle } from './helpers';
-import { MiniMonthNavigator } from './components/SidebarMonthTable';
+import { Navigator } from './components/Navigator';
 import { Top } from './components/Top';
 import { Day } from './components/Day';
 import { WeekView } from './components/WeekView';
@@ -35,7 +35,7 @@ export class App extends React.Component<{}, { showModal: boolean }> {
               <h2 className='date-info'>
                 {getDateTitle(new Date().getTime())}
               </h2>
-              <MiniMonthNavigator />
+              <Navigator />
             </div>
           </div>
           <div className='view'>

@@ -1,5 +1,4 @@
 import React from 'react';
-import Navigator from './Navigator';
 import './Top.css';
 
 export const Top: React.FunctionComponent<{
@@ -13,7 +12,11 @@ export const Top: React.FunctionComponent<{
       </button>
     </div>
     <div className='top__middle'>
-      <Navigator />
+      <div className='navigation'>
+        <button type='button'>TODAY</button>
+        <button type='button'>{'<'}</button>
+        <button type='button'>{'>'}</button>
+      </div>
     </div>
     <div className='top__right'>
       <button type='button'>DAY</button>
