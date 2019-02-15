@@ -1,5 +1,5 @@
-function getMonthArray(timestamp) {
-  const month = [[]];
+function getMonthArray(timestamp: number) {
+  const month: any = [[]];
   const date = new Date(timestamp);
   const firstDay = new Date(date.getFullYear(), date.getMonth(), 1);
   const lastDay = new Date(date.getFullYear(), date.getMonth() + 1, 0);
@@ -23,20 +23,20 @@ function getMonthArray(timestamp) {
   return month;
 }
 
-function getDateTitle(timestamp) {
+function getDateTitle(timestamp: number) {
   const date = new Date(timestamp);
   const options = { year: 'numeric', month: 'long' };
   return date.toLocaleDateString('en-EN', options);
 }
 
-function getMondayDate(timestamp) {
+function getMondayDate(timestamp: number) {
   const d = new Date(timestamp);
   const day = d.getDay();
   const diff = d.getDate() - day + (day === 0 ? -6 : 1);
   return new Date(d.setDate(diff)).getDate();
 }
 
-function formatDate(date) {
+function formatDate(date: number) {
   const d = new Date(date);
   let month = `${d.getMonth() + 1}`;
   let day = `${d.getDate()}`;

@@ -7,9 +7,9 @@ export const MonthView = () => {
   return (
     <table className='month-table'>
       <tbody>
-        {month.map(week => (
+        {month.map((week: any) => (
           <tr>
-            {week.map(day => (
+            {week.map((day: any) => (
               <td>{day}</td>
             ))}
           </tr>

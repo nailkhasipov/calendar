@@ -1,14 +1,15 @@
 import React from 'react';
-import './Navigator';
 import { getMonthArray } from '../helpers';
+
+import './Navigator.css';
 
 export const Navigator = () => {
   const month = getMonthArray(new Date().getTime());
 
-  const monthTable = month.map((week: any) => (
-    <tr key={week}>
-      {week.map((day: any) => (
-        <td key={week + day}>{day}</td>
+  const monthTable = month.map((week: any, index: number) => (
+    <tr key={index}>
+      {week.map((day: any, index: number) => (
+        <td key={index}>{day}</td>
       ))}
     </tr>
   ));

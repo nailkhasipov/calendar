@@ -28,31 +28,11 @@ export const NewEventModal: React.FunctionComponent<{
             placeholder='New event'
           />
           <label className='event-form__label'>Starts</label>
-          <input
-            className='event-form__date'
-            type='date'
-            name='startDate'
-            value={date}
-          />
-          <input
-            className='event-form__time'
-            type='time'
-            name='startTime'
-            value='12:00'
-          />
+          <input className='event-form__date' type='date' name='startDate' />
+          <input className='event-form__time' type='time' name='startTime' />
           <label className='event-form__label'>Ends</label>
-          <input
-            className='event-form__date'
-            type='date'
-            name='endDate'
-            value={date}
-          />
-          <input
-            className='event-form__time'
-            type='time'
-            name='endTime'
-            value='12:30'
-          />
+          <input className='event-form__date' type='date' name='endDate' />
+          <input className='event-form__time' type='time' name='endTime' />
           <label className='event-form__label'>Comment</label>
           <textarea className='event-form__comment' />
           <input className='event-form__submit' type='submit' value='Create' />
