@@ -1,9 +1,17 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import renderer from 'react-test-renderer';
 import { Navigator } from './Navigator';
 
-it('renders without crashing', () => {
-  const div = document.createElement('div');
-  ReactDOM.render(<Navigator date={new Date()} />, div);
-  ReactDOM.unmountComponentAtNode(div);
+import { getMonthArray, getDateTitle } from '../helpers';
+
+const date = new Date(0);
+const defaultProps = {
+  monthName: getDateTitle(date),
+  monthArray: getMonthArray(date),
+  currentDay: 1
+};
+
+it('renders correctly', () => {
+  const component = renderer.create(<Navigator {...defaultProps} />).toJSON();
+  expect(component).toMatchSnapshot();
 });

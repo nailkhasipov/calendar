@@ -3,6 +3,7 @@ import { Navigator } from './components/Navigator';
 import { Top } from './components/Top';
 import { Day } from './components/Day';
 import { NewEventModal } from './components/NewEventModal';
+import { getMonthArray, getDateTitle } from './helpers';
 import './App.css';
 
 export class App extends React.Component<{}, { showModal: boolean }> {
@@ -19,6 +20,7 @@ export class App extends React.Component<{}, { showModal: boolean }> {
     this.setState({ showModal: false });
   }
   render() {
+    const date = new Date();
     return (
       <div className='app calendar'>
         <Top
@@ -27,7 +29,11 @@ export class App extends React.Component<{}, { showModal: boolean }> {
         />
         <div className='main'>
           <div className='sidebar'>
-            <Navigator date={new Date()} />
+            <Navigator
+              monthName={getDateTitle(date)}
+              monthArray={getMonthArray(date)}
+              currentDay={date.getDate()}
+            />
           </div>
           <div className='view'>
             <Day />
