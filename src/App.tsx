@@ -1,12 +1,5 @@
 import React from 'react';
-import {
-  NAVIGATE_TODAY,
-  NAVIGATE_NEXT,
-  NAVIGATE_PREVIOUS,
-  DAY_VIEW,
-  WEEK_VIEW,
-  MONTH_VIEW
-} from './constants';
+import { NAVIGATIONS, VIEWS } from './constants';
 import { Navigator } from './components/Navigator';
 import { Top } from './components/Top';
 import { Day } from './components/Day';
@@ -21,7 +14,7 @@ export class App extends React.Component<
     showModal: boolean;
     currentDate: Date;
     selectedDate: Date;
-    view: string;
+    view: VIEWS;
   }
 > {
   constructor(props: any) {
@@ -31,17 +24,17 @@ export class App extends React.Component<
       showModal: false,
       currentDate: new Date(),
       selectedDate: new Date(),
-      view: DAY_VIEW
+      view: VIEWS.DAY
     };
   }
   handleShowModal() {
     this.setState({ showModal: true });
   }
-  handleNavigate(to: string) {
+  handleNavigate(to: NAVIGATIONS) {
     console.log('navigate to ' + to);
   }
-  handleViewChange(view: string) {
-    console.log('change view to ' + view);
+  handleViewChange(view: VIEWS) {
+    this.setState({ view: view });
   }
   hideModal() {
     this.setState({ showModal: false });
@@ -55,8 +48,8 @@ export class App extends React.Component<
       <div className='app calendar'>
         <Top
           onShowModal={() => this.handleShowModal()}
-          onNavigate={(to: string) => this.handleNavigate(to)}
-          onChangeView={(view: string) => this.handleViewChange(view)}
+          onNavigate={(to: NAVIGATIONS) => this.handleNavigate(to)}
+          onChangeView={(view: VIEWS) => this.handleViewChange(view)}
         />
         <div className='main'>
           <div className='sidebar'>

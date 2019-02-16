@@ -1,14 +1,6 @@
 import React from 'react';
 import './Top.css';
-
-import {
-  NAVIGATE_TODAY,
-  NAVIGATE_NEXT,
-  NAVIGATE_PREVIOUS,
-  DAY_VIEW,
-  WEEK_VIEW,
-  MONTH_VIEW
-} from '../constants';
+import { NAVIGATIONS, VIEWS } from '../constants';
 
 export const Top: React.FunctionComponent<{
   onShowModal: Function;
@@ -30,21 +22,21 @@ export const Top: React.FunctionComponent<{
         <button
           className='navigation-button navigation-button__today'
           type='button'
-          onClick={() => onNavigate(NAVIGATE_TODAY)}
+          onClick={() => onNavigate(NAVIGATIONS.TODAY)}
         >
           TODAY
         </button>
         <button
           className='navigation-button navigation-button__next'
           type='button'
-          onClick={() => onNavigate(NAVIGATE_NEXT)}
+          onClick={() => onNavigate(NAVIGATIONS.NEXT)}
         >
           {'<'}
         </button>
         <button
           className='navigation-button navigation-button__previous'
           type='button'
-          onClick={() => onNavigate(NAVIGATE_PREVIOUS)}
+          onClick={() => onNavigate(NAVIGATIONS.PREVIOUS)}
         >
           {'>'}
         </button>
@@ -53,21 +45,21 @@ export const Top: React.FunctionComponent<{
     <div className='top__right'>
       <button
         className='change-view-button change-view-button__day'
-        onClick={() => onChangeView(DAY_VIEW)}
+        onClick={() => onChangeView(VIEWS.DAY)}
         type='button'
       >
         DAY
       </button>
       <button
         className='change-view-button change-view-button__week'
-        onClick={() => onChangeView(WEEK_VIEW)}
+        onClick={() => onChangeView(VIEWS.WEEK)}
         type='button'
       >
         WEEK
       </button>
       <button
         className='change-view-button change-view-button__month'
-        onClick={() => onChangeView(MONTH_VIEW)}
+        onClick={() => onChangeView(VIEWS.MONTH)}
         type='button'
       >
         MONTH
