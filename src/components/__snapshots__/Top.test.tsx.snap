@@ -1,0 +1,73 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Top /> renders correctly 1`] = `
+<div
+  className="top"
+>
+  <div
+    className="top__left"
+  >
+    <button
+      className="add-event-button"
+      onClick={[Function]}
+      type="button"
+    >
+      +
+    </button>
+  </div>
+  <div
+    className="top__middle"
+  >
+    <div
+      className="navigation"
+    >
+      <button
+        className="navigation-button navigation-button__today"
+        onClick={[Function]}
+        type="button"
+      >
+        TODAY
+      </button>
+      <button
+        className="navigation-button navigation-button__next"
+        onClick={[Function]}
+        type="button"
+      >
+        &lt;
+      </button>
+      <button
+        className="navigation-button navigation-button__previous"
+        onClick={[Function]}
+        type="button"
+      >
+        &gt;
+      </button>
+    </div>
+  </div>
+  <div
+    className="top__right"
+  >
+    <button
+      className="change-view-button change-view-button__day"
+      onClick={[Function]}
+      type="button"
+    >
+      DAY
+    </button>
+    <button
+      className="change-view-button change-view-button__week"
+      onClick={[Function]}
+      type="button"
+    >
+      WEEK
+    </button>
+    <button
+      className="change-view-button change-view-button__month"
+      onClick={[Function]}
+      type="button"
+    >
+      MONTH
+    </button>
+  </div>
+</div>
+`;
