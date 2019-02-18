@@ -1,16 +1,11 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
 import { shallow, mount } from 'enzyme';
-
-import { getMonthArray, getDateTitle } from '../helpers';
 import { Navigator } from './Navigator';
 
-const date = new Date(0);
 const defaultProps = {
-  monthName: getDateTitle(date),
-  monthArray: getMonthArray(date),
-  currentDay: 1,
-  onDayClick: jest.fn()
+  currentDate: new Date(0),
+  onDateChange: jest.fn()
 };
 
 describe('<Navigator />', () => {
@@ -25,14 +20,14 @@ describe('<Navigator />', () => {
   });
 
   it('simulates click events', () => {
-    const onDayClick = jest.fn();
+    const onDateChange = jest.fn();
     const component = shallow(
-      <Navigator {...defaultProps} onDayClick={onDayClick} />
+      <Navigator {...defaultProps} onDateChange={onDateChange} />
     );
     component
       .find('.day')
       .first()
       .simulate('click');
-    expect(onDayClick).toHaveBeenCalledWith('1');
+    expect(onDateChange).toHaveBeenCalledWith('1');
   });
 });

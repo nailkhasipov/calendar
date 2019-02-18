@@ -1,26 +1,26 @@
 import React from 'react';
+import { getMonthMatrix, getDateTitle } from '../helpers';
 
 import './Navigator.css';
 
 export const Navigator: React.FunctionComponent<{
-  monthName: string;
-  monthArray: [][];
-  currentDay: number;
-  onDayClick: Function;
-}> = ({ monthName, monthArray, currentDay, onDayClick }) => {
-  const month_table = monthArray.map((week: any, index: number) => (
+  selectedDate: Date;
+  onDateChange: Function;
+}> = ({ selectedDate, onDateChange }) => {
+  const monthMatrix = getMonthMatrix(selectedDate);
+  const month_table = monthMatrix.map((week: any, index: number) => (
     <tr key={index}>
-      {week.map((day: number, index: number) => {
-        let className = ''; //@TODO need refactor
-        if (day) className += ' day';
-        if (Number(day) === currentDay) className += ' current';
+      {week.map((date: Date, index: number) => {
+        //@TODO !!!!!
+        let className = 'day';
+        if (selectedDate.getMonth() != date.getMonth()) className += ' offset ';
+        if (date.getDate() === selectedDate.getDate()) className += ' current ';
+        //@TODO !!!!!
         return (
           <td key={index}>
-            {day && (
-              <span className={className} onClick={() => onDayClick(day)}>
-                {day}
-              </span>
-            )}
+            <span className={className} onClick={() => onDateChange(date)}>
+              {date.getDate()}
+            </span>
           </td>
         );
       })}
@@ -29,7 +29,7 @@ export const Navigator: React.FunctionComponent<{
 
   return (
     <div className='sidebar-month' id='sidebar-month'>
-      <h2 className='date-info'>{monthName}</h2>
+      <h2 className='date-info'>{getDateTitle(selectedDate)}</h2>
       <table className='mini-month-navigator'>
         <tbody>{month_table}</tbody>
       </table>

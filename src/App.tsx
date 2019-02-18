@@ -4,7 +4,6 @@ import { Navigator } from './components/Navigator';
 import { Top } from './components/Top';
 import { Day } from './components/Day';
 import { NewEventModal } from './components/NewEventModal';
-import { getMonthArray, getDateTitle } from './helpers';
 import './App.css';
 
 export class App extends React.Component<
@@ -12,8 +11,7 @@ export class App extends React.Component<
   {
     events: [];
     showModal: boolean;
-    currentDate: Date;
-    selectedDate: Date;
+    date: Date;
     view: VIEWS;
   }
 > {
@@ -22,8 +20,7 @@ export class App extends React.Component<
     this.state = {
       events: [],
       showModal: false,
-      currentDate: new Date(),
-      selectedDate: new Date(),
+      date: new Date(),
       view: VIEWS.DAY
     };
   }
@@ -31,7 +28,24 @@ export class App extends React.Component<
     this.setState({ showModal: true });
   }
   handleNavigate(to: NAVIGATIONS) {
-    console.log('navigate to ' + to);
+    switch (to) {
+      case NAVIGATIONS.NEXT:
+        const nextDate = new Date(
+          this.state.date.setDate(this.state.date.getDate() + 1)
+        );
+        this.setState({ date: nextDate });
+        break;
+      case NAVIGATIONS.PREVIOUS:
+        const previousDate = new Date(
+          this.state.date.setDate(this.state.date.getDate() - 1)
+        );
+        this.setState({ date: previousDate });
+        break;
+      case NAVIGATIONS.TODAY:
+        this.setState({ date: new Date() });
+      default:
+        break;
+    }
   }
   handleViewChange(view: VIEWS) {
     this.setState({ view: view });
@@ -39,11 +53,10 @@ export class App extends React.Component<
   hideModal() {
     this.setState({ showModal: false });
   }
-  handleDayClick(day: string) {
-    console.log(day);
+  handleDateChange(date: Date) {
+    this.setState({ date: date });
   }
   render() {
-    const date = new Date();
     return (
       <div className='app calendar'>
         <Top
@@ -54,10 +67,8 @@ export class App extends React.Component<
         <div className='main'>
           <div className='sidebar'>
             <Navigator
-              monthName={getDateTitle(date)}
-              monthArray={getMonthArray(date)}
-              currentDay={date.getDate()}
-              onDayClick={(day: string) => this.handleDayClick(day)}
+              selectedDate={this.state.date}
+              onDateChange={(date: Date) => this.handleDateChange(date)}
             />
           </div>
           <div className='view'>

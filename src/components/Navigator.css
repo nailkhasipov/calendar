@@ -29,6 +29,10 @@
   cursor: pointer;
 }
 
+.mini-month-navigator .day.offset {
+  color: #eee;
+}
+
 .mini-month-navigator .day:hover {
   background: #f1f3f5;
 }

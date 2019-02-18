@@ -27,16 +27,16 @@ export const Top: React.FunctionComponent<{
           TODAY
         </button>
         <button
-          className='navigation-button navigation-button__next'
+          className='navigation-button navigation-button__previous'
           type='button'
-          onClick={() => onNavigate(NAVIGATIONS.NEXT)}
+          onClick={() => onNavigate(NAVIGATIONS.PREVIOUS)}
         >
           {'<'}
         </button>
         <button
-          className='navigation-button navigation-button__previous'
+          className='navigation-button navigation-button__next'
           type='button'
-          onClick={() => onNavigate(NAVIGATIONS.PREVIOUS)}
+          onClick={() => onNavigate(NAVIGATIONS.NEXT)}
         >
           {'>'}
         </button>
