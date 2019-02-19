@@ -19,7 +19,7 @@ export class App extends React.Component<
     super(props);
     this.state = {
       events: [],
-      showModal: false,
+      showModal: true,
       date: new Date(),
       view: VIEWS.DAY
     };
@@ -77,6 +77,7 @@ export class App extends React.Component<
         </div>
 
         <NewEventModal
+          date={this.state.date}
           show={this.state.showModal}
           handleClose={() => this.hideModal()}
         />

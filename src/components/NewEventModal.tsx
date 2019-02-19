@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { formatDate } from '../helpers';
 
 import './NewEventModal.css';
@@ -6,35 +6,42 @@ import './NewEventModal.css';
 export const NewEventModal: React.FunctionComponent<{
   handleClose: Function;
   show: boolean;
+  date: Date;
 }> = props => {
-  const date = formatDate(new Date().getTime());
+  const [startDate, setStartDate] = useState(
+    props.date.toISOString().substr(0, 16)
+  );
+  const [endDate, setEndDate] = useState(
+    props.date.toISOString().substr(0, 16)
+  );
   const showHideClassName = props.show ? 'modal show' : 'modal hide';
   return (
     <div className={showHideClassName}>
       <div className='modal-main new-event'>
-        <button
-          className='modal-close-button'
-          onClick={() => props.handleClose()}
-        >
-          x
-        </button>
+        <div className='modal-header'>
+          <button onClick={() => props.handleClose()}>x</button>
+        </div>
         <form className='event-form'>
-          <h2 className='event-form__title'>New Event</h2>
-          <label className='event-form__label'>Event name</label>
           <input
             className='event-form__name'
             type='text'
             name='name'
-            placeholder='New event'
+            placeholder='Add title'
           />
-          <label className='event-form__label'>Starts</label>
-          <input className='event-form__date' type='date' name='startDate' />
-          <input className='event-form__time' type='time' name='startTime' />
-          <label className='event-form__label'>Ends</label>
-          <input className='event-form__date' type='date' name='endDate' />
-          <input className='event-form__time' type='time' name='endTime' />
-          <label className='event-form__label'>Comment</label>
-          <textarea className='event-form__comment' />
+          <input
+            type='datetime-local'
+            onChange={event => {
+              setStartDate(event.target.value);
+            }}
+            value={startDate}
+          />
+          <input
+            type='datetime-local'
+            onChange={event => {
+              setEndDate(event.target.value);
+            }}
+            value={endDate}
+          />
           <input className='event-form__submit' type='submit' value='Create' />
         </form>
       </div>
