@@ -67,7 +67,7 @@ export class App extends React.Component<
         <div className='main'>
           <div className='sidebar'>
             <Navigator
-              selectedDate={this.state.date}
+              date={this.state.date}
               onDateChange={(date: Date) => this.handleDateChange(date)}
             />
           </div>

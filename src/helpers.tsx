@@ -1,8 +1,9 @@
 export const getMonthMatrix = (date: Date) => {
   const calendarMatrix: Date[][] = [];
   const month = date.getMonth();
-  const startDate = new Date(2019, month, 1);
-  const endDate = new Date(2019, month + 1, 0);
+  const year = date.getFullYear();
+  const startDate = new Date(year, month, 1);
+  const endDate = new Date(year, month + 1, 0);
 
   //@TODO !!!!!
   if (startDate.getDay() != 1) {
@@ -25,73 +26,6 @@ export const getMonthMatrix = (date: Date) => {
   }
   return calendarMatrix;
 };
-
-export const getDaysOfYearArray = () => {
-  var daysOfYear: Date[] = [];
-  for (
-    var d = new Date(2019, 0, 1);
-    d <= new Date(2019, 11, 31);
-    d.setDate(d.getDate() + 1)
-  ) {
-    daysOfYear.push(new Date(d));
-  }
-  while (daysOfYear[0].getDay() != 1) {
-    const date = new Date(daysOfYear[0]);
-    const previousDate = date.setDate(date.getDate() - 1);
-    daysOfYear.unshift(new Date(previousDate));
-  }
-  while (daysOfYear[daysOfYear.length - 1].getDay() != 0) {
-    const date = new Date(daysOfYear[0]);
-    const nextDate = date.setDate(date.getDate() + 1);
-    daysOfYear.push(new Date(nextDate));
-  }
-  return daysOfYear;
-};
-
-// export const getDaysArray = (year?: Date) => {
-//   const daysArray: Date[] = [];
-//   for (let month = 0; month < MONTHS.length; month++) {
-//     for (let day = 0; day < MONTHS[month]; day++) {
-//       const date = new Date(2019, month, day);
-//       daysArray.push(date);
-//     }
-//   }
-//   while (daysArray[0].getDay() != 1) {
-//     const date = daysArray[0];
-//     const previousDate = new Date(date.setDate(date.getDate() - 1));
-//     daysArray.unshift(previousDate);
-//   }
-//   while (daysArray[daysArray.length - 1].getDay() != 0) {
-//     const date = daysArray[0];
-//     const nextDate = new Date(date.setDate(date.getDate() + 1));
-//     daysArray.push(nextDate);
-//   }
-//   return daysArray;
-// };
-
-function getMonthArray(date: Date) {
-  const month: any = [[]];
-  const firstDay = new Date(date.getFullYear(), date.getMonth(), 1);
-  const lastDay = new Date(date.getFullYear(), date.getMonth() + 1, 0);
-  const start = firstDay.getDay();
-  const end = lastDay.getDate();
-
-  for (let i = 1; i < start; i++) {
-    month[0].push('');
-  }
-
-  for (let i = 1; i <= end; i++) {
-    const currentWeek = month[month.length - 1];
-    const day = String(i);
-    if (currentWeek.length === 7) {
-      month.push([day]);
-    } else {
-      currentWeek.push(day);
-    }
-  }
-
-  return month;
-}
 
 function getDateTitle(date: Date) {
   const options = { year: 'numeric', month: 'long' };
@@ -116,4 +50,4 @@ function formatDate(date: number) {
   return [year, month, day].join('-');
 }
 
-export { getMonthArray, getMondayDate, getDateTitle, formatDate };
+export { getMondayDate, getDateTitle, formatDate };

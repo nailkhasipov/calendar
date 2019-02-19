@@ -3,8 +3,10 @@ import renderer from 'react-test-renderer';
 import { shallow, mount } from 'enzyme';
 import { Navigator } from './Navigator';
 
+const date = new Date(0);
+
 const defaultProps = {
-  currentDate: new Date(0),
+  date: date,
   onDateChange: jest.fn()
 };
 
@@ -25,9 +27,9 @@ describe('<Navigator />', () => {
       <Navigator {...defaultProps} onDateChange={onDateChange} />
     );
     component
-      .find('.day')
+      .find('.current')
       .first()
       .simulate('click');
-    expect(onDateChange).toHaveBeenCalledWith('1');
+    expect(onDateChange).toHaveBeenCalledWith(date);
   });
 });

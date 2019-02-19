@@ -4,22 +4,36 @@ import { getMonthMatrix, getDateTitle } from '../helpers';
 import './Navigator.css';
 
 export const Navigator: React.FunctionComponent<{
-  selectedDate: Date;
+  date: Date;
   onDateChange: Function;
-}> = ({ selectedDate, onDateChange }) => {
-  const monthMatrix = getMonthMatrix(selectedDate);
+}> = ({ date, onDateChange }) => {
+  const monthMatrix = getMonthMatrix(date);
   const month_table = monthMatrix.map((week: any, index: number) => (
     <tr key={index}>
-      {week.map((date: Date, index: number) => {
+      {week.map((monthMatrixDate: Date, index: number) => {
+        const today = new Date();
         //@TODO !!!!!
         let className = 'day';
-        if (selectedDate.getMonth() != date.getMonth()) className += ' offset ';
-        if (date.getDate() === selectedDate.getDate()) className += ' current ';
+        if (date.getMonth() != monthMatrixDate.getMonth())
+          className += ' offset ';
+        if (
+          monthMatrixDate.getMonth() === date.getMonth() &&
+          monthMatrixDate.getDate() === date.getDate()
+        )
+          className += ' current ';
+        if (
+          monthMatrixDate.getMonth() === today.getMonth() &&
+          monthMatrixDate.getDate() === today.getDate()
+        )
+          className += ' today ';
         //@TODO !!!!!
         return (
           <td key={index}>
-            <span className={className} onClick={() => onDateChange(date)}>
-              {date.getDate()}
+            <span
+              className={className}
+              onClick={() => onDateChange(monthMatrixDate)}
+            >
+              {monthMatrixDate.getDate()}
             </span>
           </td>
         );
@@ -29,7 +43,7 @@ export const Navigator: React.FunctionComponent<{
 
   return (
     <div className='sidebar-month' id='sidebar-month'>
-      <h2 className='date-info'>{getDateTitle(selectedDate)}</h2>
+      <h2 className='date-info'>{getDateTitle(date)}</h2>
       <table className='mini-month-navigator'>
         <tbody>{month_table}</tbody>
       </table>

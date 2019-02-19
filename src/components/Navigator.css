@@ -46,3 +46,12 @@
   background: #495057;
   color: white;
 }
+
+.mini-month-navigator .today {
+  background: #495057;
+  color: white;
+}
+
+.mini-month-navigator .today:hover {
+  background: #212529;
+}
