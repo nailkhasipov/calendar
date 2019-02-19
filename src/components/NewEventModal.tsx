@@ -7,7 +7,9 @@ export const NewEventModal: React.FunctionComponent<{
   handleClose: Function;
   show: boolean;
   date: Date;
+  saveEvent: Function;
 }> = props => {
+  const [title, setTitle] = useState('');
   const [startDate, setStartDate] = useState(
     props.date.toISOString().substr(0, 16)
   );
@@ -21,12 +23,28 @@ export const NewEventModal: React.FunctionComponent<{
         <div className='modal-header'>
           <button onClick={() => props.handleClose()}>x</button>
         </div>
-        <form className='event-form'>
+        <form
+          className='event-form'
+          onSubmit={e => {
+            e.preventDefault();
+            const event = {
+              title: title,
+              startDate: new Date(startDate),
+              endDate: new Date(endDate)
+            };
+            props.saveEvent(event);
+            setTitle('');
+          }}
+        >
           <input
             className='event-form__name'
             type='text'
             name='name'
             placeholder='Add title'
+            value={title}
+            onChange={event => {
+              setTitle(event.target.value);
+            }}
           />
           <input
             type='datetime-local'

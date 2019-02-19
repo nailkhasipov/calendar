@@ -6,10 +6,16 @@ import { Day } from './components/Day';
 import { NewEventModal } from './components/NewEventModal';
 import './App.css';
 
+interface CalendarEvent {
+  title: string;
+  dateStart: Date;
+  dateEnd: Date;
+}
+
 export class App extends React.Component<
   {},
   {
-    events: [];
+    events: CalendarEvent[];
     showModal: boolean;
     date: Date;
     view: VIEWS;
@@ -56,6 +62,11 @@ export class App extends React.Component<
   handleDateChange(date: Date) {
     this.setState({ date: date });
   }
+  addEvent(event: CalendarEvent) {
+    const events = this.state.events;
+    events.push(event);
+    this.setState({ events: events });
+  }
   render() {
     return (
       <div className='app calendar'>
@@ -80,6 +91,7 @@ export class App extends React.Component<
           date={this.state.date}
           show={this.state.showModal}
           handleClose={() => this.hideModal()}
+          saveEvent={(event: CalendarEvent) => this.addEvent(event)}
         />
       </div>
     );
