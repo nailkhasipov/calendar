@@ -8,6 +8,8 @@ import './App.css';
 
 import { CalendarEventInterface } from './CalendarEventInterface';
 
+const events = JSON.parse(localStorage.getItem('events') || '[]');
+
 export class App extends React.Component<
   {},
   {
@@ -20,7 +22,7 @@ export class App extends React.Component<
   constructor(props: any) {
     super(props);
     this.state = {
-      events: [],
+      events: events,
       showModal: false,
       date: new Date(),
       view: VIEWS.DAY
@@ -58,10 +60,16 @@ export class App extends React.Component<
   handleDateChange(date: Date) {
     this.setState({ date: date });
   }
-  addEvent(event: CalendarEventInterface) {
+  addEvent(title: string, startDate: Date, endDate: Date) {
+    const event = {
+      title: title,
+      startDate: startDate,
+      endDate: endDate
+    };
     const events = this.state.events;
     events.push(event);
     this.setState({ events: events });
+    localStorage.setItem('events', JSON.stringify(events));
   }
   render() {
     return (
@@ -87,7 +95,9 @@ export class App extends React.Component<
           date={this.state.date}
           show={this.state.showModal}
           handleClose={() => this.hideModal()}
-          saveEvent={(event: CalendarEventInterface) => this.addEvent(event)}
+          saveEvent={(title: string, startDate: Date, endDate: Date) =>
+            this.addEvent(title, startDate, endDate)
+          }
         />
       </div>
     );

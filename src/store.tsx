@@ -18,7 +18,9 @@ type Date = {
   endTime: Date;
 };
 
-const initialEventsState: Date[] = [];
+const initialEventsState: Date[] = JSON.parse(
+  localStorage.getItem('events') || '[]'
+);
 
 const events = createSlice({
   slice: 'events',
@@ -40,5 +42,3 @@ export const store = configureStore({
 });
 
 export const addEvent = events.actions.addEvent;
-
-store.dispatch(addEvent('test'));

@@ -27,12 +27,7 @@ export const NewEventModal: React.FunctionComponent<{
           className='event-form'
           onSubmit={e => {
             e.preventDefault();
-            const event = {
-              title: title,
-              startDate: new Date(startDate),
-              endDate: new Date(endDate)
-            };
-            props.saveEvent(event);
+            props.saveEvent(title, startDate, endDate);
             setTitle('');
           }}
         >

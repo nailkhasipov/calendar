@@ -1,18 +1,22 @@
 import React from 'react';
 import './Day.css';
 
-import { CalendarEventInterface } from '../CalendarEventInterface';
+type Event = {
+  title: string;
+  startDate: Date;
+  endDate: Date;
+};
 
 export const Day: React.FunctionComponent<{
   date: Date;
-  events: CalendarEventInterface[];
+  events: Event[];
 }> = ({ date, events }) => {
   const currentDateString = date.toDateString();
-  const currentDateEvents = events.filter(
-    (event: CalendarEventInterface) =>
-      event.startDate.toDateString() === currentDateString
-  );
-  const currentDateEventsList = currentDateEvents.map((event, index) => (
+  // const currentDateEvents = events.filter(
+  //   (event: Event) =>
+  //     Date.parse(event.startDate).toDateString() === currentDateString
+  // );
+  const currentDateEventsList = events.map((event, index) => (
     <div key={index}>{event.title}</div>
   ));
   return (
