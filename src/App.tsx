@@ -6,14 +6,14 @@ import { Day } from './components/Day';
 import { NewEventModal } from './components/NewEventModal';
 import './App.css';
 
-import { CalendarEventInterface } from './CalendarEventInterface';
+import { VEvent } from './types';
 
 const events = JSON.parse(localStorage.getItem('events') || '[]');
 
 export class App extends React.Component<
   {},
   {
-    events: CalendarEventInterface[];
+    events: VEvent[];
     showModal: boolean;
     date: Date;
     view: VIEWS;
@@ -63,8 +63,8 @@ export class App extends React.Component<
   addEvent(title: string, startDate: Date, endDate: Date) {
     const event = {
       title: title,
-      startDate: startDate,
-      endDate: endDate
+      start: new Date(startDate).getTime(),
+      end: new Date(endDate).getTime()
     };
     const events = this.state.events;
     events.push(event);

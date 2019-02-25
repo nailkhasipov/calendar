@@ -17,7 +17,7 @@
   height: 40px;
 }
 
-.day-view__grid  {
+.day-view__grid {
   position: relative;
   width: 100%;
   margin-top: 6px;
@@ -26,4 +26,18 @@
 .day-view__grid-hour {
   height: 40px;
   border-top: 1px solid #e2e2e2;
+}
+
+.day-events {
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+
+.day-view__event {
+  position: absolute;
+  width: 100%;
+  background: #339af0;
+  color: white;
+  padding: 10px;
 }
