@@ -6,16 +6,12 @@ import { Day } from './components/Day';
 import { NewEventModal } from './components/NewEventModal';
 import './App.css';
 
-interface CalendarEvent {
-  title: string;
-  dateStart: Date;
-  dateEnd: Date;
-}
+import { CalendarEventInterface } from './CalendarEventInterface';
 
 export class App extends React.Component<
   {},
   {
-    events: CalendarEvent[];
+    events: CalendarEventInterface[];
     showModal: boolean;
     date: Date;
     view: VIEWS;
@@ -25,7 +21,7 @@ export class App extends React.Component<
     super(props);
     this.state = {
       events: [],
-      showModal: true,
+      showModal: false,
       date: new Date(),
       view: VIEWS.DAY
     };
@@ -62,7 +58,7 @@ export class App extends React.Component<
   handleDateChange(date: Date) {
     this.setState({ date: date });
   }
-  addEvent(event: CalendarEvent) {
+  addEvent(event: CalendarEventInterface) {
     const events = this.state.events;
     events.push(event);
     this.setState({ events: events });
@@ -83,7 +79,7 @@ export class App extends React.Component<
             />
           </div>
           <div className='view'>
-            <Day />
+            <Day date={this.state.date} events={this.state.events} />
           </div>
         </div>
 
@@ -91,7 +87,7 @@ export class App extends React.Component<
           date={this.state.date}
           show={this.state.showModal}
           handleClose={() => this.hideModal()}
-          saveEvent={(event: CalendarEvent) => this.addEvent(event)}
+          saveEvent={(event: CalendarEventInterface) => this.addEvent(event)}
         />
       </div>
     );
