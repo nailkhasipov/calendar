@@ -1,8 +1,8 @@
 import React from 'react';
-import { getMonthMatrix } from '../helpers';
+import { getMonthArray } from '../helpers';
 
 export const MonthView = () => {
-  const month = getMonthMatrix(new Date());
+  const month = getMonthArray(new Date());
 
   return (
     <table className='month-table'>

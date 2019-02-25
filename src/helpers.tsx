@@ -1,5 +1,5 @@
-export const getMonthMatrix = (date: Date) => {
-  const calendarMatrix: Date[][] = [];
+export const getMonthArray = (date: Date) => {
+  const monthArray: Date[] = [];
   const month = date.getMonth();
   const year = date.getFullYear();
   const startDate = new Date(year, month, 1);
@@ -15,16 +15,11 @@ export const getMonthMatrix = (date: Date) => {
   endDate.setDate(endDate.getDate() + 7);
   //@TODO !!!!!
 
-  let week = [];
   while (startDate <= endDate) {
-    week.push(new Date(startDate));
-    if (week.length === 7) {
-      calendarMatrix.push(week);
-      week = [];
-    }
+    monthArray.push(new Date(startDate));
     startDate.setDate(startDate.getDate() + 1);
   }
-  return calendarMatrix;
+  return monthArray;
 };
 
 function getDateTitle(date: Date) {
