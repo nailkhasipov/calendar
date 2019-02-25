@@ -50,4 +50,17 @@ function formatDate(date: number) {
   return [year, month, day].join('-');
 }
 
+export const getCurrentWeekDates = () => {
+  let curr = new Date();
+  let week = [];
+
+  for (let i = 1; i <= 7; i++) {
+    let first = curr.getDate() - curr.getDay() + i;
+    let day = new Date(curr.setDate(first));
+    week.push(day);
+  }
+
+  return week;
+};
+
 export { getMondayDate, getDateTitle, formatDate };

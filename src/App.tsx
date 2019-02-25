@@ -1,5 +1,6 @@
 import React from 'react';
 import { NAVIGATIONS, VIEWS } from './constants';
+import { HoursLabels } from './components/HoursLabels';
 import { Navigator } from './components/Navigator';
 import { Top } from './components/Top';
 import { Day } from './components/Day';
@@ -7,6 +8,7 @@ import { NewEventModal } from './components/NewEventModal';
 import './App.css';
 
 import { VEvent } from './types';
+import WeekView from './components/WeekView';
 
 const events = JSON.parse(localStorage.getItem('events') || '[]');
 
@@ -87,7 +89,18 @@ export class App extends React.Component<
             />
           </div>
           <div className='view'>
-            <Day date={this.state.date} events={this.state.events} />
+            {this.state.view === VIEWS.DAY && (
+              <div className='views day-view'>
+                <HoursLabels />
+                <Day date={this.state.date} events={this.state.events} />
+              </div>
+            )}
+            {this.state.view === VIEWS.WEEK && (
+              <div className='views view-week'>
+                <HoursLabels />
+                <WeekView date={this.state.date} events={this.state.events} />
+              </div>
+            )}
           </div>
         </div>
 

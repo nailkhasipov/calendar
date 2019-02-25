@@ -21,33 +21,7 @@ export const Day: React.FunctionComponent<{
     );
   });
   return (
-    <div className='views day-view'>
-      <ul className='day-view__labels'>
-        <li className='day-view__labels-hour'>00:00</li>
-        <li className='day-view__labels-hour'>01:00</li>
-        <li className='day-view__labels-hour'>02:00</li>
-        <li className='day-view__labels-hour'>03:00</li>
-        <li className='day-view__labels-hour'>04:00</li>
-        <li className='day-view__labels-hour'>05:00</li>
-        <li className='day-view__labels-hour'>06:00</li>
-        <li className='day-view__labels-hour'>07:00</li>
-        <li className='day-view__labels-hour'>08:00</li>
-        <li className='day-view__labels-hour'>09:00</li>
-        <li className='day-view__labels-hour'>10:00</li>
-        <li className='day-view__labels-hour'>11:00</li>
-        <li className='day-view__labels-hour'>12:00</li>
-        <li className='day-view__labels-hour'>13:00</li>
-        <li className='day-view__labels-hour'>14:00</li>
-        <li className='day-view__labels-hour'>15:00</li>
-        <li className='day-view__labels-hour'>16:00</li>
-        <li className='day-view__labels-hour'>17:00</li>
-        <li className='day-view__labels-hour'>18:00</li>
-        <li className='day-view__labels-hour'>19:00</li>
-        <li className='day-view__labels-hour'>20:00</li>
-        <li className='day-view__labels-hour'>21:00</li>
-        <li className='day-view__labels-hour'>22:00</li>
-        <li className='day-view__labels-hour'>23:00</li>
-      </ul>
+    <React.Fragment>
       <div className='day-view__grid'>
         <div className='day-view__grid-hour' />
         <div className='day-view__grid-hour' />
@@ -75,7 +49,7 @@ export const Day: React.FunctionComponent<{
         <div className='day-view__grid-hour' />
       </div>
       <div className='day-events'>{currentDateEventsList}</div>
-    </div>
+    </React.Fragment>
   );
 };
 
