@@ -3,21 +3,11 @@ import './Top.css';
 import { NAVIGATIONS, VIEWS } from '../constants';
 
 export const Top: React.FunctionComponent<{
-  onShowModal: Function;
   onNavigate: Function;
   onChangeView: Function;
-}> = ({ onShowModal, onNavigate, onChangeView }) => (
+}> = ({ onNavigate, onChangeView }) => (
   <div className='top'>
     <div className='top__left'>
-      <button
-        className='add-event-button'
-        type='button'
-        onClick={() => onShowModal()}
-      >
-        +
-      </button>
-    </div>
-    <div className='top__middle'>
       <div className='navigation'>
         <button
           className='navigation-button navigation-button__today'

@@ -4,7 +4,6 @@ import { HoursLabels } from './components/HoursLabels';
 import { Navigator } from './components/Navigator';
 import { Top } from './components/Top';
 import { Day } from './components/Day';
-import { NewEventModal } from './components/NewEventModal';
 import './App.css';
 
 import { VEvent } from './types';
@@ -17,7 +16,6 @@ export class App extends React.Component<
   {},
   {
     events: VEvent[];
-    showModal: boolean;
     date: Date;
     view: VIEWS;
   }
@@ -26,13 +24,9 @@ export class App extends React.Component<
     super(props);
     this.state = {
       events: events,
-      showModal: false,
       date: new Date(),
       view: VIEWS.DAY
     };
-  }
-  handleShowModal() {
-    this.setState({ showModal: true });
   }
   handleNavigate(to: NAVIGATIONS) {
     switch (to) {
@@ -57,9 +51,6 @@ export class App extends React.Component<
   handleViewChange(view: VIEWS) {
     this.setState({ view: view });
   }
-  hideModal() {
-    this.setState({ showModal: false });
-  }
   handleDateChange(date: Date) {
     this.setState({ date: date });
   }
@@ -74,14 +65,10 @@ export class App extends React.Component<
     this.setState({ events: events });
     localStorage.setItem('events', JSON.stringify(events));
   }
-  showEventModal(index: number) {
-    console.log(index);
-  }
   render() {
     return (
       <div className='app calendar'>
         <Top
-          onShowModal={() => this.handleShowModal()}
           onNavigate={(to: NAVIGATIONS) => this.handleNavigate(to)}
           onChangeView={(view: VIEWS) => this.handleViewChange(view)}
         />
@@ -100,13 +87,7 @@ export class App extends React.Component<
                 </div>
                 <div className='views day-view'>
                   <HoursLabels />
-                  <Day
-                    date={this.state.date}
-                    events={this.state.events}
-                    showEventModal={(index: number) =>
-                      this.showEventModal(index)
-                    }
-                  />
+                  <Day date={this.state.date} events={this.state.events} />
                 </div>
               </React.Fragment>
             )}
@@ -118,13 +99,7 @@ export class App extends React.Component<
                 </div>
                 <div className='views view-week'>
                   <HoursLabels />
-                  <WeekView
-                    date={this.state.date}
-                    events={this.state.events}
-                    showEventModal={(index: number) =>
-                      this.showEventModal(index)
-                    }
-                  />
+                  <WeekView date={this.state.date} events={this.state.events} />
                 </div>
               </React.Fragment>
             )}
@@ -144,15 +119,6 @@ export class App extends React.Component<
             )}
           </div>
         </div>
-
-        <NewEventModal
-          date={this.state.date}
-          show={this.state.showModal}
-          handleClose={() => this.hideModal()}
-          saveEvent={(title: string, startDate: Date, endDate: Date) =>
-            this.addEvent(title, startDate, endDate)
-          }
-        />
       </div>
     );
   }

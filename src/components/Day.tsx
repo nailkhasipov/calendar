@@ -5,7 +5,6 @@ import './Day.css';
 type DayProps = {
   date: Date;
   events: VEvent[];
-  showEventModal: Function;
 };
 
 export const Day = (props: DayProps) => {
@@ -18,12 +17,7 @@ export const Day = (props: DayProps) => {
     const startHours = new Date(event.start).getHours();
     const top = startHours * 40;
     return (
-      <div
-        key={index}
-        onClick={() => props.showEventModal(index)}
-        className='day-view__event'
-        style={{ top: top + 'px' }}
-      >
+      <div key={index} className='day-view__event' style={{ top: top + 'px' }}>
         {event.title}
       </div>
     );
