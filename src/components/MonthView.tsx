@@ -39,5 +39,18 @@ export const MonthView = (props: MonthViewProps) => {
     );
   });
 
-  return <div className='month-table'>{month_table}</div>;
+  return (
+    <React.Fragment>
+      <div className='month-table-day-titles'>
+        <div className='day-title'>Mon</div>
+        <div className='day-title'>Tue</div>
+        <div className='day-title'>Wed</div>
+        <div className='day-title'>Thu</div>
+        <div className='day-title'>Fri</div>
+        <div className='day-title'>Sut</div>
+        <div className='day-title'>Sun</div>
+      </div>
+      <div className='month-table'>{month_table}</div>
+    </React.Fragment>
+  );
 };

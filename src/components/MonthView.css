@@ -14,3 +14,11 @@
 .month-table .day .event {
   background: #339af0;
 }
+
+.month-table-day-titles {
+  display: flex;
+  flex-direction: row;
+}
+.month-table-day-titles .day-title {
+  width: 14.2857142857%;
+}

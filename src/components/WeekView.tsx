@@ -11,9 +11,14 @@ type WeekViewProps = {
 export const WeekView = (props: WeekViewProps) => {
   const currentWeekDates = getCurrentWeekDates();
   const week = currentWeekDates.map((date: Date, index) => (
-    <div key={index} className='views day-view'>
-      <Day date={date} events={props.events} />
-    </div>
+    <React.Fragment>
+      <div className='day-title'>
+        {date.toString().split(' ')[0]} {date.getDate()}
+      </div>
+      <div key={index} className='views day-view'>
+        <Day date={date} events={props.events} />
+      </div>
+    </React.Fragment>
   ));
   return <React.Fragment>{week}</React.Fragment>;
 };
