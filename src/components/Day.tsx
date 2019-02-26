@@ -2,12 +2,15 @@ import React from 'react';
 import { VEvent } from '../types';
 import './Day.css';
 
-export const Day: React.FunctionComponent<{
+type DayProps = {
   date: Date;
   events: VEvent[];
-}> = ({ date, events }) => {
-  const currentDateString = date.toDateString();
-  const currentDateEvents = events.filter((event: VEvent) => {
+  showEventModal: Function;
+};
+
+export const Day = (props: DayProps) => {
+  const currentDateString = props.date.toDateString();
+  const currentDateEvents = props.events.filter((event: VEvent) => {
     const eventDateString = new Date(event.start).toDateString();
     return eventDateString === currentDateString;
   });
@@ -15,7 +18,12 @@ export const Day: React.FunctionComponent<{
     const startHours = new Date(event.start).getHours();
     const top = startHours * 40;
     return (
-      <div key={index} className='day-view__event' style={{ top: top + 'px' }}>
+      <div
+        key={index}
+        onClick={() => props.showEventModal(index)}
+        className='day-view__event'
+        style={{ top: top + 'px' }}
+      >
         {event.title}
       </div>
     );

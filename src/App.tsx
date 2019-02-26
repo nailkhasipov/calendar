@@ -74,6 +74,9 @@ export class App extends React.Component<
     this.setState({ events: events });
     localStorage.setItem('events', JSON.stringify(events));
   }
+  showEventModal(index: number) {
+    console.log(index);
+  }
   render() {
     return (
       <div className='app calendar'>
@@ -97,7 +100,13 @@ export class App extends React.Component<
                 </div>
                 <div className='views day-view'>
                   <HoursLabels />
-                  <Day date={this.state.date} events={this.state.events} />
+                  <Day
+                    date={this.state.date}
+                    events={this.state.events}
+                    showEventModal={(index: number) =>
+                      this.showEventModal(index)
+                    }
+                  />
                 </div>
               </React.Fragment>
             )}
@@ -109,7 +118,13 @@ export class App extends React.Component<
                 </div>
                 <div className='views view-week'>
                   <HoursLabels />
-                  <WeekView date={this.state.date} events={this.state.events} />
+                  <WeekView
+                    date={this.state.date}
+                    events={this.state.events}
+                    showEventModal={(index: number) =>
+                      this.showEventModal(index)
+                    }
+                  />
                 </div>
               </React.Fragment>
             )}
