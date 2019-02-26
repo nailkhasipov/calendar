@@ -45,16 +45,26 @@ body {
   flex: 1;
   display: flex;
   overflow: scroll;
+  flex-direction: column;
+}
+
+.calendar .main .view .view-title {
+  padding: 10px;
+  font-size: 24px;
+  background: white;
+  position: fixed;
+  width: 100%;
+  z-index: 1;
 }
 
 .calendar .main .views {
   flex: 1;
   position: relative;
+  margin-top: 45px;
 }
 
 .calendar .main .view-week {
   padding-left: 40px;
-  padding-top: 10px;
   display: flex;
 }
 

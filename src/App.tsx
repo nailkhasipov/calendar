@@ -28,7 +28,7 @@ export class App extends React.Component<
       events: events,
       showModal: false,
       date: new Date(),
-      view: VIEWS.MONTH
+      view: VIEWS.DAY
     };
   }
   handleShowModal() {
@@ -91,21 +91,41 @@ export class App extends React.Component<
           </div>
           <div className='view'>
             {this.state.view === VIEWS.DAY && (
-              <div className='views day-view'>
-                <HoursLabels />
-                <Day date={this.state.date} events={this.state.events} />
-              </div>
+              <React.Fragment>
+                <div className='view-title'>
+                  {this.state.date.toDateString()}
+                </div>
+                <div className='views day-view'>
+                  <HoursLabels />
+                  <Day date={this.state.date} events={this.state.events} />
+                </div>
+              </React.Fragment>
             )}
             {this.state.view === VIEWS.WEEK && (
-              <div className='views view-week'>
-                <HoursLabels />
-                <WeekView date={this.state.date} events={this.state.events} />
-              </div>
+              <React.Fragment>
+                <div className='view-title'>
+                  {this.state.date.toLocaleString('en-us', { month: 'long' })}{' '}
+                  {this.state.date.getFullYear()}
+                </div>
+                <div className='views view-week'>
+                  <HoursLabels />
+                  <WeekView date={this.state.date} events={this.state.events} />
+                </div>
+              </React.Fragment>
             )}
             {this.state.view === VIEWS.MONTH && (
-              <div className='views view-month'>
-                <MonthView date={this.state.date} events={this.state.events} />
-              </div>
+              <React.Fragment>
+                <div className='view-title'>
+                  {this.state.date.toLocaleString('en-us', { month: 'long' })}{' '}
+                  {this.state.date.getFullYear()}
+                </div>
+                <div className='views view-month'>
+                  <MonthView
+                    date={this.state.date}
+                    events={this.state.events}
+                  />
+                </div>
+              </React.Fragment>
             )}
           </div>
         </div>
