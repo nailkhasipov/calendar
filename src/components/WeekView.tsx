@@ -10,8 +10,8 @@ type WeekViewProps = {
 
 export const WeekView = (props: WeekViewProps) => {
   const currentWeekDates = getCurrentWeekDates();
-  const week = currentWeekDates.map((date: Date) => (
-    <div className='views day-view'>
+  const week = currentWeekDates.map((date: Date, index) => (
+    <div key={index} className='views day-view'>
       <Day date={date} events={props.events} />
     </div>
   ));

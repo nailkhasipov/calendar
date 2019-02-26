@@ -1,0 +1,16 @@
+.month-table {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.month-table .day {
+  width: 14.2857142857%;
+  height: 16.6666666667%;
+  border-left: 1px solid black;
+  border-bottom: 1px solid black;
+}
+
+.month-table .day .event {
+  background: #339af0;
+}

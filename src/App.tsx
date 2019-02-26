@@ -8,7 +8,8 @@ import { NewEventModal } from './components/NewEventModal';
 import './App.css';
 
 import { VEvent } from './types';
-import WeekView from './components/WeekView';
+import { WeekView } from './components/WeekView';
+import { MonthView } from './components/MonthView';
 
 const events = JSON.parse(localStorage.getItem('events') || '[]');
 
@@ -27,7 +28,7 @@ export class App extends React.Component<
       events: events,
       showModal: false,
       date: new Date(),
-      view: VIEWS.DAY
+      view: VIEWS.MONTH
     };
   }
   handleShowModal() {
@@ -99,6 +100,11 @@ export class App extends React.Component<
               <div className='views view-week'>
                 <HoursLabels />
                 <WeekView date={this.state.date} events={this.state.events} />
+              </div>
+            )}
+            {this.state.view === VIEWS.MONTH && (
+              <div className='views view-month'>
+                <MonthView date={this.state.date} events={this.state.events} />
               </div>
             )}
           </div>
