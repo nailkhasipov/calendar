@@ -38,6 +38,15 @@ export const Navigator: React.FunctionComponent<{
   return (
     <div className='sidebar-month' id='sidebar-month'>
       <h2 className='date-info'>{getDateTitle(date)}</h2>
+      <div className='day-titles'>
+        <div className='day-title'>M</div>
+        <div className='day-title'>T</div>
+        <div className='day-title'>W</div>
+        <div className='day-title'>T</div>
+        <div className='day-title'>F</div>
+        <div className='day-title'>S</div>
+        <div className='day-title'>S</div>
+      </div>
       <div className='mini-month-navigator'>{month_table}</div>
     </div>
   );

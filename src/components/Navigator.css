@@ -1,5 +1,19 @@
+.day-titles {
+  display: flex;
+  flex-direction: row;
+}
+
+.day-title {
+  width: 24px;
+  height: 24px;
+  font-size: 11px;
+  margin: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .mini-month-navigator {
-  margin-top: 15px;
   width: 224px;
   display: flex;
   flex-wrap: wrap;
