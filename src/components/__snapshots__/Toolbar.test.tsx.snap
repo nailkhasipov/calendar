@@ -1,0 +1,58 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Toolbar /> renders correctly 1`] = `
+<div
+  className="cal-toolbar"
+>
+  <div
+    className="cal-toolbar__left"
+  >
+    <button
+      className="cal-toolbar__button-today"
+      onClick={[Function]}
+      type="button"
+    >
+      TODAY
+    </button>
+    <button
+      className="cal-toolbar__button-previous"
+      onClick={[Function]}
+      type="button"
+    >
+      &lt;
+    </button>
+    <button
+      className="cal-toolbar__button-next"
+      onClick={[Function]}
+      type="button"
+    >
+      &gt;
+    </button>
+  </div>
+  <div
+    className="cal-toolbar__right"
+  >
+    <button
+      className="cal-toolbar__button-day"
+      onClick={[Function]}
+      type="button"
+    >
+      DAY
+    </button>
+    <button
+      className="cal-toolbar__button-week"
+      onClick={[Function]}
+      type="button"
+    >
+      WEEK
+    </button>
+    <button
+      className="cal-toolbar__button-month"
+      onClick={[Function]}
+      type="button"
+    >
+      MONTH
+    </button>
+  </div>
+</div>
+`;

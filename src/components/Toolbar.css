@@ -1,14 +1,8 @@
-.top {
-  height: 40px;
+.cal-toolbar {
   width: 100%;
   border-bottom: 1px solid #eee;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  padding: 0 15px;
-}
-
-.top__left, .top__middle, .top__right {
-  display: flex;
-  align-items: center;
+  padding: 16px;
 }
