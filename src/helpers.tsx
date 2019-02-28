@@ -1,3 +1,5 @@
+import Day from './components/Day';
+
 export const getMonthArray = (date: Date) => {
   const monthArray: Date[] = [];
   const month = date.getMonth();
@@ -21,6 +23,14 @@ export const getMonthArray = (date: Date) => {
   }
   return monthArray;
 };
+
+export const getToday = (): Date => new Date();
+
+export const getNextDay = (date: Date): Date =>
+  new Date(date.setDate(date.getDate() + 1));
+
+export const getPreviousDay = (date: Date): Date =>
+  new Date(date.setDate(date.getDate() - 1));
 
 function getDateTitle(date: Date) {
   const options = { year: 'numeric', month: 'long' };
