@@ -54,17 +54,18 @@ export class App extends React.Component<
   handleDateChange(date: Date) {
     this.setState({ date: date });
   }
-  addEvent(title: string, startDate: Date, endDate: Date) {
+  handleCreateEvent = (date: number) => {
+    const title = prompt('Title') || '';
     const event = {
       title: title,
-      start: new Date(startDate).getTime(),
-      end: new Date(endDate).getTime()
+      start: new Date(date).getTime(),
+      end: new Date(date).getTime()
     };
     const events = this.state.events;
     events.push(event);
     this.setState({ events: events });
     localStorage.setItem('events', JSON.stringify(events));
-  }
+  };
   render() {
     return (
       <div className='app calendar'>
@@ -87,7 +88,13 @@ export class App extends React.Component<
                 </div>
                 <div className='views day-view'>
                   <HoursLabels />
-                  <Day date={this.state.date} events={this.state.events} />
+                  <Day
+                    date={this.state.date}
+                    events={this.state.events}
+                    onCreateEvent={(date: number) =>
+                      this.handleCreateEvent(date)
+                    }
+                  />
                 </div>
               </React.Fragment>
             )}

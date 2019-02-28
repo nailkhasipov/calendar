@@ -16,7 +16,7 @@ export const WeekView = (props: WeekViewProps) => {
         {date.toString().split(' ')[0]} {date.getDate()}
       </div>
       <div key={index} className='views day-view'>
-        <Day date={date} events={props.events} />
+        {/* <Day date={date} events={props.events} /> */}
       </div>
     </React.Fragment>
   ));
