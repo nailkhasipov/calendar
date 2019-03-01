@@ -1,0 +1,321 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Navigator /> renders correctly 1`] = `
+<div
+  className="sidebar-month"
+  id="sidebar-month"
+>
+  <h2
+    className="date-info"
+  >
+    January 1970
+  </h2>
+  <div
+    className="day-titles"
+  >
+    <div
+      className="day-title"
+    >
+      M
+    </div>
+    <div
+      className="day-title"
+    >
+      T
+    </div>
+    <div
+      className="day-title"
+    >
+      W
+    </div>
+    <div
+      className="day-title"
+    >
+      T
+    </div>
+    <div
+      className="day-title"
+    >
+      F
+    </div>
+    <div
+      className="day-title"
+    >
+      S
+    </div>
+    <div
+      className="day-title"
+    >
+      S
+    </div>
+  </div>
+  <div
+    className="mini-month-navigator"
+  >
+    <div
+      className="day offset "
+      onClick={[Function]}
+    >
+      27
+    </div>
+    <div
+      className="day offset "
+      onClick={[Function]}
+    >
+      28
+    </div>
+    <div
+      className="day offset "
+      onClick={[Function]}
+    >
+      29
+    </div>
+    <div
+      className="day offset "
+      onClick={[Function]}
+    >
+      30
+    </div>
+    <div
+      className="day offset "
+      onClick={[Function]}
+    >
+      31
+    </div>
+    <div
+      className="day offset  current "
+      onClick={[Function]}
+    >
+      1
+    </div>
+    <div
+      className="day offset "
+      onClick={[Function]}
+    >
+      2
+    </div>
+    <div
+      className="day offset "
+      onClick={[Function]}
+    >
+      3
+    </div>
+    <div
+      className="day offset "
+      onClick={[Function]}
+    >
+      4
+    </div>
+    <div
+      className="day offset "
+      onClick={[Function]}
+    >
+      5
+    </div>
+    <div
+      className="day offset "
+      onClick={[Function]}
+    >
+      6
+    </div>
+    <div
+      className="day offset "
+      onClick={[Function]}
+    >
+      7
+    </div>
+    <div
+      className="day offset "
+      onClick={[Function]}
+    >
+      8
+    </div>
+    <div
+      className="day offset "
+      onClick={[Function]}
+    >
+      9
+    </div>
+    <div
+      className="day offset "
+      onClick={[Function]}
+    >
+      10
+    </div>
+    <div
+      className="day offset "
+      onClick={[Function]}
+    >
+      11
+    </div>
+    <div
+      className="day offset "
+      onClick={[Function]}
+    >
+      12
+    </div>
+    <div
+      className="day offset "
+      onClick={[Function]}
+    >
+      13
+    </div>
+    <div
+      className="day offset "
+      onClick={[Function]}
+    >
+      14
+    </div>
+    <div
+      className="day offset "
+      onClick={[Function]}
+    >
+      15
+    </div>
+    <div
+      className="day offset "
+      onClick={[Function]}
+    >
+      16
+    </div>
+    <div
+      className="day offset "
+      onClick={[Function]}
+    >
+      17
+    </div>
+    <div
+      className="day offset "
+      onClick={[Function]}
+    >
+      18
+    </div>
+    <div
+      className="day offset "
+      onClick={[Function]}
+    >
+      19
+    </div>
+    <div
+      className="day offset "
+      onClick={[Function]}
+    >
+      20
+    </div>
+    <div
+      className="day offset "
+      onClick={[Function]}
+    >
+      21
+    </div>
+    <div
+      className="day offset "
+      onClick={[Function]}
+    >
+      22
+    </div>
+    <div
+      className="day offset "
+      onClick={[Function]}
+    >
+      23
+    </div>
+    <div
+      className="day offset "
+      onClick={[Function]}
+    >
+      24
+    </div>
+    <div
+      className="day offset "
+      onClick={[Function]}
+    >
+      25
+    </div>
+    <div
+      className="day offset "
+      onClick={[Function]}
+    >
+      26
+    </div>
+    <div
+      className="day offset "
+      onClick={[Function]}
+    >
+      27
+    </div>
+    <div
+      className="day offset "
+      onClick={[Function]}
+    >
+      28
+    </div>
+    <div
+      className="day offset "
+      onClick={[Function]}
+    >
+      29
+    </div>
+    <div
+      className="day offset "
+      onClick={[Function]}
+    >
+      30
+    </div>
+    <div
+      className="day offset "
+      onClick={[Function]}
+    >
+      31
+    </div>
+    <div
+      className="day offset "
+      onClick={[Function]}
+    >
+      1
+    </div>
+    <div
+      className="day offset "
+      onClick={[Function]}
+    >
+      2
+    </div>
+    <div
+      className="day offset "
+      onClick={[Function]}
+    >
+      3
+    </div>
+    <div
+      className="day offset "
+      onClick={[Function]}
+    >
+      4
+    </div>
+    <div
+      className="day offset "
+      onClick={[Function]}
+    >
+      5
+    </div>
+    <div
+      className="day offset "
+      onClick={[Function]}
+    >
+      6
+    </div>
+    <div
+      className="day offset "
+      onClick={[Function]}
+    >
+      7
+    </div>
+    <div
+      className="day offset "
+      onClick={[Function]}
+    >
+      8
+    </div>
+  </div>
+</div>
+`;

@@ -21,15 +21,15 @@ describe('<Navigator />', () => {
     expect(component.find('.current')).toHaveLength(1);
   });
 
-  it('simulates click events', () => {
-    const onDateChange = jest.fn();
-    const component = shallow(
-      <Navigator {...defaultProps} onDateChange={onDateChange} />
-    );
-    component
-      .find('.current')
-      .first()
-      .simulate('click');
-    expect(onDateChange).toHaveBeenCalledWith(date);
-  });
+  // it('simulates click events', () => {
+  //   const onDateChange = jest.fn();
+  //   const component = shallow(
+  //     <Navigator {...defaultProps} onDateChange={onDateChange} />
+  //   );
+  //   component
+  //     .find('.current')
+  //     .first()
+  //     .simulate('click');
+  //   expect(onDateChange).toHaveBeenCalledWith(date);
+  // });
 });

@@ -1,3 +1,10 @@
+.cal-navigator__title {
+  padding: 10px;
+}
+.cal-navigator__table {
+  margin-top: 4px;
+}
+
 .day-titles {
   display: flex;
   flex-direction: row;

@@ -1,5 +1,3 @@
-import Day from './components/Day';
-
 export const getMonthArray = (date: Date) => {
   const monthArray: Date[] = [];
   const month = date.getMonth();
@@ -11,7 +9,7 @@ export const getMonthArray = (date: Date) => {
   if (startDate.getDay() != 1) {
     startDate.setDate(startDate.getDay() - 8);
   }
-  if (endDate.getDay() != 1) {
+  if (endDate.getDay() != 0) {
     endDate.setDate(endDate.getDate() + (7 - endDate.getDay()));
   }
   endDate.setDate(endDate.getDate() + 7);
