@@ -19,7 +19,8 @@
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  padding: 16px;
+  padding: 0 16px;
+  align-items: center;
 }
 
 .cal-sidebar {
@@ -27,6 +28,7 @@
   height: 100%;
   justify-content: center;
   border-right: 1px solid #eee;
+  padding: 16px 0;
 }
 
 .cal-view {
@@ -38,6 +40,7 @@
 .cal-view__title {
   font-size: 24px;
   font-weight: 500;
+  padding: 16px 16px 8px 16px;
 }
 
 .calendar .sidebar {

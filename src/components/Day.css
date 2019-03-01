@@ -1,10 +1,11 @@
 .cal__hours {
   margin: 0;
   padding: 0;
-  padding-left: 5px;
   left: 0;
-  font-size: 12px;
+  font-size: 11px;
   color: #ccc;
+  margin-right: 8px;
+  font-weight: 200;
 }
 
 .cal_hours-label {
@@ -25,6 +26,16 @@
   width: 100%;
   overflow: scroll;
   height: 100%;
+  padding: 0 32px;
+}
+
+.cal-day__grid__header {
+  font-size: 16px;
+  font-weight: 200;
+  padding-bottom: 8px;
+  border-bottom: 2px solid #eee;
+  margin: 0px 32px 0px 16px;
+  margin-bottom: 4px;
 }
 
 .day-view {
@@ -39,7 +50,7 @@
 
 .day-view__grid-hour {
   height: 40px;
-  border-top: 1px solid #e2e2e2;
+  border-top: 1px solid #f8f9fa;
 }
 
 .day-events {

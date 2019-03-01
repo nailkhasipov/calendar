@@ -26,7 +26,10 @@ export const Day = (props: DayProps) => {
   });
   return (
     <div className='cal-view'>
-      <div className='cal-view__title'>1 March 2019</div>
+      <div className='cal-view__title'>
+        <b>1 March</b> 2019
+      </div>
+      <div className='cal-day__grid__header'>Friday</div>
       <div className='cal-day__grid-wrapper'>
         <div className='cal-day__grid'>
           <HoursLabels />
