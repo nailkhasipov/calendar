@@ -68,13 +68,9 @@ export const getCurrentWeekDates = () => {
 
 export const translatePositionByPxToDate = (
   date: Date,
-  event: React.MouseEvent<HTMLElement>
+  offsetY: number
 ): number => {
-  const target = event.target as HTMLElement;
-  const rect = target.getBoundingClientRect();
-  const positionY = event.clientY - rect.top;
-
-  const totalMinutes = Math.floor(positionY / 10) * 15; //@TODO use constants
+  const totalMinutes = Math.floor(offsetY / 10) * 15; //@TODO use constants
   const hours = (totalMinutes / 60) ^ 0;
   const minutes = totalMinutes % 60;
 

@@ -6,24 +6,10 @@ import { translatePositionByPxToDate } from '../helpers';
 type DayProps = {
   date: Date;
   events: VEvent[];
-  onCreateEvent: Function;
+  onCreateEvent: (timestamp: number) => void;
 };
 
 export const Day = (props: DayProps) => {
-  const currentDateString = props.date.toDateString();
-  const currentDateEvents = props.events.filter((event: VEvent) => {
-    const eventDateString = new Date(event.start).toDateString();
-    return eventDateString === currentDateString;
-  });
-  const currentDateEventsList = currentDateEvents.map((event, index) => {
-    const startHours = new Date(event.start).getHours();
-    const top = startHours * 40;
-    return (
-      <div key={index} className='day-view__event' style={{ top: top + 'px' }}>
-        {event.title}
-      </div>
-    );
-  });
   const day = props.date.getDate();
   const monthName = props.date.toLocaleString('en-us', { month: 'long' });
   const fullYear = props.date.getFullYear();
@@ -41,6 +27,13 @@ export const Day = (props: DayProps) => {
         <div className='cal-day__grid'>
           <HoursLabels />
           <DayGrid />
+          <EventGrid
+            date={props.date}
+            events={props.events}
+            onCreateEvent={(timestamp: number) =>
+              props.onCreateEvent(timestamp)
+            }
+          />
         </div>
       </div>
     </div>
@@ -64,3 +57,38 @@ const HoursLabels = () => (
     ))}
   </div>
 );
+
+type EventGridProps = {
+  date: Date;
+  events: VEvent[];
+  onCreateEvent: (timestamp: number) => void;
+};
+
+const EventGrid = (props: EventGridProps) => {
+  const currentDateString = props.date.toDateString();
+  const currentDateEvents = props.events.filter((event: VEvent) => {
+    const eventDateString = new Date(event.start).toDateString();
+    return eventDateString === currentDateString;
+  });
+  const currentDateEventsList = currentDateEvents.map((event, index) => {
+    const startHours = new Date(event.start).getHours();
+    const top = startHours * 40;
+    return (
+      <div key={index} className='day-view__event' style={{ top: top + 'px' }}>
+        {event.title}
+      </div>
+    );
+  });
+  return (
+    <div
+      className='day-events'
+      onClick={(event: React.MouseEvent<HTMLElement>) =>
+        props.onCreateEvent(
+          translatePositionByPxToDate(props.date, event.nativeEvent.offsetY)
+        )
+      }
+    >
+      {currentDateEventsList}
+    </div>
+  );
+};

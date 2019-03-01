@@ -22,6 +22,9 @@ export const App = () => {
   const handleDateChange = (date: Date) => {
     setDate(date);
   };
+  const handleCreateEvent = (timestamp: number) => {
+    console.log(timestamp);
+  };
   return (
     <div className='cal'>
       <Toolbar
