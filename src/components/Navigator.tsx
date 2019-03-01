@@ -36,19 +36,21 @@ export const Navigator: React.FunctionComponent<{
   });
 
   return (
-    <div className='cal-navigator'>
-      <span className='cal-navigator__title'>{getDateTitle(date)}</span>
-      <div className='cal-navigator__table'>
-        <div className='day-titles'>
-          <div className='day-title'>M</div>
-          <div className='day-title'>T</div>
-          <div className='day-title'>W</div>
-          <div className='day-title'>T</div>
-          <div className='day-title'>F</div>
-          <div className='day-title'>S</div>
-          <div className='day-title'>S</div>
+    <div className='cal-sidebar'>
+      <div className='cal-navigator'>
+        <span className='cal-navigator__title'>{getDateTitle(date)}</span>
+        <div className='cal-navigator__table'>
+          <div className='day-titles'>
+            <div className='day-title'>M</div>
+            <div className='day-title'>T</div>
+            <div className='day-title'>W</div>
+            <div className='day-title'>T</div>
+            <div className='day-title'>F</div>
+            <div className='day-title'>S</div>
+            <div className='day-title'>S</div>
+          </div>
+          <div className='mini-month-navigator'>{month_table}</div>
         </div>
-        <div className='mini-month-navigator'>{month_table}</div>
       </div>
     </div>
   );

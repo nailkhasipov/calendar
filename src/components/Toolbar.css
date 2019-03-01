@@ -1,8 +1,0 @@
-.cal-toolbar {
-  width: 100%;
-  border-bottom: 1px solid #eee;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  padding: 16px;
-}

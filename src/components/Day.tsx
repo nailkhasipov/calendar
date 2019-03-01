@@ -1,26 +1,12 @@
 import React from 'react';
 import { VEvent } from '../types';
 import './Day.css';
+import { translatePositionByPxToDate } from '../helpers';
 
 type DayProps = {
   date: Date;
   events: VEvent[];
   onCreateEvent: Function;
-};
-
-const getDateByPosition = (
-  date: Date,
-  event: React.MouseEvent<HTMLElement>
-): number => {
-  const target = event.target as HTMLElement;
-  const rect = target.getBoundingClientRect();
-  const positionY = event.clientY - rect.top;
-
-  const totalMinutes = Math.floor(positionY / 10) * 15; //@TODO use constants
-  const hours = (totalMinutes / 60) ^ 0;
-  const minutes = totalMinutes % 60;
-
-  return date.setHours(hours, minutes);
 };
 
 export const Day = (props: DayProps) => {
@@ -39,22 +25,32 @@ export const Day = (props: DayProps) => {
     );
   });
   return (
-    <React.Fragment>
-      <div className='day-view__grid'>
-        {[...Array(24)].map((element, index) => (
-          <div key={index} className='day-view__grid-hour' />
-        ))}
+    <div className='cal-view'>
+      <div className='cal-view__title'>1 March 2019</div>
+      <div className='cal-day__grid-wrapper'>
+        <div className='cal-day__grid'>
+          <HoursLabels />
+          <DayGrid />
+        </div>
       </div>
-      <div
-        className='day-events'
-        onClick={(event: React.MouseEvent<HTMLElement>) =>
-          props.onCreateEvent(getDateByPosition(props.date, event))
-        }
-      >
-        {currentDateEventsList}
-      </div>
-    </React.Fragment>
+    </div>
   );
 };
 
-export default Day;
+const DayGrid = () => (
+  <div className='day-view__grid'>
+    {[...Array(24)].map((element, index) => (
+      <div key={index} className='day-view__grid-hour' />
+    ))}
+  </div>
+);
+
+const HoursLabels = () => (
+  <div className='cal__hours'>
+    {[...Array(24)].map((element, index) => (
+      <div className='cal_hours-label'>
+        {index.toString().padStart(2, '0')}:00
+      </div>
+    ))}
+  </div>
+);

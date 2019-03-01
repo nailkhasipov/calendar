@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
-import { Views, Navigate } from './types';
+import { VEvent, Views, Navigate } from './types';
 import { Toolbar } from './components/Toolbar';
 import { Navigator } from './components/Navigator';
+import { Day } from './components/Day';
 import { getToday, getNextDay, getPreviousDay } from './helpers';
 
 import 'normalize.css';
@@ -27,12 +28,15 @@ export const App = () => {
         onNavigate={(to: Navigate) => handleNavigate(to)}
         onChangeView={(view: Views) => handleChangeView(view)}
       />
-      <div className='sidebar'>
-        <Navigator
-          date={date}
-          onDateChange={(date: Date) => handleDateChange(date)}
-        />
-      </div>
+      <Navigator
+        date={date}
+        onDateChange={(date: Date) => handleDateChange(date)}
+      />
+      <Day
+        date={date}
+        onCreateEvent={(event: any) => console.log(event)}
+        events={[]}
+      />
     </div>
   );
 };

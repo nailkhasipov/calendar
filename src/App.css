@@ -1,23 +1,43 @@
 @import 'buttons.css';
 
-.cal {
-  display: flex;
-  flex-direction: column;
+#root {
   height: 100%;
 }
 
-/* .calendar .main {
+.cal {
+  height: 100%;
+  display: grid;
+  grid-template-rows: 60px auto;
+  grid-template-columns: 260px auto;
+}
+
+.cal-toolbar {
+  grid-column-start: 1;
+  grid-column-end: 3;
+  width: 100%;
+  border-bottom: 1px solid #eee;
   display: flex;
   flex-direction: row;
-  flex: 1;
-} */
+  justify-content: space-between;
+  padding: 16px;
+}
 
-.cal .sidebar {
+.cal-sidebar {
   display: flex;
+  height: 100%;
   justify-content: center;
-  width: 260px;
-  padding: 15px;
   border-right: 1px solid #eee;
+}
+
+.cal-view {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.cal-view__title {
+  font-size: 24px;
+  font-weight: 500;
 }
 
 .calendar .sidebar {
