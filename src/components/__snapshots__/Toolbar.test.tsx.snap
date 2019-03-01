@@ -7,52 +7,54 @@ exports[`<Toolbar /> renders correctly 1`] = `
   <div
     className="cal-toolbar__left"
   >
-    <button
-      className="cal-toolbar__button-today"
-      onClick={[Function]}
-      type="button"
+    <div
+      className="button-group"
     >
-      TODAY
-    </button>
-    <button
-      className="cal-toolbar__button-previous"
-      onClick={[Function]}
-      type="button"
-    >
-      &lt;
-    </button>
-    <button
-      className="cal-toolbar__button-next"
-      onClick={[Function]}
-      type="button"
-    >
-      &gt;
-    </button>
+      <div
+        className="button cal-toolbar__button-today"
+        onClick={[Function]}
+      >
+        Today
+      </div>
+      <div
+        className="button cal-toolbar__button-previous"
+        onClick={[Function]}
+      >
+        &lt;
+      </div>
+      <div
+        className="button cal-toolbar__button-next"
+        onClick={[Function]}
+      >
+        &gt;
+      </div>
+    </div>
   </div>
   <div
     className="cal-toolbar__right"
   >
-    <button
-      className="cal-toolbar__button-day"
-      onClick={[Function]}
-      type="button"
+    <div
+      className="button-group"
     >
-      DAY
-    </button>
-    <button
-      className="cal-toolbar__button-week"
-      onClick={[Function]}
-      type="button"
-    >
-      WEEK
-    </button>
-    <button
-      className="cal-toolbar__button-month"
-      onClick={[Function]}
-      type="button"
-    >
-      MONTH
-    </button>
+      <div
+        className=" button cal-toolbar__button-day"
+        onClick={[Function]}
+      >
+        Day
+      </div>
+      <div
+        className=" button cal-toolbar__button-week"
+        onClick={[Function]}
+      >
+        Week
+      </div>
+      <div
+        className=" button cal-toolbar__button-month"
+        onClick={[Function]}
+      >
+        Month
+      </div>
+    </div>
   </div>
 </div>
 `;

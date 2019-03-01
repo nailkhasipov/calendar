@@ -10,50 +10,48 @@ export type ToolbarProps = {
 export const Toolbar = (props: ToolbarProps) => (
   <div className='cal-toolbar'>
     <div className='cal-toolbar__left'>
-      <button
-        className='cal-toolbar__button-today'
-        type='button'
-        onClick={() => props.onNavigate(Navigate.TODAY)}
-      >
-        TODAY
-      </button>
-      <button
-        className='cal-toolbar__button-previous'
-        type='button'
-        onClick={() => props.onNavigate(Navigate.PREVIOUS)}
-      >
-        {'<'}
-      </button>
-      <button
-        className='cal-toolbar__button-next'
-        type='button'
-        onClick={() => props.onNavigate(Navigate.NEXT)}
-      >
-        {'>'}
-      </button>
+      <div className='button-group'>
+        <div
+          className='button cal-toolbar__button-today'
+          onClick={() => props.onNavigate(Navigate.TODAY)}
+        >
+          Today
+        </div>
+        <div
+          className='button cal-toolbar__button-previous'
+          onClick={() => props.onNavigate(Navigate.PREVIOUS)}
+        >
+          {'<'}
+        </div>
+        <div
+          className='button cal-toolbar__button-next'
+          onClick={() => props.onNavigate(Navigate.NEXT)}
+        >
+          {'>'}
+        </div>
+      </div>
     </div>
     <div className='cal-toolbar__right'>
-      <button
-        className='cal-toolbar__button-day'
-        onClick={() => props.onChangeView(Views.DAY)}
-        type='button'
-      >
-        DAY
-      </button>
-      <button
-        className='cal-toolbar__button-week'
-        onClick={() => props.onChangeView(Views.WEEK)}
-        type='button'
-      >
-        WEEK
-      </button>
-      <button
-        className='cal-toolbar__button-month'
-        onClick={() => props.onChangeView(Views.MONTH)}
-        type='button'
-      >
-        MONTH
-      </button>
+      <div className='button-group'>
+        <div
+          className=' button cal-toolbar__button-day'
+          onClick={() => props.onChangeView(Views.DAY)}
+        >
+          Day
+        </div>
+        <div
+          className=' button cal-toolbar__button-week'
+          onClick={() => props.onChangeView(Views.WEEK)}
+        >
+          Week
+        </div>
+        <div
+          className=' button cal-toolbar__button-month'
+          onClick={() => props.onChangeView(Views.MONTH)}
+        >
+          Month
+        </div>
+      </div>
     </div>
   </div>
 );
