@@ -24,12 +24,19 @@ export const Day = (props: DayProps) => {
       </div>
     );
   });
+  const day = props.date.getDate();
+  const monthName = props.date.toLocaleString('en-us', { month: 'long' });
+  const fullYear = props.date.getFullYear();
+  const dayName = props.date.toLocaleString('en-us', { weekday: 'long' });
   return (
     <div className='cal-view'>
       <div className='cal-view__title'>
-        <b>1 March</b> 2019
+        <b>
+          {day} {monthName}
+        </b>{' '}
+        {fullYear}
       </div>
-      <div className='cal-day__grid__header'>Friday</div>
+      <div className='cal-day__grid__header'>{dayName}</div>
       <div className='cal-day__grid-wrapper'>
         <div className='cal-day__grid'>
           <HoursLabels />
