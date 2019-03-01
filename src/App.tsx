@@ -29,7 +29,7 @@ export const App = () => {
       />
       <div className='sidebar'>
         <Navigator
-          date={getToday()}
+          date={date}
           onDateChange={(date: Date) => handleDateChange(date)}
         />
       </div>
