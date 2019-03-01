@@ -1,6 +1,6 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import { shallow, mount } from 'enzyme';
+import { mount } from 'enzyme';
 import { Navigator } from './Navigator';
 
 const date = new Date(0);
@@ -17,19 +17,16 @@ describe('<Navigator />', () => {
   });
 
   it('add "current" className to currentDay', () => {
-    const component = shallow(<Navigator {...defaultProps} />);
-    expect(component.find('.current')).toHaveLength(1);
+    const component = mount(<Navigator {...defaultProps} />);
+    expect(component.find('.current').text()).toEqual('1');
   });
 
   // it('simulates click events', () => {
   //   const onDateChange = jest.fn();
-  //   const component = shallow(
+  //   const component = mount(
   //     <Navigator {...defaultProps} onDateChange={onDateChange} />
   //   );
-  //   component
-  //     .find('.current')
-  //     .first()
-  //     .simulate('click');
+  //   component.find('.current').simulate('click');
   //   expect(onDateChange).toHaveBeenCalledWith(date);
   // });
 });
