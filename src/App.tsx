@@ -8,7 +8,10 @@ import { getToday, getNextDay, getPreviousDay } from './helpers';
 import 'normalize.css';
 import './App.css';
 
+const getEvents = () => JSON.parse(localStorage.getItem('events') || '[]');
+
 export const App = () => {
+  const [events, setEvents] = useState(getEvents());
   const [date, setDate] = useState(getToday());
   const [view, setView] = useState(Views.DAY);
   const handleNavigate = (to: Navigate) => {
@@ -23,7 +26,14 @@ export const App = () => {
     setDate(date);
   };
   const handleCreateEvent = (timestamp: number) => {
-    console.log(timestamp);
+    const title = prompt('Title');
+    const event = {
+      title: title,
+      start: new Date(timestamp).getTime(),
+      end: new Date(timestamp).getTime()
+    };
+    setEvents([...events, event]);
+    localStorage.setItem('events', JSON.stringify([...events, event]));
   };
   return (
     <div className='cal'>
@@ -37,8 +47,8 @@ export const App = () => {
       />
       <Day
         date={date}
-        onCreateEvent={(event: any) => console.log(event)}
-        events={[]}
+        onCreateEvent={(timestamp: number) => handleCreateEvent(timestamp)}
+        events={events}
       />
     </div>
   );
