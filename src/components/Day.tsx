@@ -26,27 +26,23 @@ export const Day = (props: DayProps) => {
       <div className='cal-day__grid-wrapper'>
         <div className='cal-day__grid'>
           <HoursLabels />
-          <DayGrid />
-          <EventGrid
-            date={props.date}
-            events={props.events}
-            onCreateEvent={(timestamp: number) =>
-              props.onCreateEvent(timestamp)
-            }
-          />
+          <div className='day-view__grid'>
+            {[...Array(24)].map((element, index) => (
+              <div key={index} className='day-view__grid-hour' />
+            ))}
+            <EventGrid
+              date={props.date}
+              events={props.events}
+              onCreateEvent={(timestamp: number) =>
+                props.onCreateEvent(timestamp)
+              }
+            />
+          </div>
         </div>
       </div>
     </div>
   );
 };
-
-const DayGrid = () => (
-  <div className='day-view__grid'>
-    {[...Array(24)].map((element, index) => (
-      <div key={index} className='day-view__grid-hour' />
-    ))}
-  </div>
-);
 
 const HoursLabels = () => (
   <div className='cal__hours'>
