@@ -1,0 +1,24 @@
+.week-view__grid-hour {
+  height: 40px;
+  border-top: 1px solid #f8f9fa;
+}
+
+.cal-week__grid-wrapper {
+  display: flex;
+  flex-direction: row;
+}
+
+.cal-week__grid {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: row;
+}
+
+.week-view__day {
+  width: 14.2857142857%;
+  border-right: 1px solid #eeeeee;
+}
+
+.week-view__day:last-child {
+  border-right: none;
+}

@@ -44,7 +44,7 @@ export const Day = (props: DayProps) => {
   );
 };
 
-const HoursLabels = () => (
+export const HoursLabels = () => (
   <div className='cal__hours'>
     {[...Array(24)].map((element, index) => (
       <div className='cal_hours-label'>

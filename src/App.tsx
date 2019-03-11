@@ -7,13 +7,14 @@ import { getToday, getNextDay, getPreviousDay } from './helpers';
 
 import 'normalize.css';
 import './App.css';
+import { Week } from './components/Week';
 
 const getEvents = () => JSON.parse(localStorage.getItem('events') || '[]');
 
 export const App = () => {
   const [events, setEvents] = useState(getEvents());
   const [date, setDate] = useState(getToday());
-  const [view, setView] = useState(Views.DAY);
+  const [view, setView] = useState(Views.WEEK);
   const handleNavigate = (to: Navigate) => {
     if (to === Navigate.TODAY) setDate(getToday());
     if (to === Navigate.NEXT) setDate(getNextDay(date));
@@ -45,11 +46,14 @@ export const App = () => {
         date={date}
         onDateChange={(date: Date) => handleDateChange(date)}
       />
-      <Day
-        date={date}
-        onCreateEvent={(timestamp: number) => handleCreateEvent(timestamp)}
-        events={events}
-      />
+      {view === Views.DAY && (
+        <Day
+          date={date}
+          onCreateEvent={(timestamp: number) => handleCreateEvent(timestamp)}
+          events={events}
+        />
+      )}
+      {view === Views.WEEK && <Week date={date} events={events} />}
     </div>
   );
 };
