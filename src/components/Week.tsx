@@ -1,7 +1,7 @@
 import React from 'react';
 import { getCurrentWeekDates } from '../helpers';
 import { VEvent } from '../types';
-import { HoursLabels } from './Day';
+import { HoursLabels, EventGridProps, EventGrid } from './Day';
 
 import './Week.css';
 
@@ -37,6 +37,11 @@ export const Week = (props: WeekProps) => {
               {[...Array(24)].map((element, index) => (
                 <div key={index} className='week-view__grid-hour' />
               ))}
+              <EventGrid
+                date={date}
+                events={props.events}
+                onCreateEvent={(timestamp: number) => console.log(timestamp)}
+              />
             </div>
           ))}
         </div>

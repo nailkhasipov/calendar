@@ -56,13 +56,13 @@ export const HoursLabels = () => (
   </div>
 );
 
-type EventGridProps = {
+export type EventGridProps = {
   date: Date;
   events: VEvent[];
   onCreateEvent: (timestamp: number) => void;
 };
 
-const EventGrid = (props: EventGridProps) => {
+export const EventGrid = (props: EventGridProps) => {
   const currentDateString = props.date.toDateString();
   const currentDateEvents = props.events.filter((event: VEvent) => {
     const eventDateString = new Date(event.start).toDateString();
