@@ -16,13 +16,15 @@ export const Day = (props: DayProps) => {
   const dayName = props.date.toLocaleString('en-us', { weekday: 'long' });
   return (
     <div className='cal-view'>
-      <div className='cal-view__title'>
-        <b>
-          {day} {monthName}
-        </b>{' '}
-        {fullYear}
+      <div className='cal-view__header'>
+        <div className='cal-view__title'>
+          <b>
+            {day} {monthName}
+          </b>{' '}
+          {fullYear}
+        </div>
+        <div className='cal-day__grid__header'>{dayName}</div>
       </div>
-      <div className='cal-day__grid__header'>{dayName}</div>
       <div className='cal-day__grid-wrapper'>
         <div className='cal-day__grid'>
           <HoursLabels />

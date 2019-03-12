@@ -16,12 +16,22 @@ export const Week = (props: WeekProps) => {
   const week = getCurrentWeekDates();
   return (
     <div className='cal-view'>
-      <div className='cal-view__title'>
-        <b>{monthName}</b> {fullYear}
+      <div className='cal-view__header'>
+        <div className='cal-view__title'>
+          <b>{monthName}</b> {fullYear}
+        </div>
+        <div className='cal-view__grid-titles'>
+          {week.map((date, index) => (
+            <div key={index} className='cal-view__weekday-title'>
+              {date.toLocaleString('en-us', { weekday: 'short' })}{' '}
+              {date.getDate()}
+            </div>
+          ))}
+        </div>
       </div>
       <div className='cal-week__grid-wrapper'>
-        <HoursLabels />
         <div className='cal-week__grid'>
+          <HoursLabels />
           {week.map((date, index) => (
             <div key={index} className='week-view__day'>
               {[...Array(24)].map((element, index) => (

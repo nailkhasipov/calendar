@@ -37,6 +37,10 @@
   flex-direction: column;
 }
 
+.cal-view__header {
+  height: 83px;
+}
+
 .cal-view__title {
   font-size: 24px;
   font-weight: 500;
