@@ -7,8 +7,8 @@
 .month-table .day {
   width: 14.2857142857%;
   height: 16.6666666667%;
-  border-left: 1px solid black;
-  border-bottom: 1px solid black;
+  border-left: 1px solid #eeeeee;
+  border-bottom: 1px solid #eeeeee;
 }
 
 .month-table .day .event {
@@ -21,4 +21,18 @@
 }
 .month-table-day-titles .day-title {
   width: 14.2857142857%;
+}
+
+.cal-view__month__grid-titles {
+  font-size: 16px;
+  padding-bottom: 8px;
+  border-bottom: 2px solid #eee;
+  margin-bottom: 4px;
+  display: flex;
+  flex-direction: row;
+}
+
+.cal-view__month__weekday-title {
+  width: 14.2857142857%;
+  text-align: center;
 }

@@ -20,9 +20,9 @@ export const Week = (props: WeekProps) => {
         <div className='cal-view__title'>
           <b>{monthName}</b> {fullYear}
         </div>
-        <div className='cal-view__grid-titles'>
+        <div className='cal-view__week__grid-titles'>
           {week.map((date, index) => (
-            <div key={index} className='cal-view__weekday-title'>
+            <div key={index} className='cal-view__week__weekday-title'>
               {date.toLocaleString('en-us', { weekday: 'short' })}{' '}
               {date.getDate()}
             </div>

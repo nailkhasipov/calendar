@@ -15,7 +15,7 @@ const getEvents = () => JSON.parse(localStorage.getItem('events') || '[]');
 export const App = () => {
   const [events, setEvents] = useState(getEvents());
   const [date, setDate] = useState(getToday());
-  const [view, setView] = useState(Views.WEEK);
+  const [view, setView] = useState(Views.MONTH);
   const handleNavigate = (to: Navigate) => {
     if (to === Navigate.TODAY) setDate(getToday());
     if (to === Navigate.NEXT) setDate(getNextDay(date));
@@ -37,6 +37,18 @@ export const App = () => {
     setEvents([...events, event]);
     localStorage.setItem('events', JSON.stringify([...events, event]));
   };
+  const renderView = () => {
+    if (view === Views.DAY)
+      return (
+        <Day
+          date={date}
+          onCreateEvent={(timestamp: number) => handleCreateEvent(timestamp)}
+          events={events}
+        />
+      );
+    if (view === Views.WEEK) return <Week date={date} events={events} />;
+    if (view === Views.MONTH) return <Month date={date} events={events} />;
+  };
   return (
     <div className='cal'>
       <Toolbar
@@ -47,15 +59,7 @@ export const App = () => {
         date={date}
         onDateChange={(date: Date) => handleDateChange(date)}
       />
-      {view === Views.DAY && (
-        <Day
-          date={date}
-          onCreateEvent={(timestamp: number) => handleCreateEvent(timestamp)}
-          events={events}
-        />
-      )}
-      {view === Views.WEEK && <Week date={date} events={events} />}
-      {view === Views.MONTH && <Month date={date} events={events} />}
+      {renderView()}
     </div>
   );
 };

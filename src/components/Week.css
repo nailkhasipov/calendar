@@ -21,7 +21,7 @@
   padding-left: 32px;
 }
 
-.cal-view__grid-titles {
+.cal-view__week__grid-titles {
   font-size: 16px;
   font-weight: 200;
   font-weight: 200;
@@ -34,7 +34,7 @@
   padding-left: 51px;
 }
 
-.cal-view__weekday-title {
+.cal-view__week__weekday-title {
   width: 14.2857142857%;
   text-align: center;
 }
