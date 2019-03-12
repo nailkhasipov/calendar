@@ -36,3 +36,10 @@
   width: 14.2857142857%;
   text-align: center;
 }
+
+.month__day__date {
+  width: 100%;
+  text-align: right;
+  display: block;
+  padding: 8px;
+}

@@ -28,12 +28,12 @@ export const Month = (props: MonthProps) => {
         eventDate.getMonth() === monthArrayDate.getMonth() &&
         eventDate.getDate() === monthArrayDate.getDate()
       ) {
-        return <li className='event'>{event.title}</li>;
+        return <div className='event'>{event.title}</div>;
       }
     });
     return (
       <div key={index} className={className}>
-        {monthArrayDate.getDate()}
+        <span className='month__day__date'>{monthArrayDate.getDate()}</span>
         {todayEvents}
       </div>
     );
