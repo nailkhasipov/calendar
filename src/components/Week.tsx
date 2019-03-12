@@ -8,6 +8,7 @@ import './Week.css';
 type WeekProps = {
   date: Date;
   events: VEvent[];
+  onCreateEvent: (timestamp: number) => void;
 };
 
 export const Week = (props: WeekProps) => {
@@ -40,7 +41,9 @@ export const Week = (props: WeekProps) => {
               <EventGrid
                 date={date}
                 events={props.events}
-                onCreateEvent={(timestamp: number) => console.log(timestamp)}
+                onCreateEvent={(timestamp: number) =>
+                  props.onCreateEvent(timestamp)
+                }
               />
             </div>
           ))}

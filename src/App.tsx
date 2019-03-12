@@ -46,7 +46,14 @@ export const App = () => {
           events={events}
         />
       );
-    if (view === Views.WEEK) return <Week date={date} events={events} />;
+    if (view === Views.WEEK)
+      return (
+        <Week
+          date={date}
+          events={events}
+          onCreateEvent={(timestamp: number) => handleCreateEvent(timestamp)}
+        />
+      );
     if (view === Views.MONTH) return <Month date={date} events={events} />;
   };
   return (
