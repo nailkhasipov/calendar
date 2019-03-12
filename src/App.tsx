@@ -8,6 +8,7 @@ import { getToday, getNextDay, getPreviousDay } from './helpers';
 import 'normalize.css';
 import './App.css';
 import { Week } from './components/Week';
+import { Month } from './components/Month';
 
 const getEvents = () => JSON.parse(localStorage.getItem('events') || '[]');
 
@@ -54,6 +55,7 @@ export const App = () => {
         />
       )}
       {view === Views.WEEK && <Week date={date} events={events} />}
+      {view === Views.MONTH && <Month date={date} events={events} />}
     </div>
   );
 };

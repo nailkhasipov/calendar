@@ -1,14 +1,14 @@
 import React from 'react';
 import { VEvent } from '../types';
-import { getMonthArray } from '../helpers';
-import './MonthView.css';
+import { getMonthArray, getCurrentWeekDates } from '../helpers';
+import './Month.css';
 
-type MonthViewProps = {
+type MonthProps = {
   date: Date;
   events: VEvent[];
 };
 
-export const MonthView = (props: MonthViewProps) => {
+export const Month = (props: MonthProps) => {
   const month = getMonthArray(new Date());
   const monthArray = getMonthArray(props.date);
   const month_table = monthArray.map((monthArrayDate: Date, index) => {
@@ -39,18 +39,25 @@ export const MonthView = (props: MonthViewProps) => {
     );
   });
 
+  const monthName = props.date.toLocaleString('en-us', { month: 'long' });
+  const fullYear = props.date.getFullYear();
+  const week = getCurrentWeekDates();
+
   return (
-    <React.Fragment>
-      <div className='month-table-day-titles'>
-        <div className='day-title'>Mon</div>
-        <div className='day-title'>Tue</div>
-        <div className='day-title'>Wed</div>
-        <div className='day-title'>Thu</div>
-        <div className='day-title'>Fri</div>
-        <div className='day-title'>Sut</div>
-        <div className='day-title'>Sun</div>
+    <div className='cal-view'>
+      <div className='cal-view__header'>
+        <div className='cal-view__title'>
+          <b>{monthName}</b> {fullYear}
+        </div>
+        <div className='cal-view__grid-titles'>
+          {week.map((date, index) => (
+            <div key={index} className='cal-view__weekday-title'>
+              {date.toLocaleString('en-us', { weekday: 'short' })}{' '}
+            </div>
+          ))}
+        </div>
       </div>
       <div className='month-table'>{month_table}</div>
-    </React.Fragment>
+    </div>
   );
 };
