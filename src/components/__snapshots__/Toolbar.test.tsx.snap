@@ -2,59 +2,45 @@
 
 exports[`<Toolbar /> renders correctly 1`] = `
 <div
-  className="cal-toolbar"
+  className="sc-bdVaJa dAlDHg"
 >
   <div
-    className="cal-toolbar__left"
+    className="sc-htpNat ilyjRN"
   >
-    <div
-      className="button-group"
+    <button
+      className="sc-bwzfXH fukOoz"
     >
-      <div
-        className="button cal-toolbar__button-today"
-        onClick={[Function]}
-      >
-        Today
-      </div>
-      <div
-        className="button cal-toolbar__button-previous"
-        onClick={[Function]}
-      >
-        &lt;
-      </div>
-      <div
-        className="button cal-toolbar__button-next"
-        onClick={[Function]}
-      >
-        &gt;
-      </div>
-    </div>
+      Today
+    </button>
+    <button
+      className="sc-bwzfXH fukOoz"
+    >
+      &lt;
+    </button>
+    <button
+      className="sc-bwzfXH fukOoz"
+    >
+      &gt;
+    </button>
   </div>
   <div
-    className="cal-toolbar__right"
+    className="sc-htpNat ilyjRN"
   >
-    <div
-      className="button-group"
+    <button
+      className="sc-bwzfXH fukOoz"
     >
-      <div
-        className=" button cal-toolbar__button-day"
-        onClick={[Function]}
-      >
-        Day
-      </div>
-      <div
-        className=" button cal-toolbar__button-week"
-        onClick={[Function]}
-      >
-        Week
-      </div>
-      <div
-        className=" button cal-toolbar__button-month"
-        onClick={[Function]}
-      >
-        Month
-      </div>
-    </div>
+      Day
+    </button>
+    <button
+      className="sc-bwzfXH fukOoz"
+    >
+      Week
+    </button>
+    <button
+      className="sc-bwzfXH fukOoz"
+    >
+      Month
+    </button>
   </div>
 </div>
 `;

@@ -1,7 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Views, Navigate } from '../types';
-import './Toolbar.css';
 
 export type ToolbarProps = {
   onNavigate: (to: Navigate) => void;
@@ -9,23 +8,31 @@ export type ToolbarProps = {
 };
 
 export const Toolbar = (props: ToolbarProps) => (
-  <div className='cal-toolbar'>
-    <div className='cal-toolbar__left'>
-      <ButtonGroup>
-        <Button>Today</Button>
-        <Button>{'<'}</Button>
-        <Button>{'>'}</Button>
-      </ButtonGroup>
-    </div>
-    <div className='cal-toolbar__right'>
-      <ButtonGroup>
-        <Button>Day</Button>
-        <Button>Week</Button>
-        <Button>Month</Button>
-      </ButtonGroup>
-    </div>
-  </div>
+  <StyledToolbar>
+    <ButtonGroup>
+      <Button>Today</Button>
+      <Button>{'<'}</Button>
+      <Button>{'>'}</Button>
+    </ButtonGroup>
+    <ButtonGroup>
+      <Button>Day</Button>
+      <Button>Week</Button>
+      <Button>Month</Button>
+    </ButtonGroup>
+  </StyledToolbar>
 );
+
+const StyledToolbar = styled.div`
+  grid-column-start: 1;
+  grid-column-end: 3;
+  width: 100%;
+  border-bottom: 1px solid #eee;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 0 16px;
+  align-items: center;
+`;
 
 const Button = styled.button`
   /* Structure */
