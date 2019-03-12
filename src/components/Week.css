@@ -42,6 +42,7 @@
 .week-view__day {
   width: 14.2857142857%;
   padding-top: 6px;
+  position: relative;
 }
 
 .week-view__day:last-child {
