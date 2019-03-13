@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { VEvent, Views, Navigate } from './types';
 import { Toolbar } from './components/Toolbar';
-import { Navigator } from './components/Navigator';
+import { Sidebar } from './components/Sidebar';
 import { Day } from './components/Day';
 import { getToday, getNextDay, getPreviousDay } from './utils';
 
@@ -15,7 +15,7 @@ const getEvents = () => JSON.parse(localStorage.getItem('events') || '[]');
 export const App = () => {
   const [events, setEvents] = useState(getEvents());
   const [date, setDate] = useState(getToday());
-  const [view, setView] = useState(Views.MONTH);
+  const [view, setView] = useState(Views.WEEK);
   const handleNavigate = (to: Navigate) => {
     if (to === Navigate.TODAY) setDate(getToday());
     if (to === Navigate.NEXT) setDate(getNextDay(date));
@@ -62,7 +62,7 @@ export const App = () => {
         onNavigate={(to: Navigate) => handleNavigate(to)}
         onChangeView={(view: Views) => handleChangeView(view)}
       />
-      <Navigator
+      <Sidebar
         date={date}
         onDateChange={(date: Date) => handleDateChange(date)}
       />
