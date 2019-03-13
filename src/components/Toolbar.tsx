@@ -10,14 +10,44 @@ export type ToolbarProps = {
 export const Toolbar = (props: ToolbarProps) => (
   <StyledToolbar>
     <ButtonGroup>
-      <Button onClick={() => props.onNavigate(Navigate.TODAY)}>Today</Button>
-      <Button onClick={() => props.onNavigate(Navigate.PREVIOUS)}>{'<'}</Button>
-      <Button onClick={() => props.onNavigate(Navigate.NEXT)}>{'>'}</Button>
+      <Button
+        data-testid='navigate-today'
+        onClick={() => props.onNavigate(Navigate.TODAY)}
+      >
+        Today
+      </Button>
+      <Button
+        data-testid='navigate-previous'
+        onClick={() => props.onNavigate(Navigate.PREVIOUS)}
+      >
+        {'<'}
+      </Button>
+      <Button
+        data-testid='navigate-next'
+        onClick={() => props.onNavigate(Navigate.NEXT)}
+      >
+        {'>'}
+      </Button>
     </ButtonGroup>
     <ButtonGroup>
-      <Button onClick={() => props.onChangeView(Views.DAY)}>Day</Button>
-      <Button onClick={() => props.onChangeView(Views.WEEK)}>Week</Button>
-      <Button onClick={() => props.onChangeView(Views.MONTH)}>Month</Button>
+      <Button
+        data-testid='change-view-day'
+        onClick={() => props.onChangeView(Views.DAY)}
+      >
+        Day
+      </Button>
+      <Button
+        data-testid='change-view-week'
+        onClick={() => props.onChangeView(Views.WEEK)}
+      >
+        Week
+      </Button>
+      <Button
+        data-testid='change-view-month'
+        onClick={() => props.onChangeView(Views.MONTH)}
+      >
+        Month
+      </Button>
     </ButtonGroup>
   </StyledToolbar>
 );

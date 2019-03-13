@@ -1,0 +1,54 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Toolbar component renders correctly 1`] = `
+<div>
+  <div
+    class="sc-bdVaJa dAlDHg"
+  >
+    <div
+      class="sc-htpNat ilyjRN"
+    >
+      <button
+        class="sc-bwzfXH XSwyB"
+        data-testid="navigate-today"
+      >
+        Today
+      </button>
+      <button
+        class="sc-bwzfXH XSwyB"
+        data-testid="navigate-previous"
+      >
+        &lt;
+      </button>
+      <button
+        class="sc-bwzfXH XSwyB"
+        data-testid="navigate-next"
+      >
+        &gt;
+      </button>
+    </div>
+    <div
+      class="sc-htpNat ilyjRN"
+    >
+      <button
+        class="sc-bwzfXH XSwyB"
+        data-testid="change-view-day"
+      >
+        Day
+      </button>
+      <button
+        class="sc-bwzfXH XSwyB"
+        data-testid="change-view-week"
+      >
+        Week
+      </button>
+      <button
+        class="sc-bwzfXH XSwyB"
+        data-testid="change-view-month"
+      >
+        Month
+      </button>
+    </div>
+  </div>
+</div>
+`;
