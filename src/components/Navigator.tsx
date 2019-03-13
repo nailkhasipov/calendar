@@ -1,5 +1,5 @@
 import React from 'react';
-import { getMonthArray, getDateTitle } from '../helpers';
+import { getMonthArray, getDateTitle } from '../utils';
 
 import './Navigator.css';
 

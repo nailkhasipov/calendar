@@ -3,7 +3,7 @@ import { VEvent, Views, Navigate } from './types';
 import { Toolbar } from './components/Toolbar';
 import { Navigator } from './components/Navigator';
 import { Day } from './components/Day';
-import { getToday, getNextDay, getPreviousDay } from './helpers';
+import { getToday, getNextDay, getPreviousDay } from './utils';
 
 import 'normalize.css';
 import './App.css';

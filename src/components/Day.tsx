@@ -1,7 +1,7 @@
 import React from 'react';
 import { VEvent } from '../types';
 import './Day.css';
-import { translatePositionByPxToDate } from '../helpers';
+import { translatePositionByPxToDate } from '../utils';
 
 type DayProps = {
   date: Date;

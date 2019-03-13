@@ -1,5 +1,5 @@
 import React from 'react';
-import { getCurrentWeekDates } from '../helpers';
+import { getCurrentWeekDates } from '../utils';
 import { VEvent } from '../types';
 import { HoursLabels, EventGridProps, EventGrid } from './Day';
 

@@ -1,6 +1,6 @@
 import React from 'react';
 import { VEvent } from '../types';
-import { getMonthArray, getCurrentWeekDates } from '../helpers';
+import { getMonthArray, getCurrentWeekDates } from '../utils';
 import './Month.css';
 
 type MonthProps = {
