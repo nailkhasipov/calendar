@@ -22,7 +22,7 @@ const getDayComponent = (monthArrayDate: Date, selectedDate: Date) => {
 
 export const Sidebar: React.FunctionComponent<{
   date: Date;
-  onDateChange: Function;
+  onDateChange: (date: Date) => void;
 }> = ({ date, onDateChange }) => (
   <StyledSidebar>
     <MonthTable>
