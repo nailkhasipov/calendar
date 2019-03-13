@@ -1,3 +1,15 @@
+export const isOffsetDay = (date: Date, selectedDate: Date) =>
+  date.getMonth() != selectedDate.getMonth();
+export const isSelectedDay = (date: Date, selectedDate: Date) =>
+  date.getMonth() === selectedDate.getMonth() &&
+  date.getDate() === selectedDate.getDate();
+export const isToday = (date: Date) => {
+  const today = new Date();
+  return (
+    date.getMonth() === today.getMonth() && date.getDate() === today.getDate()
+  );
+};
+
 export const getMonthArray = (date: Date) => {
   const monthArray: Date[] = [];
   const month = date.getMonth();

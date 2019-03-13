@@ -1,22 +1,21 @@
 import React, { FunctionComponent } from 'react';
 import styled from 'styled-components';
-import { getMonthArray, getDateTitle } from '../utils';
+import {
+  getMonthArray,
+  getDateTitle,
+  isOffsetDay,
+  isSelectedDay,
+  isToday
+} from '../utils';
 
 const today = new Date();
 
 const getDayComponent = (monthArrayDate: Date, selectedDate: Date) => {
-  if (monthArrayDate.getMonth() != today.getMonth())
+  if (isOffsetDay(monthArrayDate, today))
     return <OffsetDay>{monthArrayDate.getDate()}</OffsetDay>;
-  if (
-    monthArrayDate.getMonth() === selectedDate.getMonth() &&
-    monthArrayDate.getDate() === selectedDate.getDate()
-  )
+  if (isSelectedDay(monthArrayDate, selectedDate))
     return <CurrentDay>{monthArrayDate.getDate()}</CurrentDay>;
-  if (
-    monthArrayDate.getMonth() === today.getMonth() &&
-    monthArrayDate.getDate() === today.getDate()
-  )
-    return <Today>{monthArrayDate.getDate()}</Today>;
+  if (isToday(monthArrayDate)) return <Today>{monthArrayDate.getDate()}</Today>;
   return <Day>{monthArrayDate.getDate()}</Day>;
 };
 
