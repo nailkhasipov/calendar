@@ -8,17 +8,20 @@ exports[`<Toolbar /> renders correctly 1`] = `
     className="sc-htpNat ilyjRN"
   >
     <button
-      className="sc-bwzfXH fukOoz"
+      className="sc-bwzfXH XSwyB"
+      onClick={[Function]}
     >
       Today
     </button>
     <button
-      className="sc-bwzfXH fukOoz"
+      className="sc-bwzfXH XSwyB"
+      onClick={[Function]}
     >
       &lt;
     </button>
     <button
-      className="sc-bwzfXH fukOoz"
+      className="sc-bwzfXH XSwyB"
+      onClick={[Function]}
     >
       &gt;
     </button>
@@ -27,17 +30,20 @@ exports[`<Toolbar /> renders correctly 1`] = `
     className="sc-htpNat ilyjRN"
   >
     <button
-      className="sc-bwzfXH fukOoz"
+      className="sc-bwzfXH XSwyB"
+      onClick={[Function]}
     >
       Day
     </button>
     <button
-      className="sc-bwzfXH fukOoz"
+      className="sc-bwzfXH XSwyB"
+      onClick={[Function]}
     >
       Week
     </button>
     <button
-      className="sc-bwzfXH fukOoz"
+      className="sc-bwzfXH XSwyB"
+      onClick={[Function]}
     >
       Month
     </button>

@@ -10,14 +10,14 @@ export type ToolbarProps = {
 export const Toolbar = (props: ToolbarProps) => (
   <StyledToolbar>
     <ButtonGroup>
-      <Button>Today</Button>
-      <Button>{'<'}</Button>
-      <Button>{'>'}</Button>
+      <Button onClick={() => props.onNavigate(Navigate.TODAY)}>Today</Button>
+      <Button onClick={() => props.onNavigate(Navigate.PREVIOUS)}>{'<'}</Button>
+      <Button onClick={() => props.onNavigate(Navigate.NEXT)}>{'>'}</Button>
     </ButtonGroup>
     <ButtonGroup>
-      <Button>Day</Button>
-      <Button>Week</Button>
-      <Button>Month</Button>
+      <Button onClick={() => props.onChangeView(Views.DAY)}>Day</Button>
+      <Button onClick={() => props.onChangeView(Views.WEEK)}>Week</Button>
+      <Button onClick={() => props.onChangeView(Views.MONTH)}>Month</Button>
     </ButtonGroup>
   </StyledToolbar>
 );
