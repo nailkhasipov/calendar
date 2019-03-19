@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import { Views, Navigate } from '../types';
 
 export type ToolbarProps = {
+  view: Views;
   onNavigate: (to: Navigate) => void;
   onChangeView: (view: Views) => void;
 };
@@ -31,18 +32,21 @@ export const Toolbar = (props: ToolbarProps) => (
     </ButtonGroup>
     <ButtonGroup>
       <Button
+        className={props.view === Views.DAY ? 'active' : ''}
         data-testid='change-view-day'
         onClick={() => props.onChangeView(Views.DAY)}
       >
         Day
       </Button>
       <Button
+        className={props.view === Views.WEEK ? 'active' : ''}
         data-testid='change-view-week'
         onClick={() => props.onChangeView(Views.WEEK)}
       >
         Week
       </Button>
       <Button
+        className={props.view === Views.MONTH ? 'active' : ''}
         data-testid='change-view-month'
         onClick={() => props.onChangeView(Views.MONTH)}
       >
@@ -82,6 +86,13 @@ const Button = styled.button`
   border-radius: 3px;
   text-align: center;
   :hover {
+    background-image: linear-gradient(
+      transparent,
+      rgba(0, 0, 0, 0.05) 40%,
+      rgba(0, 0, 0, 0.1)
+    );
+  }
+  &.active {
     background-image: linear-gradient(
       transparent,
       rgba(0, 0, 0, 0.05) 40%,

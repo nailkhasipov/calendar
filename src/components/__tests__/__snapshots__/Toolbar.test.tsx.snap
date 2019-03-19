@@ -31,7 +31,7 @@ exports[`Toolbar component renders correctly 1`] = `
       class="sc-htpNat ilyjRN"
     >
       <button
-        class="sc-bwzfXH XSwyB"
+        class="active sc-bwzfXH XSwyB"
         data-testid="change-view-day"
       >
         Day

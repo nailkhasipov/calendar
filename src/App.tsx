@@ -59,6 +59,7 @@ export const App = () => {
   return (
     <div className='cal'>
       <Toolbar
+        view={view}
         onNavigate={(to: Navigate) => handleNavigate(to)}
         onChangeView={(view: Views) => handleChangeView(view)}
       />

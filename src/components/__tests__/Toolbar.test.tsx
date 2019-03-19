@@ -10,6 +10,7 @@ const onNavigate = jest.fn();
 const onChangeView = jest.fn();
 
 const defaultProps: ToolbarProps = {
+  view: Views.DAY,
   onNavigate: onNavigate,
   onChangeView: onChangeView
 };
@@ -38,5 +39,12 @@ describe('Toolbar component', () => {
     expect(onChangeView).toHaveBeenCalledWith(Views.WEEK);
     fireEvent.click(getByTestId('change-view-month'));
     expect(onChangeView).toHaveBeenCalledWith(Views.MONTH);
+  });
+
+  it('set the active class to change view buttons', () => {
+    const { getByTestId } = render(
+      <Toolbar {...defaultProps} view={Views.WEEK} />
+    );
+    expect(getByTestId('change-view-week')).toHaveClass('active');
   });
 });
