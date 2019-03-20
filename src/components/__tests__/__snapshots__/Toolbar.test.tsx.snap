@@ -1,54 +1,126 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Toolbar component renders correctly 1`] = `
-<div>
+.c0 {
+  grid-column-start: 1;
+  grid-column-end: 3;
+  width: 100%;
+  border-bottom: 1px solid #eee;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  padding: 0 16px;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.c3 {
+  display: inline-block;
+  zoom: 1;
+  line-height: normal;
+  white-space: nowrap;
+  vertical-align: middle;
+  text-align: center;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  outline: none;
+  font-size: 13px;
+  padding: 0.5em 1em;
+  border: 1px solid rgba(0,0,0,0.2);
+  border-radius: 3px;
+  text-align: center;
+}
+
+.c3:hover {
+  background-image: linear-gradient( transparent, rgba(0,0,0,0.05) 40%, rgba(0,0,0,0.1) );
+}
+
+.c3.active {
+  background-image: linear-gradient( transparent, rgba(0,0,0,0.05) 40%, rgba(0,0,0,0.1) );
+}
+
+.c1 {
+  margin: 0;
+  border-radius: 0;
+  border-right: none;
+}
+
+.c1 .c2 {
+  margin: 0;
+  border-radius: 0;
+  border-right: none;
+}
+
+.c1 .c2:first-child {
+  border-top-left-radius: 3px;
+  border-bottom-left-radius: 3px;
+}
+
+.c1 .c2:last-child {
+  border-top-right-radius: 3px;
+  border-bottom-right-radius: 3px;
+  border-right: 1px solid rgba(0,0,0,0.2);
+}
+
+<div
+  class="c0"
+>
   <div
-    class="sc-bdVaJa dAlDHg"
+    class="c1"
   >
-    <div
-      class="sc-htpNat ilyjRN"
+    <button
+      class="c2 c3"
+      data-testid="navigate-today"
     >
-      <button
-        class="sc-bwzfXH XSwyB"
-        data-testid="navigate-today"
-      >
-        Today
-      </button>
-      <button
-        class="sc-bwzfXH XSwyB"
-        data-testid="navigate-previous"
-      >
-        &lt;
-      </button>
-      <button
-        class="sc-bwzfXH XSwyB"
-        data-testid="navigate-next"
-      >
-        &gt;
-      </button>
-    </div>
-    <div
-      class="sc-htpNat ilyjRN"
+      Today
+    </button>
+    <button
+      class="c2 c3"
+      data-testid="navigate-previous"
     >
-      <button
-        class="active sc-bwzfXH XSwyB"
-        data-testid="change-view-day"
-      >
-        Day
-      </button>
-      <button
-        class="sc-bwzfXH XSwyB"
-        data-testid="change-view-week"
-      >
-        Week
-      </button>
-      <button
-        class="sc-bwzfXH XSwyB"
-        data-testid="change-view-month"
-      >
-        Month
-      </button>
-    </div>
+      &lt;
+    </button>
+    <button
+      class="c2 c3"
+      data-testid="navigate-next"
+    >
+      &gt;
+    </button>
+  </div>
+  <div
+    class="c1"
+  >
+    <button
+      class="active c2 c3"
+      data-testid="change-view-day"
+    >
+      Day
+    </button>
+    <button
+      class="c2 c3"
+      data-testid="change-view-week"
+    >
+      Week
+    </button>
+    <button
+      class="c2 c3"
+      data-testid="change-view-month"
+    >
+      Month
+    </button>
   </div>
 </div>
 `;

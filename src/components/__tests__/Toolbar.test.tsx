@@ -1,5 +1,6 @@
 import React from 'react';
 import { render, fireEvent, cleanup } from 'react-testing-library';
+import 'jest-styled-components';
 import 'jest-dom/extend-expect';
 import { Views, Navigate } from '../../types';
 import { ToolbarProps, Toolbar } from '../Toolbar';
@@ -18,7 +19,7 @@ const defaultProps: ToolbarProps = {
 describe('Toolbar component', () => {
   it('renders correctly', () => {
     const { container } = render(<Toolbar {...defaultProps} />);
-    expect(container).toMatchSnapshot();
+    expect(container.firstChild).toMatchSnapshot();
   });
 
   it('call onNavigate()', () => {
