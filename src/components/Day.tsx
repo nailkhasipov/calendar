@@ -1,4 +1,5 @@
 import React from 'react';
+import styled from 'styled-components';
 import { VEvent } from '../types';
 import './Day.css';
 import { translatePositionByPxToDate } from '../utils';
@@ -46,14 +47,26 @@ export const Day = (props: DayProps) => {
   );
 };
 
+const StyledHoursLabels = styled.div`
+  margin: 0;
+  padding: 0;
+  left: 0;
+  font-size: 11px;
+  color: #ccc;
+  margin-right: 8px;
+  font-weight: 200;
+`;
+
+const HoursLabel = styled.div`
+  height: 40px;
+`;
+
 export const HoursLabels = () => (
-  <div className='cal__hours'>
+  <StyledHoursLabels>
     {[...Array(24)].map((element, index) => (
-      <div className='cal_hours-label'>
-        {index.toString().padStart(2, '0')}:00
-      </div>
+      <HoursLabel>{index.toString().padStart(2, '0')}:00</HoursLabel>
     ))}
-  </div>
+  </StyledHoursLabels>
 );
 
 export type EventGridProps = {

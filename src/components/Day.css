@@ -1,17 +1,3 @@
-.cal__hours {
-  margin: 0;
-  padding: 0;
-  left: 0;
-  font-size: 11px;
-  color: #ccc;
-  margin-right: 8px;
-  font-weight: 200;
-}
-
-.cal_hours-label {
-  height: 40px;
-}
-
 .cal-day__grid-wrapper {
   position: relative;
   display: flex;
