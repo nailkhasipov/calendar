@@ -38,19 +38,3 @@
   height: 40px;
   border-top: 1px solid #f8f9fa;
 }
-
-.day-events {
-  position: absolute;
-  top: 0;
-  width: 100%;
-  height: 960px;
-}
-
-.day-view__event {
-  position: absolute;
-  width: 100%;
-  background: #339af0;
-  color: white;
-  padding: 10px;
-  cursor: pointer;
-}

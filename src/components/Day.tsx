@@ -75,6 +75,22 @@ export type EventGridProps = {
   onCreateEvent: (timestamp: number) => void;
 };
 
+const DayEvents = styled.div`
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 960px;
+`;
+
+const DayViewEvent = styled.div`
+  position: absolute;
+  width: 100%;
+  background: #339af0;
+  color: white;
+  padding: 10px;
+  cursor: pointer;
+`;
+
 export const EventGrid = (props: EventGridProps) => {
   const currentDateString = props.date.toDateString();
   const currentDateEvents = props.events.filter((event: VEvent) => {
@@ -85,14 +101,17 @@ export const EventGrid = (props: EventGridProps) => {
     const startHours = new Date(event.start).getHours();
     const top = startHours * 40;
     return (
-      <div key={index} className='day-view__event' style={{ top: top + 'px' }}>
+      <DayViewEvent
+        key={index}
+        className='day-view__event'
+        style={{ top: top + 'px' }}
+      >
         {event.title}
-      </div>
+      </DayViewEvent>
     );
   });
   return (
-    <div
-      className='day-events'
+    <DayEvents
       onClick={(event: React.MouseEvent<HTMLElement>) =>
         props.onCreateEvent(
           translatePositionByPxToDate(props.date, event.nativeEvent.offsetY)
@@ -100,6 +119,6 @@ export const EventGrid = (props: EventGridProps) => {
       }
     >
       {currentDateEventsList}
-    </div>
+    </DayEvents>
   );
 };
