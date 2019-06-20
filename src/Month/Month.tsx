@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { VEvent } from '../types';
-import { getMonthArray } from '../utils';
+import { getMonthArrayWithOffsetAndEvents } from '../utils';
 
 import { WeekDaysTitles } from './WeekDaysTitles';
 
@@ -37,35 +37,16 @@ const MonthTableDayEvent = styled.div`
 `;
 
 export const Month = (props: MonthProps) => {
-  const month = getMonthArray(new Date());
-  const monthArray = getMonthArray(props.date);
-  const month_table = monthArray.map((monthArrayDate: Date, index) => {
-    const today = new Date();
-    let className = 'day';
-    //@TODO !!!!!
-    if (monthArrayDate.getMonth() != today.getMonth()) className += ' offset ';
-    if (
-      monthArrayDate.getMonth() === today.getMonth() &&
-      monthArrayDate.getDate() === today.getDate()
-    )
-      className += ' today ';
-    //@TODO !!!!!
-    const todayEvents = props.events.map((event: VEvent, index) => {
-      const eventDate = new Date(event.start);
-      if (
-        eventDate.getMonth() === monthArrayDate.getMonth() &&
-        eventDate.getDate() === monthArrayDate.getDate()
-      ) {
-        return <MonthTableDayEvent>{event.title}</MonthTableDayEvent>;
-      }
-    });
-    return (
-      <MonthTableDay key={index} className={className}>
-        <MonthTableDayDate>{monthArrayDate.getDate()}</MonthTableDayDate>
-        {todayEvents}
-      </MonthTableDay>
-    );
-  });
+  const monthArray = getMonthArrayWithOffsetAndEvents(
+    props.date,
+    new Date(),
+    true
+  );
+  const month_table = monthArray.map((day: any, index) => (
+    <MonthTableDay key={index}>
+      <MonthTableDayDate>{day.date.getDate()}</MonthTableDayDate>
+    </MonthTableDay>
+  ));
 
   const monthName = props.date.toLocaleString('en-us', { month: 'long' });
   const fullYear = props.date.getFullYear();
@@ -80,5 +61,17 @@ export const Month = (props: MonthProps) => {
       </div>
       <MonthTable>{month_table}</MonthTable>
     </div>
+  );
+};
+
+type MonthDayProps = {};
+
+const StyledMonthDay = styled.div``;
+
+const MonthDay = (props: MonthDayProps) => {
+  return (
+    <StyledMonthDay>
+      <MonthTableDayDate>1</MonthTableDayDate>
+    </StyledMonthDay>
   );
 };

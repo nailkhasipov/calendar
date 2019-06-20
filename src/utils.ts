@@ -34,6 +34,51 @@ export const getMonthArray = (date: Date) => {
   return monthArray;
 };
 
+export const getMonthArrayWithOffsetAndEvents = (
+  date: Date,
+  selectedDay: any,
+  events: any
+) => {
+  const monthArray = [];
+  const month = date.getMonth();
+  const year = date.getFullYear();
+  const startDate = new Date(year, month, 1);
+  const endDate = new Date(year, month + 1, 0);
+
+  //@TODO !!!!!
+  if (startDate.getDay() != 1) {
+    startDate.setDate(startDate.getDay() - 8);
+  }
+  if (endDate.getDay() != 0) {
+    endDate.setDate(endDate.getDate() + (7 - endDate.getDay()));
+  }
+  endDate.setDate(endDate.getDate() + 7);
+  //@TODO !!!!!
+
+  for (
+    let date = startDate;
+    date < endDate;
+    date.setDate(startDate.getDate() + 1)
+  ) {
+    const day = {
+      date: new Date(startDate),
+      offset: false,
+      selected: false
+    };
+
+    if (date.getMonth() != selectedDay.getMonth()) day.offset = true;
+    if (
+      date.getMonth() === selectedDay.getMonth() &&
+      date.getDate() === selectedDay.getDate()
+    )
+      day.selected = true;
+
+    monthArray.push(day);
+  }
+
+  return monthArray;
+};
+
 export const getToday = (): Date => new Date();
 
 export const getNextDay = (date: Date): Date =>
