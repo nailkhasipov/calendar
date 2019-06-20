@@ -1,4 +1,5 @@
 import React from 'react';
+import styled from 'styled-components';
 import { VEvent } from '../types';
 import { getMonthArray, getCurrentWeekDates } from '../utils';
 import './Month.css';
@@ -7,6 +8,32 @@ type MonthProps = {
   date: Date;
   events: VEvent[];
 };
+
+const MonthTable = styled.div`
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  height: 100%;
+`;
+
+const MonthTableDay = styled.div`
+  width: 14.2857142857%;
+  height: 16.6666666667%;
+  border-left: 1px solid #eeeeee;
+  border-bottom: 1px solid #eeeeee;
+`;
+
+const MonthTableDayDate = styled.span`
+  width: 100%;
+  text-align: right;
+  display: block;
+  padding: 8px;
+  font-size: 13px;
+`;
+
+const MonthTableDayEvent = styled.div`
+  background: #339af0;
+`;
 
 export const Month = (props: MonthProps) => {
   const month = getMonthArray(new Date());
@@ -28,20 +55,19 @@ export const Month = (props: MonthProps) => {
         eventDate.getMonth() === monthArrayDate.getMonth() &&
         eventDate.getDate() === monthArrayDate.getDate()
       ) {
-        return <div className='event'>{event.title}</div>;
+        return <MonthTableDayEvent>{event.title}</MonthTableDayEvent>;
       }
     });
     return (
-      <div key={index} className={className}>
-        <span className='month__day__date'>{monthArrayDate.getDate()}</span>
+      <MonthTableDay key={index} className={className}>
+        <MonthTableDayDate>{monthArrayDate.getDate()}</MonthTableDayDate>
         {todayEvents}
-      </div>
+      </MonthTableDay>
     );
   });
 
   const monthName = props.date.toLocaleString('en-us', { month: 'long' });
   const fullYear = props.date.getFullYear();
-  const week = getCurrentWeekDates();
 
   return (
     <div className='cal-view'>
@@ -49,15 +75,36 @@ export const Month = (props: MonthProps) => {
         <div className='cal-view__title'>
           <b>{monthName}</b> {fullYear}
         </div>
-        <div className='cal-view__month__grid-titles'>
-          {week.map((date, index) => (
-            <div key={index} className='cal-view__month__weekday-title'>
-              {date.toLocaleString('en-us', { weekday: 'short' })}{' '}
-            </div>
-          ))}
-        </div>
+        <WeekDaysTitles />
       </div>
-      <div className='month-table'>{month_table}</div>
+      <MonthTable>{month_table}</MonthTable>
     </div>
+  );
+};
+
+const StyledWeekDaysTitles = styled.div`
+  font-size: 16px;
+  padding-bottom: 8px;
+  border-bottom: 2px solid #eee;
+  margin-bottom: 4px;
+  display: flex;
+  flex-direction: row;
+`;
+
+const StyledWeekDaysTitlesTitle = styled.div`
+  width: 14.2857142857%;
+  text-align: center;
+`;
+
+const WeekDaysTitles = () => {
+  const week = getCurrentWeekDates();
+  return (
+    <StyledWeekDaysTitles>
+      {week.map((date, index) => (
+        <StyledWeekDaysTitlesTitle key={index}>
+          {date.toLocaleString('en-us', { weekday: 'short' })}
+        </StyledWeekDaysTitlesTitle>
+      ))}
+    </StyledWeekDaysTitles>
   );
 };
