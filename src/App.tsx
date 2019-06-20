@@ -8,7 +8,7 @@ import { getToday, getNextDay, getPreviousDay } from './utils';
 import 'normalize.css';
 import './App.css';
 import { Week } from './components/Week';
-import { Month } from './components/Month';
+import { Month } from './Month/Month';
 
 const getEvents = () => JSON.parse(localStorage.getItem('events') || '[]');
 
