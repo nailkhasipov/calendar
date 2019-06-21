@@ -7,7 +7,7 @@ import {
   getFullYearFromDate
 } from '../utils';
 
-import { MonthWeekLabels } from './MonthWeekLabels';
+import { WeekLabels } from '../components/WeekLabels';
 import { MonthDay } from './MonthDay';
 
 type MonthProps = {
@@ -35,7 +35,7 @@ export const Month = (props: MonthProps) => {
           <b>{getMonthNameFromDate(props.date)}</b>{' '}
           {getFullYearFromDate(props.date)}
         </div>
-        <MonthWeekLabels />
+        <WeekLabels />
       </div>
       <MonthTable>
         {monthArray.map((day: any, index) => (
