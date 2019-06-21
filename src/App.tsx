@@ -7,7 +7,6 @@ import { Day } from './Day/Day';
 import { getToday, getNextDay, getPreviousDay } from './utils';
 
 import 'normalize.css';
-import './App.css';
 import { Week } from './Week/Week';
 import { Month } from './Month/Month';
 
