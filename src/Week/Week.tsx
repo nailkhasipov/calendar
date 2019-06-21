@@ -1,7 +1,7 @@
 import React from 'react';
 import { getCurrentWeekDates } from '../utils';
 import { VEvent } from '../types';
-import { HoursLabels, EventGridProps, EventGrid } from './Day';
+import { HoursLabels, EventGridProps, EventGrid } from '../Day/Day';
 
 import './Week.css';
 
