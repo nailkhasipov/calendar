@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 import { VEvent } from '../types';
-import { EventGrid } from '../Day/Day';
+import { EventGrid } from '../Day/EventGrid';
 
 type WeekDayProps = {
   date: Date;

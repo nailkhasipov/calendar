@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 import { getCurrentWeekDates } from '../utils';
 import { VEvent } from '../types';
-import { HoursLabels, EventGridProps, EventGrid } from '../Day/Day';
+import { HoursLabels } from '../Day/Day';
 import { WeekLabels } from '../components/WeekLabels';
 import { WeekDay } from './WeekDay';
 

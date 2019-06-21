@@ -15,7 +15,7 @@ const getEvents = () => JSON.parse(localStorage.getItem('events') || '[]');
 export const App = () => {
   const [events, setEvents] = useState(getEvents());
   const [date, setDate] = useState(getToday());
-  const [view, setView] = useState(Views.WEEK);
+  const [view, setView] = useState(Views.DAY);
   const handleNavigate = (to: Navigate) => {
     if (to === Navigate.TODAY) setDate(getToday());
     if (to === Navigate.NEXT) setDate(getNextDay(date));
