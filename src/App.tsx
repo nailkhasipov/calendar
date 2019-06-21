@@ -2,12 +2,12 @@ import React, { useState } from 'react';
 import { VEvent, Views, Navigate } from './types';
 import { Toolbar } from './components/Toolbar';
 import { Sidebar } from './components/Sidebar';
-import { Day } from './components/Day';
+import { Day } from './Day/Day';
 import { getToday, getNextDay, getPreviousDay } from './utils';
 
 import 'normalize.css';
 import './App.css';
-import { Week } from './components/Week';
+import { Week } from './Week/Week';
 import { Month } from './Month/Month';
 
 const getEvents = () => JSON.parse(localStorage.getItem('events') || '[]');
@@ -15,7 +15,7 @@ const getEvents = () => JSON.parse(localStorage.getItem('events') || '[]');
 export const App = () => {
   const [events, setEvents] = useState(getEvents());
   const [date, setDate] = useState(getToday());
-  const [view, setView] = useState(Views.MONTH);
+  const [view, setView] = useState(Views.WEEK);
   const handleNavigate = (to: Navigate) => {
     if (to === Navigate.TODAY) setDate(getToday());
     if (to === Navigate.NEXT) setDate(getNextDay(date));
