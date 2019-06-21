@@ -11,13 +11,13 @@ type DayProps = {
   onCreateEvent: (timestamp: number) => void;
 };
 
-const FullCalView = styled.div`
+export const FullCalView = styled.div`
   height: 100%;
   display: flex;
   flex-direction: column;
 `;
 
-const FullCalViewHeader = styled.div`
+export const FullCalViewHeader = styled.div`
   font-size: 16px;
   font-weight: 200;
   padding-bottom: 8px;
@@ -26,7 +26,7 @@ const FullCalViewHeader = styled.div`
   margin-bottom: 4px;
 `;
 
-const FullCalViewHeaderTitle = styled.div`
+export const FullCalViewHeaderTitle = styled.div`
   font-size: 24px;
   font-weight: 500;
   padding: 16px 16px 8px 16px;

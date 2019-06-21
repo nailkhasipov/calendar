@@ -2,6 +2,11 @@ import React from 'react';
 import styled from 'styled-components';
 import { VEvent } from '../types';
 import {
+  FullCalView,
+  FullCalViewHeader,
+  FullCalViewHeaderTitle
+} from '../Day/Day';
+import {
   getMonthArrayWithOffsetAndEvents,
   getMonthNameFromDate,
   getFullYearFromDate
@@ -29,19 +34,19 @@ export const Month = (props: MonthProps) => {
     true
   );
   return (
-    <div className='cal-view'>
-      <div className='cal-view__header'>
-        <div className='cal-view__title'>
+    <FullCalView>
+      <FullCalViewHeader>
+        <FullCalViewHeaderTitle>
           <b>{getMonthNameFromDate(props.date)}</b>{' '}
           {getFullYearFromDate(props.date)}
-        </div>
+        </FullCalViewHeaderTitle>
         <WeekLabels />
-      </div>
+      </FullCalViewHeader>
       <MonthTable>
         {monthArray.map((day: any, index) => (
           <MonthDay key={index} date={day.date} />
         ))}
       </MonthTable>
-    </div>
+    </FullCalView>
   );
 };

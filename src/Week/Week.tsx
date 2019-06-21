@@ -1,6 +1,12 @@
 import React from 'react';
 import styled from 'styled-components';
 
+import {
+  FullCalView,
+  FullCalViewHeader,
+  FullCalViewHeaderTitle
+} from '../Day/Day';
+
 import { getCurrentWeekDates } from '../utils';
 import { VEvent } from '../types';
 import { HoursLabels } from '../Day/HoursLabels';
@@ -36,13 +42,13 @@ export const Week = (props: WeekProps) => {
   const fullYear = props.date.getFullYear();
   const week = getCurrentWeekDates();
   return (
-    <div className='cal-view'>
-      <div className='cal-view__header'>
-        <div className='cal-view__title'>
+    <FullCalView>
+      <FullCalViewHeader>
+        <FullCalViewHeaderTitle>
           <b>{monthName}</b> {fullYear}
-        </div>
+        </FullCalViewHeaderTitle>
         <WeekLabels withDates={true} />
-      </div>
+      </FullCalViewHeader>
       <WeekWrapper>
         <StyledWeek>
           <HoursLabels />
@@ -56,6 +62,6 @@ export const Week = (props: WeekProps) => {
           ))}
         </StyledWeek>
       </WeekWrapper>
-    </div>
+    </FullCalView>
   );
 };
