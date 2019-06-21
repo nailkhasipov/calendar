@@ -3,9 +3,9 @@ import styled from 'styled-components';
 
 import { getCurrentWeekDates } from '../utils';
 import { VEvent } from '../types';
-import { HoursLabels } from '../Day/Day';
+import { HoursLabels } from '../Day/HoursLabels';
 import { WeekLabels } from '../components/WeekLabels';
-import { WeekDay } from './WeekDay';
+import { DayGrid } from '../Day/DayGrid';
 
 const StyledWeek = styled.div`
   flex-grow: 1;
@@ -47,7 +47,12 @@ export const Week = (props: WeekProps) => {
         <StyledWeek>
           <HoursLabels />
           {week.map((date, index) => (
-            <WeekDay key={index} date={date} events={props.events} />
+            <DayGrid
+              key={index}
+              full={false}
+              date={date}
+              events={props.events}
+            />
           ))}
         </StyledWeek>
       </WeekWrapper>

@@ -3,7 +3,8 @@ import styled from 'styled-components';
 
 import { VEvent } from '../types';
 import './Day.css';
-import { EventGrid } from './EventGrid';
+import { HoursLabels } from './HoursLabels';
+import { DayGrid } from './DayGrid';
 
 type DayProps = {
   date: Date;
@@ -30,42 +31,9 @@ export const Day = (props: DayProps) => {
       <div className='cal-day__grid-wrapper'>
         <div className='cal-day__grid'>
           <HoursLabels />
-          <div className='day-view__grid'>
-            {[...Array(24)].map((element, index) => (
-              <div key={index} className='day-view__grid-hour' />
-            ))}
-            <EventGrid
-              date={props.date}
-              events={props.events}
-              onCreateEvent={(timestamp: number) =>
-                props.onCreateEvent(timestamp)
-              }
-            />
-          </div>
+          <DayGrid full={true} date={props.date} events={props.events} />
         </div>
       </div>
     </div>
   );
 };
-
-const StyledHoursLabels = styled.div`
-  margin: 0;
-  padding: 0;
-  left: 0;
-  font-size: 11px;
-  color: #ccc;
-  margin-right: 8px;
-  font-weight: 200;
-`;
-
-const HoursLabel = styled.div`
-  height: 40px;
-`;
-
-export const HoursLabels = () => (
-  <StyledHoursLabels>
-    {[...Array(24)].map((element, index) => (
-      <HoursLabel>{index.toString().padStart(2, '0')}:00</HoursLabel>
-    ))}
-  </StyledHoursLabels>
-);

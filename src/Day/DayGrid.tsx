@@ -4,13 +4,19 @@ import styled from 'styled-components';
 import { VEvent } from '../types';
 import { EventGrid } from '../Day/EventGrid';
 
-type WeekDayProps = {
+type DayGridProps = {
+  full?: boolean;
   date: Date;
   events: VEvent[];
 };
 
-const StyledWeekDay = styled.div`
-  width: 14.2857142857%;
+type StyledDayGridProps = {
+  full?: boolean;
+};
+
+const StyledDayGrid = styled.div`
+  width: ${(props: StyledDayGridProps) =>
+    props.full ? '100%' : '14.2857142857%'};
   padding-top: 6px;
   position: relative;
 `;
@@ -23,8 +29,8 @@ const Hour = styled.div`
   }
 `;
 
-export const WeekDay = (props: WeekDayProps) => (
-  <StyledWeekDay>
+export const DayGrid = (props: DayGridProps) => (
+  <StyledDayGrid full={props.full}>
     <Hour />
     <Hour />
     <Hour />
@@ -54,5 +60,5 @@ export const WeekDay = (props: WeekDayProps) => (
       events={props.events}
       onCreateEvent={(timestamp: number) => true}
     />
-  </StyledWeekDay>
+  </StyledDayGrid>
 );
