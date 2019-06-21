@@ -1,14 +1,34 @@
 import React from 'react';
+import styled from 'styled-components';
+
 import { getCurrentWeekDates } from '../utils';
 import { VEvent } from '../types';
 import { HoursLabels, EventGridProps, EventGrid } from '../Day/Day';
+import { WeekLabels } from '../components/WeekLabels';
+import { WeekDay } from './WeekDay';
 
-import './Week.css';
+const StyledWeek = styled.div`
+  flex-grow: 1;
+  display: flex;
+  flex-direction: row;
+  position: absolute;
+  width: 100%;
+  overflow: scroll;
+  height: 100%;
+  padding-left: 32px;
+`;
+
+const WeekWrapper = styled.div`
+  display: flex;
+  flex-direction: row;
+  position: relative;
+  flex-grow: 1;
+`;
 
 type WeekProps = {
   date: Date;
   events: VEvent[];
-  onCreateEvent: (timestamp: number) => void;
+  onCreateEvent: Function;
 };
 
 export const Week = (props: WeekProps) => {
@@ -21,34 +41,16 @@ export const Week = (props: WeekProps) => {
         <div className='cal-view__title'>
           <b>{monthName}</b> {fullYear}
         </div>
-        <div className='cal-view__week__grid-titles'>
-          {week.map((date, index) => (
-            <div key={index} className='cal-view__week__weekday-title'>
-              {date.toLocaleString('en-us', { weekday: 'short' })}{' '}
-              {date.getDate()}
-            </div>
-          ))}
-        </div>
+        <WeekLabels withDates={true} />
       </div>
-      <div className='cal-week__grid-wrapper'>
-        <div className='cal-week__grid'>
+      <WeekWrapper>
+        <StyledWeek>
           <HoursLabels />
           {week.map((date, index) => (
-            <div key={index} className='week-view__day'>
-              {[...Array(24)].map((element, index) => (
-                <div key={index} className='week-view__grid-hour' />
-              ))}
-              <EventGrid
-                date={date}
-                events={props.events}
-                onCreateEvent={(timestamp: number) =>
-                  props.onCreateEvent(timestamp)
-                }
-              />
-            </div>
+            <WeekDay key={index} date={date} events={props.events} />
           ))}
-        </div>
-      </div>
+        </StyledWeek>
+      </WeekWrapper>
     </div>
   );
 };
