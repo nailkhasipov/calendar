@@ -12,3 +12,6 @@ body {
   font-family: Arial, Helvetica, sans-serif;
   color: #2e2e2e;
 }
+#root {
+  height: 100%;
+}

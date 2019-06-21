@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import styled from 'styled-components';
 import { VEvent, Views, Navigate } from './types';
 import { Toolbar } from './components/Toolbar';
 import { Sidebar } from './components/Sidebar';
@@ -11,6 +12,13 @@ import { Week } from './Week/Week';
 import { Month } from './Month/Month';
 
 const getEvents = () => JSON.parse(localStorage.getItem('events') || '[]');
+
+const StyledCalendar = styled.div`
+  height: 100%;
+  display: grid;
+  grid-template-rows: 60px auto;
+  grid-template-columns: 260px auto;
+`;
 
 export const App = () => {
   const [events, setEvents] = useState(getEvents());
@@ -57,7 +65,7 @@ export const App = () => {
     if (view === Views.MONTH) return <Month date={date} events={events} />;
   };
   return (
-    <div className='cal'>
+    <StyledCalendar>
       <Toolbar
         view={view}
         onNavigate={(to: Navigate) => handleNavigate(to)}
@@ -68,6 +76,6 @@ export const App = () => {
         onDateChange={(date: Date) => handleDateChange(date)}
       />
       {renderView()}
-    </div>
+    </StyledCalendar>
   );
 };
