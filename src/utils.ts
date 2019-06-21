@@ -134,4 +134,8 @@ export const translatePositionByPxToDate = (
   return date.setHours(hours, minutes);
 };
 
+export const getMonthNameFromDate = (date: Date) =>
+  date.toLocaleString('en-us', { month: 'long' });
+export const getFullYearFromDate = (date: Date) => date.getFullYear();
+
 export { getMondayDate, getDateTitle, formatDate };
