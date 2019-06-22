@@ -1,18 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 import { VEvent } from '../types';
-import {
-  FullCalView,
-  FullCalViewHeader,
-  FullCalViewHeaderTitle
-} from '../Day/Day';
-import {
-  getMonthArrayWithOffsetAndEvents,
-  getMonthNameFromDate,
-  getFullYearFromDate
-} from '../utils';
+import { getMonthArrayWithOffsetAndEvents } from '../utils';
 
-import { WeekLabels } from '../components/WeekLabels';
 import { MonthDay } from './MonthDay';
 
 type MonthProps = {
@@ -34,19 +24,10 @@ export const Month = (props: MonthProps) => {
     true
   );
   return (
-    <FullCalView>
-      <FullCalViewHeader>
-        <FullCalViewHeaderTitle>
-          <b>{getMonthNameFromDate(props.date)}</b>{' '}
-          {getFullYearFromDate(props.date)}
-        </FullCalViewHeaderTitle>
-        <WeekLabels />
-      </FullCalViewHeader>
-      <MonthTable>
-        {monthArray.map((day: any, index) => (
-          <MonthDay key={index} date={day.date} />
-        ))}
-      </MonthTable>
-    </FullCalView>
+    <MonthTable>
+      {monthArray.map((day: any, index) => (
+        <MonthDay key={index} date={day.date} />
+      ))}
+    </MonthTable>
   );
 };

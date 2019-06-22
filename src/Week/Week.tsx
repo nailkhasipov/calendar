@@ -1,16 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import {
-  FullCalView,
-  FullCalViewHeader,
-  FullCalViewHeaderTitle
-} from '../Day/Day';
-
 import { getCurrentWeekDates } from '../utils';
 import { VEvent } from '../types';
 import { HoursLabels } from '../Day/HoursLabels';
-import { WeekLabels } from '../components/WeekLabels';
 import { DayGrid } from '../Day/DayGrid';
 
 const StyledWeek = styled.div`
@@ -42,26 +35,11 @@ export const Week = (props: WeekProps) => {
   const fullYear = props.date.getFullYear();
   const week = getCurrentWeekDates();
   return (
-    <FullCalView>
-      <FullCalViewHeader>
-        <FullCalViewHeaderTitle>
-          <b>{monthName}</b> {fullYear}
-        </FullCalViewHeaderTitle>
-        <WeekLabels withDates={true} />
-      </FullCalViewHeader>
-      <WeekWrapper>
-        <StyledWeek>
-          <HoursLabels />
-          {week.map((date, index) => (
-            <DayGrid
-              key={index}
-              full={false}
-              date={date}
-              events={props.events}
-            />
-          ))}
-        </StyledWeek>
-      </WeekWrapper>
-    </FullCalView>
+    <StyledWeek>
+      <HoursLabels />
+      {week.map((date, index) => (
+        <DayGrid key={index} full={false} date={date} events={props.events} />
+      ))}
+    </StyledWeek>
   );
 };

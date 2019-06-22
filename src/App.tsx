@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import { VEvent, Views, Navigate } from './types';
+
+import { Views, Navigate } from './types';
 import { Toolbar } from './components/Toolbar';
 import { Sidebar } from './components/Sidebar';
 import { Day } from './Day/Day';
@@ -9,6 +10,12 @@ import { getToday, getNextDay, getPreviousDay } from './utils';
 import 'normalize.css';
 import { Week } from './Week/Week';
 import { Month } from './Month/Month';
+import {
+  FullCalView,
+  FullCalViewHeader,
+  FullCalViewHeaderTitle,
+  FullCalViewGridWrapper
+} from './styled/FullCal';
 
 const getEvents = () => JSON.parse(localStorage.getItem('events') || '[]');
 
@@ -44,25 +51,24 @@ export const App = () => {
     setEvents([...events, event]);
     localStorage.setItem('events', JSON.stringify([...events, event]));
   };
-  const renderView = () => {
-    if (view === Views.DAY)
-      return (
-        <Day
-          date={date}
-          onCreateEvent={(timestamp: number) => handleCreateEvent(timestamp)}
-          events={events}
-        />
-      );
-    if (view === Views.WEEK)
-      return (
-        <Week
-          date={date}
-          events={events}
-          onCreateEvent={(timestamp: number) => handleCreateEvent(timestamp)}
-        />
-      );
-    if (view === Views.MONTH) return <Month date={date} events={events} />;
-  };
+  let calView;
+  if (view === Views.DAY)
+    calView = (
+      <Day
+        date={date}
+        onCreateEvent={(timestamp: number) => handleCreateEvent(timestamp)}
+        events={events}
+      />
+    );
+  if (view === Views.WEEK)
+    calView = (
+      <Week
+        date={date}
+        events={events}
+        onCreateEvent={(timestamp: number) => handleCreateEvent(timestamp)}
+      />
+    );
+  if (view === Views.MONTH) calView = <Month date={date} events={events} />;
   return (
     <StyledCalendar>
       <Toolbar
@@ -74,7 +80,14 @@ export const App = () => {
         date={date}
         onDateChange={(date: Date) => handleDateChange(date)}
       />
-      {renderView()}
+      <FullCalView>
+        <FullCalViewHeader>
+          <FullCalViewHeaderTitle>
+            FullCalViewHeaderTitle
+          </FullCalViewHeaderTitle>
+        </FullCalViewHeader>
+        <FullCalViewGridWrapper>{calView}</FullCalViewGridWrapper>
+      </FullCalView>
     </StyledCalendar>
   );
 };
