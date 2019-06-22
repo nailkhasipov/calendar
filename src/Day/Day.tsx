@@ -4,7 +4,7 @@ import { VEvent } from '../types';
 import { HoursLabels } from './HoursLabels';
 import { DayGrid } from './DayGrid';
 
-import { FullCalViewGridWrapper, FullCalViewGrid } from '../styled/FullCal';
+import { FullCalViewGrid } from '../styled/FullCal';
 
 type DayProps = {
   date: Date;
@@ -13,10 +13,6 @@ type DayProps = {
 };
 
 export const Day = (props: DayProps) => {
-  const day = props.date.getDate();
-  const monthName = props.date.toLocaleString('en-us', { month: 'long' });
-  const fullYear = props.date.getFullYear();
-  const dayName = props.date.toLocaleString('en-us', { weekday: 'long' });
   return (
     <FullCalViewGrid>
       <HoursLabels />

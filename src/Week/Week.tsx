@@ -31,8 +31,6 @@ type WeekProps = {
 };
 
 export const Week = (props: WeekProps) => {
-  const monthName = props.date.toLocaleString('en-us', { month: 'long' });
-  const fullYear = props.date.getFullYear();
   const week = getCurrentWeekDates();
   return (
     <StyledWeek>
