@@ -1,12 +1,13 @@
-import React from 'react';
-import styled from 'styled-components';
+import React, { useContext } from "react";
+import styled from "styled-components";
+import { StateContext } from "../state";
 import {
   getMonthArray,
   getDateTitle,
   isOffsetDay,
   isSelectedDay,
   isToday
-} from '../utils';
+} from "../utils";
 
 const today = new Date();
 
