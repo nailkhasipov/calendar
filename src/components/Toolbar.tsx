@@ -1,6 +1,6 @@
-import React from 'react';
-import styled from 'styled-components';
-import { Views, Navigate } from '../types';
+import React from "react";
+import styled from "styled-components";
+import { Views, Navigate } from "../types";
 
 export type ToolbarProps = {
   view: Views;
@@ -12,42 +12,48 @@ export const Toolbar = (props: ToolbarProps) => (
   <StyledToolbar>
     <ButtonGroup>
       <Button
-        data-testid='navigate-today'
+        data-testid="create-event"
+        onClick={() => props.onNavigate(Navigate.CREATE)}
+      >
+        Create
+      </Button>
+      <Button
+        data-testid="navigate-today"
         onClick={() => props.onNavigate(Navigate.TODAY)}
       >
         Today
       </Button>
       <Button
-        data-testid='navigate-previous'
+        data-testid="navigate-previous"
         onClick={() => props.onNavigate(Navigate.PREVIOUS)}
       >
-        {'<'}
+        {"<"}
       </Button>
       <Button
-        data-testid='navigate-next'
+        data-testid="navigate-next"
         onClick={() => props.onNavigate(Navigate.NEXT)}
       >
-        {'>'}
+        {">"}
       </Button>
     </ButtonGroup>
     <ButtonGroup>
       <Button
-        className={props.view === Views.DAY ? 'active' : ''}
-        data-testid='change-view-day'
+        className={props.view === Views.DAY ? "active" : ""}
+        data-testid="change-view-day"
         onClick={() => props.onChangeView(Views.DAY)}
       >
         Day
       </Button>
       <Button
-        className={props.view === Views.WEEK ? 'active' : ''}
-        data-testid='change-view-week'
+        className={props.view === Views.WEEK ? "active" : ""}
+        data-testid="change-view-week"
         onClick={() => props.onChangeView(Views.WEEK)}
       >
         Week
       </Button>
       <Button
-        className={props.view === Views.MONTH ? 'active' : ''}
-        data-testid='change-view-month'
+        className={props.view === Views.MONTH ? "active" : ""}
+        data-testid="change-view-month"
         onClick={() => props.onChangeView(Views.MONTH)}
       >
         Month

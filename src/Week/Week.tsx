@@ -1,10 +1,10 @@
-import React from 'react';
-import styled from 'styled-components';
+import React from "react";
+import styled from "styled-components";
 
-import { getCurrentWeekDates } from '../utils';
-import { VEvent } from '../types';
-import { HoursLabels } from '../Day/HoursLabels';
-import { DayGrid } from '../Day/DayGrid';
+import { getCurrentWeekDates } from "../utils";
+import { VEvent } from "../types";
+import { HoursLabels } from "../Day/HoursLabels";
+import { DayGrid } from "../Day/DayGrid";
 
 const StyledWeek = styled.div`
   flex-grow: 1;
@@ -26,8 +26,6 @@ const WeekWrapper = styled.div`
 
 type WeekProps = {
   date: Date;
-  events: VEvent[];
-  onCreateEvent: Function;
 };
 
 export const Week = (props: WeekProps) => {
@@ -36,7 +34,7 @@ export const Week = (props: WeekProps) => {
     <StyledWeek>
       <HoursLabels />
       {week.map((date, index) => (
-        <DayGrid key={index} full={false} date={date} events={props.events} />
+        <DayGrid key={index} full={false} date={date} />
       ))}
     </StyledWeek>
   );
