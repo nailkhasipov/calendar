@@ -1,6 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
+import Modal from "react-responsive-modal";
 import { Views, Navigate } from "../types";
+import { EventCard } from "./EventCard";
 
 export type ToolbarProps = {
   view: Views;
@@ -8,59 +10,70 @@ export type ToolbarProps = {
   onChangeView: (view: Views) => void;
 };
 
-export const Toolbar = (props: ToolbarProps) => (
-  <StyledToolbar>
-    <ButtonGroup>
-      <Button
-        data-testid="create-event"
-        onClick={() => props.onNavigate(Navigate.CREATE)}
-      >
-        Create
-      </Button>
-      <Button
-        data-testid="navigate-today"
-        onClick={() => props.onNavigate(Navigate.TODAY)}
-      >
-        Today
-      </Button>
-      <Button
-        data-testid="navigate-previous"
-        onClick={() => props.onNavigate(Navigate.PREVIOUS)}
-      >
-        {"<"}
-      </Button>
-      <Button
-        data-testid="navigate-next"
-        onClick={() => props.onNavigate(Navigate.NEXT)}
-      >
-        {">"}
-      </Button>
-    </ButtonGroup>
-    <ButtonGroup>
-      <Button
-        className={props.view === Views.DAY ? "active" : ""}
-        data-testid="change-view-day"
-        onClick={() => props.onChangeView(Views.DAY)}
-      >
-        Day
-      </Button>
-      <Button
-        className={props.view === Views.WEEK ? "active" : ""}
-        data-testid="change-view-week"
-        onClick={() => props.onChangeView(Views.WEEK)}
-      >
-        Week
-      </Button>
-      <Button
-        className={props.view === Views.MONTH ? "active" : ""}
-        data-testid="change-view-month"
-        onClick={() => props.onChangeView(Views.MONTH)}
-      >
-        Month
-      </Button>
-    </ButtonGroup>
-  </StyledToolbar>
-);
+export const Toolbar = (props: ToolbarProps) => {
+  const [open, setOpen] = useState(false);
+  const onCloseModal = () => {
+    setOpen(false);
+  };
+
+  const onOpen = () => {
+    setOpen(true);
+  };
+
+  return (
+    <StyledToolbar>
+      <ButtonGroup>
+        <Button data-testid="create-event" onClick={() => onOpen()}>
+          Create
+        </Button>
+        <Button
+          data-testid="navigate-today"
+          onClick={() => props.onNavigate(Navigate.TODAY)}
+        >
+          Today
+        </Button>
+        <Button
+          data-testid="navigate-previous"
+          onClick={() => props.onNavigate(Navigate.PREVIOUS)}
+        >
+          {"<"}
+        </Button>
+        <Button
+          data-testid="navigate-next"
+          onClick={() => props.onNavigate(Navigate.NEXT)}
+        >
+          {">"}
+        </Button>
+      </ButtonGroup>
+      <ButtonGroup>
+        <Button
+          className={props.view === Views.DAY ? "active" : ""}
+          data-testid="change-view-day"
+          onClick={() => props.onChangeView(Views.DAY)}
+        >
+          Day
+        </Button>
+        <Button
+          className={props.view === Views.WEEK ? "active" : ""}
+          data-testid="change-view-week"
+          onClick={() => props.onChangeView(Views.WEEK)}
+        >
+          Week
+        </Button>
+        <Button
+          className={props.view === Views.MONTH ? "active" : ""}
+          data-testid="change-view-month"
+          onClick={() => props.onChangeView(Views.MONTH)}
+        >
+          Month
+        </Button>
+      </ButtonGroup>
+      <Modal open={open} onClose={onCloseModal} center>
+        <EventCard></EventCard>
+      </Modal>
+    </StyledToolbar>
+  );
+};
 
 const StyledToolbar = styled.div`
   grid-column-start: 1;

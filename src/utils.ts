@@ -139,3 +139,21 @@ export const getMonthNameFromDate = (date: Date) =>
 export const getFullYearFromDate = (date: Date) => date.getFullYear();
 
 export { getMondayDate, getDateTitle, formatDate };
+
+export const getFullDate = (date: Date) => {
+  const inputDate =
+    date.getFullYear() +
+    "-" +
+    ("0" + (date.getMonth() + 1)).slice(-2) +
+    "-" +
+    ("0" + date.getDate()).slice(-2);
+  return inputDate;
+};
+
+export const getTime = (date: Date, limitTime: string) => {
+  const minutes = date.getMinutes();
+  let hours = date.getHours();
+  limitTime === "endTime" ? hours += 1 : hours;
+  const time = hours + ":" + minutes;
+  return time;
+};
