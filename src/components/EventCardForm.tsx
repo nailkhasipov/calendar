@@ -2,15 +2,15 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import { getToday, getFullDate, getTime } from "../utils";
 
-export const EventCard = () => {
+export const EventCardForm = (props: any) => {
   const date = getToday();
   const getEvents = () => JSON.parse(localStorage.getItem("events") || "[]");
   const [events, setEvents] = useState(getEvents());
   const [eventValue, setEventValue] = useState({
     title: "",
-    startTime: getTime(date, "startTime"),
+    startTime: "",
     startDate: getFullDate(date),
-    endTime: getTime(date, "endTime"),
+    endTime: "",
     endDate: getFullDate(date)
   });
   const handleEventChange = (e: { target: HTMLInputElement }) => {
@@ -18,7 +18,6 @@ export const EventCard = () => {
     const value = e.target.value;
     setEventValue({ ...eventValue, [name]: value });
   };
-
   const handleAddEvent = () => {
     const event = {
       title: eventValue.title,
@@ -29,6 +28,7 @@ export const EventCard = () => {
     };
     setEvents([...events, event]);
     localStorage.setItem("events", JSON.stringify([...events, event]));
+    props.onCloseModal;
   };
 
   return (
@@ -48,13 +48,11 @@ export const EventCard = () => {
       <EventTime
         name="startTime"
         type="time"
-        defaultValue={getTime(date, "startTime")}
         onChange={e => handleEventChange(e)}
       ></EventTime>
       <EventTime
         name="endTime"
         type="time"
-        defaultValue={getTime(date, "endTime")}
         onChange={e => handleEventChange(e)}
       ></EventTime>
       <EventDate
