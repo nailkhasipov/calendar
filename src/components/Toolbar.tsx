@@ -23,9 +23,7 @@ export const Toolbar = (props: ToolbarProps) => {
   return (
     <StyledToolbar>
       <ButtonGroup>
-        <Button data-testid="create-event" onClick={() => onOpen()}>
-          Create
-        </Button>
+        <Button onClick={() => onOpen()}>Create</Button>
         <Button
           data-testid="navigate-today"
           onClick={() => props.onNavigate(Navigate.TODAY)}

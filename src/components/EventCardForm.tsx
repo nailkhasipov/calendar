@@ -28,7 +28,7 @@ export const EventCardForm = (props: any) => {
     };
     setEvents([...events, event]);
     localStorage.setItem("events", JSON.stringify([...events, event]));
-    props.onCloseModal;
+    props.onCloseModal();
   };
 
   return (
@@ -37,33 +37,39 @@ export const EventCardForm = (props: any) => {
         type="text"
         placeholder="Добавьте название"
         name="title"
+        data-testid="eventInput"
         onChange={e => handleEventChange(e)}
       />
       <EventDate
         name="startDate"
         type="date"
+        data-testid="eventInput"
         defaultValue={getFullDate(date)}
         onChange={e => handleEventChange(e)}
       ></EventDate>
       <EventTime
         name="startTime"
         type="time"
+        data-testid="eventInput"
         onChange={e => handleEventChange(e)}
       ></EventTime>
       <EventTime
         name="endTime"
         type="time"
+        data-testid="eventInput"
         onChange={e => handleEventChange(e)}
       ></EventTime>
       <EventDate
         name="endDate"
         type="date"
+        data-testid="eventInput"
         defaultValue={getFullDate(date)}
         onChange={e => handleEventChange(e)}
       ></EventDate>
       <EventSave
         type="button"
         value="Сохранить"
+        data-testid="save"
         onClick={() => handleAddEvent()}
       ></EventSave>
     </div>

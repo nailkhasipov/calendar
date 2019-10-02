@@ -1,0 +1,97 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`EventCardForm component render correctly 1`] = `
+.c0 {
+  width: 80%;
+  height: 28px;
+  font-size: 22px;
+  color: #3c4043;
+  border: none;
+  border-bottom: 1px solid #dadce0;
+  margin-top: 30px;
+  padding: 5px;
+  outline: none;
+}
+
+.c0:focus {
+  border-bottom: 1px solid #4285f4;
+}
+
+.c1 {
+  border: none;
+  border-bottom: 1px solid #dadce0;
+  margin-top: 30px;
+  outline: none;
+  margin-left: 10px;
+}
+
+.c1:focus {
+  border-bottom: 1px solid #4285f4;
+}
+
+.c2 {
+  border: none;
+  border-bottom: 1px solid #dadce0;
+  margin-top: 30px;
+  margin-left: 10px;
+  outline: none;
+}
+
+.c2:focus {
+  border-bottom: 1px solid #4285f4;
+}
+
+.c3 {
+  width: 122px;
+  height: 37px;
+  color: white;
+  font-size: 14px;
+  background-color: #1a73e8;
+  padding: 0 24px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+<div>
+  <input
+    class="c0"
+    data-testid="eventInput"
+    name="title"
+    placeholder="Добавьте название"
+    type="text"
+  />
+  <input
+    class="c1"
+    data-testid="eventInput"
+    name="startDate"
+    type="date"
+    value="2019-10-02"
+  />
+  <input
+    class="c2"
+    data-testid="eventInput"
+    name="startTime"
+    type="time"
+  />
+  <input
+    class="c2"
+    data-testid="eventInput"
+    name="endTime"
+    type="time"
+  />
+  <input
+    class="c1"
+    data-testid="eventInput"
+    name="endDate"
+    type="date"
+    value="2019-10-02"
+  />
+  <input
+    class="c3"
+    data-testid="save"
+    type="button"
+    value="Сохранить"
+  />
+</div>
+`;

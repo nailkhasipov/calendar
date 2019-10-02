@@ -83,6 +83,11 @@ exports[`Toolbar component renders correctly 1`] = `
   >
     <button
       class="c2 c3"
+    >
+      Create
+    </button>
+    <button
+      class="c2 c3"
       data-testid="navigate-today"
     >
       Today
