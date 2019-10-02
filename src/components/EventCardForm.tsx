@@ -8,9 +8,9 @@ export const EventCardForm = (props: any) => {
   const [events, setEvents] = useState(getEvents());
   const [eventValue, setEventValue] = useState({
     title: "",
-    startTime: "",
+    startTime: getTime(date, "startTime"),
     startDate: getFullDate(date),
-    endTime: "",
+    endTime: getTime(date, "endTime"),
     endDate: getFullDate(date)
   });
   const handleEventChange = (e: { target: HTMLInputElement }) => {
@@ -51,12 +51,14 @@ export const EventCardForm = (props: any) => {
         name="startTime"
         type="time"
         data-testid="eventInput"
+        defaultValue={getTime(date, "startTime")}
         onChange={e => handleEventChange(e)}
       ></EventTime>
       <EventTime
         name="endTime"
         type="time"
         data-testid="eventInput"
+        defaultValue={getTime(date, "endTime")}
         onChange={e => handleEventChange(e)}
       ></EventTime>
       <EventDate
@@ -117,13 +119,5 @@ const EventTime = styled.input`
 `;
 
 const EventSave = styled.input`
-  width: 122px;
-  height: 37px;
-  color: white;
-  font-size: 14px;
-  background-color: #1a73e8;
-  padding: 0 24px;
-  border: none;
-  border-radius: 4px;
   cursor: pointer;
 `;

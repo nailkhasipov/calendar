@@ -151,9 +151,11 @@ export const getFullDate = (date: Date) => {
 };
 
 export const getTime = (date: Date, limitTime: string) => {
-  const minutes = date.getMinutes();
-  let hours = date.getHours();
-  limitTime === "endTime" ? hours += 1 : hours;
-  const time = hours + ":" + minutes;
+  let minutes = date.getMinutes();
+  let currentHours = date.getHours();
+  //@ts-ignore
+  currentHours = ("0" + currentHours).slice(-2);
+  limitTime === "endTime" ? (minutes += 10) : minutes;
+  const time = currentHours + ":" + minutes;
   return time;
 };

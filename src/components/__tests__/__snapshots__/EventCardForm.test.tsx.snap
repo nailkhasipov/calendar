@@ -42,14 +42,6 @@ exports[`EventCardForm component render correctly 1`] = `
 }
 
 .c3 {
-  width: 122px;
-  height: 37px;
-  color: white;
-  font-size: 14px;
-  background-color: #1a73e8;
-  padding: 0 24px;
-  border: none;
-  border-radius: 4px;
   cursor: pointer;
 }
 
@@ -66,26 +58,28 @@ exports[`EventCardForm component render correctly 1`] = `
     data-testid="eventInput"
     name="startDate"
     type="date"
-    value="2019-10-02"
+    value="2019-10-03"
   />
   <input
     class="c2"
     data-testid="eventInput"
     name="startTime"
     type="time"
+    value="00:59"
   />
   <input
     class="c2"
     data-testid="eventInput"
     name="endTime"
     type="time"
+    value="00:69"
   />
   <input
     class="c1"
     data-testid="eventInput"
     name="endDate"
     type="date"
-    value="2019-10-02"
+    value="2019-10-03"
   />
   <input
     class="c3"
