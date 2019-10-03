@@ -13,7 +13,10 @@ describe("EventCardForm component", () => {
   });
 
   it("change eventForm", () => {
-    const { getByTestId } = render(<EventCardForm />);
+    const onCloseModal = jest.fn();
+    const { getByTestId } = render(
+      <EventCardForm onCloseModal={onCloseModal} />
+    );
     const contentInput = getByTestId("eventInput");
     const submitButton = getByTestId("save");
     //@ts-ignore
