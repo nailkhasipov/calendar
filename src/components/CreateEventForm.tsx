@@ -1,5 +1,8 @@
 import React, { useState } from "react";
 import styled from "styled-components";
+
+import { Button } from "./Button";
+import { Form, FormField, Input } from "./Form";
 import { getToday, getFullDate, getTime } from "../utils";
 
 export const CreateEventForm = (props: any) => {
@@ -32,92 +35,71 @@ export const CreateEventForm = (props: any) => {
   };
 
   return (
-    <div>
-      <EventTitle
-        type="text"
-        placeholder="Добавьте название"
-        name="title"
-        data-testid="eventInput"
-        onChange={e => handleEventChange(e)}
-      />
-      <EventDate
-        name="startDate"
-        type="date"
-        data-testid="eventInput"
-        defaultValue={getFullDate(date)}
-        onChange={e => handleEventChange(e)}
-      ></EventDate>
-      <EventTime
-        name="startTime"
-        type="time"
-        data-testid="eventInput"
-        defaultValue={getTime(date, "startTime")}
-        onChange={e => handleEventChange(e)}
-      ></EventTime>
-      <EventTime
-        name="endTime"
-        type="time"
-        data-testid="eventInput"
-        defaultValue={getTime(date, "endTime")}
-        onChange={e => handleEventChange(e)}
-      ></EventTime>
-      <EventDate
-        name="endDate"
-        type="date"
-        data-testid="eventInput"
-        defaultValue={getFullDate(date)}
-        onChange={e => handleEventChange(e)}
-      ></EventDate>
-      <EventSave
-        type="button"
-        value="Сохранить"
-        data-testid="save"
-        onClick={() => handleAddEvent()}
-      ></EventSave>
-    </div>
+    <StyledCreateEventForm>
+      <Form>
+        <FormField label="Title">
+          <Input
+            type="text"
+            placeholder="Event Title"
+            name="title"
+            data-testid="eventInput"
+            onChange={e => handleEventChange(e)}
+          />
+        </FormField>
+        <FormField label="Starts">
+          <EventDate
+            name="startDate"
+            type="date"
+            data-testid="eventInput"
+            defaultValue={getFullDate(date)}
+            onChange={e => handleEventChange(e)}
+          ></EventDate>
+          <EventTime
+            name="startTime"
+            type="time"
+            data-testid="eventInput"
+            defaultValue="12:00"
+            onChange={e => handleEventChange(e)}
+          ></EventTime>
+        </FormField>
+        <FormField label="Ends">
+          <EventDate
+            name="endDate"
+            type="date"
+            data-testid="eventInput"
+            defaultValue={getFullDate(date)}
+            onChange={e => handleEventChange(e)}
+          ></EventDate>
+          <EventTime
+            name="endTime"
+            type="time"
+            data-testid="eventInput"
+            defaultValue="13:00"
+            onChange={e => handleEventChange(e)}
+          ></EventTime>
+        </FormField>
+        <FormField>
+          <div />
+          <Button data-testid="save" onClick={() => handleAddEvent()}>
+            Save
+          </Button>
+        </FormField>
+      </Form>
+    </StyledCreateEventForm>
   );
 };
 
-const EventTitle = styled.input`
-  width: 80%;
-  height: 28px;
-  font-size: 22px;
-  color: #3c4043;
-  border: none;
-  border-bottom: 1px solid #dadce0;
-  margin-top: 30px;
-  padding: 5px;
-  outline: none;
-
-  &:focus {
-    border-bottom: 1px solid #4285f4;
-  }
+const StyledCreateEventForm = styled.div`
+  padding-left: 8px;
+  padding-right: 8px;
+  padding-top: 32px;
 `;
 
-const EventDate = styled.input`
-  border: none;
-  border-bottom: 1px solid #dadce0;
-  margin-top: 30px;
-  outline: none;
-  margin-left: 10px;
-
-  &:focus {
-    border-bottom: 1px solid #4285f4;
-  }
+const EventDate = styled(Input)`
+  flex-grow: 1;
+  margin-right: 8px;
 `;
 
-const EventTime = styled.input`
-  border: none;
-  border-bottom: 1px solid #dadce0;
-  margin-top: 30px;
-  margin-left: 10px;
-  outline: none;
-
-  &:focus {
-    border-bottom: 1px solid #4285f4;
-  }
-`;
-
-const EventSave = styled.input`
-  cursor: pointer;
+const EventTime = styled(Input)`
+  flex-grow: 1;
 `;
