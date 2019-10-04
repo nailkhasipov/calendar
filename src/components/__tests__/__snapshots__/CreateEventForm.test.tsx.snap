@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`EventCardForm component render correctly 1`] = `
+exports[`CreateEventForm component render correctly 1`] = `
 .c0 {
   width: 80%;
   height: 28px;
@@ -65,14 +65,14 @@ exports[`EventCardForm component render correctly 1`] = `
     data-testid="eventInput"
     name="startTime"
     type="time"
-    value="06:53"
+    value="06:57"
   />
   <input
     class="c2"
     data-testid="eventInput"
     name="endTime"
     type="time"
-    value="06:63"
+    value="06:67"
   />
   <input
     class="c1"
