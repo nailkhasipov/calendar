@@ -1,32 +1,24 @@
-import React, { useState, useReducer } from 'react';
-import styled from 'styled-components';
+import React, { useState, useReducer } from "react";
+import styled from "styled-components";
 
-import { StateProvider } from './state';
+import { StateProvider } from "./state";
 
-import { Views, Navigate } from './types';
-import { Toolbar } from './components/Toolbar';
-import { Sidebar } from './components/Sidebar';
-import { DayHeader } from './Day/DayHeader';
-import { WeekHeader } from './Week/WeekHeader';
-import { MonthHeader } from './Month/MonthHeader';
-import { Day } from './Day/Day';
-import { getToday, getNextDay, getPreviousDay } from './utils';
+import { Views, Navigate } from "./types";
+import { Toolbar } from "./components/Toolbar";
+import { Sidebar } from "./components/Sidebar";
+import { DayHeader } from "./Day/DayHeader";
+import { WeekHeader } from "./Week/WeekHeader";
+import { MonthHeader } from "./Month/MonthHeader";
+import { Day } from "./Day/Day";
+import { getToday, getNextDay, getPreviousDay } from "./utils";
 
-import 'normalize.css';
-import { Week } from './Week/Week';
-import { Month } from './Month/Month';
-import { FullCalView, FullCalViewGridWrapper } from './styled/FullCal';
+import "normalize.css";
+import { Week } from "./Week/Week";
+import { Month } from "./Month/Month";
+import { FullCalView, FullCalViewGridWrapper } from "./styled/FullCal";
+import { object } from "prop-types";
 
 export const CurrentDateContext = React.createContext(new Date());
-
-const getEvents = () => JSON.parse(localStorage.getItem('events') || '[]');
-
-const StyledCalendar = styled.div`
-  height: 100%;
-  display: grid;
-  grid-template-rows: 60px auto;
-  grid-template-columns: 260px auto;
-`;
 
 const initialState = { date: new Date() };
 
@@ -48,7 +40,6 @@ const reducer = (state: any, action: any) => {
 };
 
 export const App = () => {
-  const [events, setEvents] = useState(getEvents());
   const [date, setDate] = useState(getToday());
   const [view, setView] = useState(Views.DAY);
   const handleNavigate = (to: Navigate) => {
@@ -62,40 +53,18 @@ export const App = () => {
   const handleDateChange = (date: Date) => {
     setDate(date);
   };
-  const handleCreateEvent = (timestamp: number) => {
-    const title = prompt('Title');
-    const event = {
-      title: title,
-      start: new Date(timestamp).getTime(),
-      end: new Date(timestamp).getTime()
-    };
-    setEvents([...events, event]);
-    localStorage.setItem('events', JSON.stringify([...events, event]));
-  };
   let calViewHeader, calView;
   if (view === Views.DAY) {
     calViewHeader = <DayHeader date={date} />;
-    calView = (
-      <Day
-        date={date}
-        onCreateEvent={(timestamp: number) => handleCreateEvent(timestamp)}
-        events={events}
-      />
-    );
+    calView = <Day date={date} />;
   }
   if (view === Views.WEEK) {
     calViewHeader = <WeekHeader date={date} />;
-    calView = (
-      <Week
-        date={date}
-        events={events}
-        onCreateEvent={(timestamp: number) => handleCreateEvent(timestamp)}
-      />
-    );
+    calView = <Week date={date} />;
   }
   if (view === Views.MONTH) {
     calViewHeader = <MonthHeader date={date} />;
-    calView = <Month date={date} events={events} />;
+    calView = <Month date={date} />;
   }
   return (
     <StateProvider initialState={initialState} reducer={reducer}>
@@ -117,3 +86,10 @@ export const App = () => {
     </StateProvider>
   );
 };
+
+const StyledCalendar = styled.div`
+  height: 100%;
+  display: grid;
+  grid-template-rows: 60px auto;
+  grid-template-columns: 260px auto;
+`;

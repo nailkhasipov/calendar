@@ -1,13 +1,11 @@
-import React from 'react';
-import styled from 'styled-components';
+import React from "react";
+import styled from "styled-components";
 
-import { VEvent } from '../types';
-import { EventGrid } from '../Day/EventGrid';
+import { VEvent } from "../types";
 
 type DayGridProps = {
   full?: boolean;
   date: Date;
-  events: VEvent[];
 };
 
 type StyledDayGridProps = {
@@ -16,7 +14,7 @@ type StyledDayGridProps = {
 
 const StyledDayGrid = styled.div`
   width: ${(props: StyledDayGridProps) =>
-    props.full ? '100%' : '14.2857142857%'};
+    props.full ? "100%" : "14.2857142857%"};
   padding-top: 6px;
   position: relative;
 `;
@@ -55,10 +53,5 @@ export const DayGrid = (props: DayGridProps) => (
     <Hour />
     <Hour />
     <Hour />
-    <EventGrid
-      date={props.date}
-      events={props.events}
-      onCreateEvent={(timestamp: number) => true}
-    />
   </StyledDayGrid>
 );

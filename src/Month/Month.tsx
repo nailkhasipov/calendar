@@ -1,13 +1,12 @@
-import React from 'react';
-import styled from 'styled-components';
-import { VEvent } from '../types';
-import { getMonthArrayWithOffsetAndEvents } from '../utils';
+import React from "react";
+import styled from "styled-components";
+import { VEvent } from "../types";
+import { getMonthArrayWithOffsetAndEvents } from "../utils";
 
-import { MonthDay } from './MonthDay';
+import { MonthDay } from "./MonthDay";
 
 type MonthProps = {
   date: Date;
-  events: VEvent[];
 };
 
 const MonthTable = styled.div`

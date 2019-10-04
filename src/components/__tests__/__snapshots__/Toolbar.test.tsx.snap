@@ -1,6 +1,57 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Toolbar component renders correctly 1`] = `
+.c4 {
+  display: inline-block;
+  zoom: 1;
+  line-height: normal;
+  white-space: nowrap;
+  vertical-align: middle;
+  text-align: center;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  outline: none;
+  font-size: 13px;
+  padding: 0.5em 1em;
+  border: 1px solid rgba(0,0,0,0.2);
+  border-radius: 3px;
+  text-align: center;
+}
+
+.c4:hover {
+  background-image: linear-gradient( transparent, rgba(0,0,0,0.05) 40%, rgba(0,0,0,0.1) );
+}
+
+.c4.active {
+  background-image: linear-gradient( transparent, rgba(0,0,0,0.05) 40%, rgba(0,0,0,0.1) );
+}
+
+.c2 {
+  margin: 0;
+  border-radius: 0;
+  border-right: none;
+}
+
+.c2 .c3 {
+  margin: 0;
+  border-radius: 0;
+  border-right: none;
+}
+
+.c2 .c3:first-child {
+  border-top-left-radius: 3px;
+  border-bottom-left-radius: 3px;
+}
+
+.c2 .c3:last-child {
+  border-top-right-radius: 3px;
+  border-bottom-right-radius: 3px;
+  border-right: 1px solid rgba(0,0,0,0.2);
+}
+
 .c0 {
   grid-column-start: 1;
   grid-column-end: 3;
@@ -24,7 +75,17 @@ exports[`Toolbar component renders correctly 1`] = `
   align-items: center;
 }
 
-.c3 {
+.c1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+}
+
+.c5 {
   display: inline-block;
   zoom: 1;
   line-height: normal;
@@ -42,37 +103,15 @@ exports[`Toolbar component renders correctly 1`] = `
   border: 1px solid rgba(0,0,0,0.2);
   border-radius: 3px;
   text-align: center;
+  margin-left: 16px;
 }
 
-.c3:hover {
+.c5:hover {
   background-image: linear-gradient( transparent, rgba(0,0,0,0.05) 40%, rgba(0,0,0,0.1) );
 }
 
-.c3.active {
+.c5.active {
   background-image: linear-gradient( transparent, rgba(0,0,0,0.05) 40%, rgba(0,0,0,0.1) );
-}
-
-.c1 {
-  margin: 0;
-  border-radius: 0;
-  border-right: none;
-}
-
-.c1 .c2 {
-  margin: 0;
-  border-radius: 0;
-  border-right: none;
-}
-
-.c1 .c2:first-child {
-  border-top-left-radius: 3px;
-  border-bottom-left-radius: 3px;
-}
-
-.c1 .c2:last-child {
-  border-top-right-radius: 3px;
-  border-bottom-right-radius: 3px;
-  border-right: 1px solid rgba(0,0,0,0.2);
 }
 
 <div
@@ -81,42 +120,51 @@ exports[`Toolbar component renders correctly 1`] = `
   <div
     class="c1"
   >
-    <button
-      class="c2 c3"
-      data-testid="navigate-today"
+    <div
+      class="c2"
     >
-      Today
-    </button>
+      <button
+        class="c3 c4"
+        data-testid="navigate-today"
+      >
+        Today
+      </button>
+      <button
+        class="c3 c4"
+        data-testid="navigate-previous"
+      >
+        &lt;
+      </button>
+      <button
+        class="c3 c4"
+        data-testid="navigate-next"
+      >
+        &gt;
+      </button>
+    </div>
     <button
-      class="c2 c3"
-      data-testid="navigate-previous"
+      class="c3 c5"
     >
-      &lt;
-    </button>
-    <button
-      class="c2 c3"
-      data-testid="navigate-next"
-    >
-      &gt;
+      +
     </button>
   </div>
   <div
-    class="c1"
+    class="c2"
   >
     <button
-      class="active c2 c3"
+      class="active c3 c4"
       data-testid="change-view-day"
     >
       Day
     </button>
     <button
-      class="c2 c3"
+      class="c3 c4"
       data-testid="change-view-week"
     >
       Week
     </button>
     <button
-      class="c2 c3"
+      class="c3 c4"
       data-testid="change-view-month"
     >
       Month

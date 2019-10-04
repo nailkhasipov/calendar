@@ -88,8 +88,8 @@ export const getPreviousDay = (date: Date): Date =>
   new Date(date.setDate(date.getDate() - 1));
 
 function getDateTitle(date: Date) {
-  const options = { year: 'numeric', month: 'long' };
-  return date.toLocaleDateString('en-EN', options);
+  const options = { year: "numeric", month: "long" };
+  return date.toLocaleDateString("en-EN", options);
 }
 
 function getMondayDate(date: Date) {
@@ -107,7 +107,7 @@ function formatDate(date: number) {
   if (month.length < 2) month = `0${month}`;
   if (day.length < 2) day = `0${day}`;
 
-  return [year, month, day].join('-');
+  return [year, month, day].join("-");
 }
 
 export const getCurrentWeekDates = () => {
@@ -135,7 +135,27 @@ export const translatePositionByPxToDate = (
 };
 
 export const getMonthNameFromDate = (date: Date) =>
-  date.toLocaleString('en-us', { month: 'long' });
+  date.toLocaleString("en-us", { month: "long" });
 export const getFullYearFromDate = (date: Date) => date.getFullYear();
 
 export { getMondayDate, getDateTitle, formatDate };
+
+export const getFullDate = (date: Date) => {
+  const inputDate =
+    date.getFullYear() +
+    "-" +
+    ("0" + (date.getMonth() + 1)).slice(-2) +
+    "-" +
+    ("0" + date.getDate()).slice(-2);
+  return inputDate;
+};
+
+export const getTime = (date: Date, limitTime: string) => {
+  let minutes = date.getMinutes();
+  let currentHours = date.getHours();
+  //@ts-ignore
+  currentHours = ("0" + currentHours).slice(-2);
+  limitTime === "endTime" ? (minutes += 10) : minutes;
+  const time = currentHours + ":" + minutes;
+  return time;
+};
