@@ -1,91 +1,220 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`CreateEventForm component render correctly 1`] = `
-.c0 {
-  width: 80%;
-  height: 28px;
-  font-size: 22px;
-  color: #3c4043;
-  border: none;
-  border-bottom: 1px solid #dadce0;
-  margin-top: 30px;
-  padding: 5px;
+.c8 {
+  display: inline-block;
+  zoom: 1;
+  line-height: normal;
+  white-space: nowrap;
+  vertical-align: middle;
+  text-align: center;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
   outline: none;
+  font-size: 13px;
+  padding: 0.5em 1em;
+  border: 1px solid rgba(0,0,0,0.2);
+  border-radius: 3px;
+  text-align: center;
 }
 
-.c0:focus {
-  border-bottom: 1px solid #4285f4;
+.c8:hover {
+  background-image: linear-gradient( transparent, rgba(0,0,0,0.05) 40%, rgba(0,0,0,0.1) );
+}
+
+.c8.active {
+  background-image: linear-gradient( transparent, rgba(0,0,0,0.05) 40%, rgba(0,0,0,0.1) );
 }
 
 .c1 {
-  border: none;
-  border-bottom: 1px solid #dadce0;
-  margin-top: 30px;
-  outline: none;
-  margin-left: 10px;
-}
-
-.c1:focus {
-  border-bottom: 1px solid #4285f4;
-}
-
-.c2 {
-  border: none;
-  border-bottom: 1px solid #dadce0;
-  margin-top: 30px;
-  margin-left: 10px;
-  outline: none;
-}
-
-.c2:focus {
-  border-bottom: 1px solid #4285f4;
+  min-width: 320px;
 }
 
 .c3 {
-  cursor: pointer;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  color: #777;
+  font-size: 0.8em;
+  position: relative;
+  width: 100%;
 }
 
-<div>
-  <input
-    class="c0"
-    data-testid="eventInput"
-    name="title"
-    placeholder="Добавьте название"
-    type="text"
-  />
-  <input
+.c5 {
+  width: 100%;
+  height: 35px;
+  background-color: #fff;
+  padding: 0 4px;
+  border-radius: 3px;
+  margin-top: 8px;
+  outline: none;
+  border: 1px solid #ccc;
+}
+
+.c2 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  margin-bottom: 16px;
+}
+
+.c4 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+}
+
+.c0 {
+  padding-left: 8px;
+  padding-right: 8px;
+  padding-top: 32px;
+}
+
+.c6 {
+  width: 100%;
+  height: 35px;
+  background-color: #fff;
+  padding: 0 4px;
+  border-radius: 3px;
+  margin-top: 8px;
+  outline: none;
+  border: 1px solid #ccc;
+  -webkit-box-flex: 1;
+  -webkit-flex-grow: 1;
+  -ms-flex-positive: 1;
+  flex-grow: 1;
+  margin-right: 8px;
+}
+
+.c7 {
+  width: 100%;
+  height: 35px;
+  background-color: #fff;
+  padding: 0 4px;
+  border-radius: 3px;
+  margin-top: 8px;
+  outline: none;
+  border: 1px solid #ccc;
+  -webkit-box-flex: 1;
+  -webkit-flex-grow: 1;
+  -ms-flex-positive: 1;
+  flex-grow: 1;
+}
+
+<div
+  class="c0"
+>
+  <form
     class="c1"
-    data-testid="eventInput"
-    name="startDate"
-    type="date"
-    value="2019-10-04"
-  />
-  <input
-    class="c2"
-    data-testid="eventInput"
-    name="startTime"
-    type="time"
-    value="06:57"
-  />
-  <input
-    class="c2"
-    data-testid="eventInput"
-    name="endTime"
-    type="time"
-    value="06:67"
-  />
-  <input
-    class="c1"
-    data-testid="eventInput"
-    name="endDate"
-    type="date"
-    value="2019-10-04"
-  />
-  <input
-    class="c3"
-    data-testid="save"
-    type="button"
-    value="Сохранить"
-  />
+  >
+    <div
+      class="c2"
+    >
+      <label
+        class="c3"
+      >
+        Title
+      </label>
+      <div
+        class="c4"
+      >
+        <input
+          class="c5"
+          data-testid="eventInput"
+          name="title"
+          placeholder="Event Title"
+          type="text"
+        />
+      </div>
+    </div>
+    <div
+      class="c2"
+    >
+      <label
+        class="c3"
+      >
+        Starts
+      </label>
+      <div
+        class="c4"
+      >
+        <input
+          class="c6"
+          data-testid="eventInput"
+          name="startDate"
+          type="date"
+          value="2019-10-04"
+        />
+        <input
+          class="c7"
+          data-testid="eventInput"
+          name="startTime"
+          type="time"
+          value="12:00"
+        />
+      </div>
+    </div>
+    <div
+      class="c2"
+    >
+      <label
+        class="c3"
+      >
+        Ends
+      </label>
+      <div
+        class="c4"
+      >
+        <input
+          class="c6"
+          data-testid="eventInput"
+          name="endDate"
+          type="date"
+          value="2019-10-04"
+        />
+        <input
+          class="c7"
+          data-testid="eventInput"
+          name="endTime"
+          type="time"
+          value="13:00"
+        />
+      </div>
+    </div>
+    <div
+      class="c2"
+    >
+      <div
+        class="c4"
+      >
+        <div />
+        <button
+          class="c8"
+          data-testid="save"
+        >
+          Save
+        </button>
+      </div>
+    </div>
+  </form>
 </div>
 `;
