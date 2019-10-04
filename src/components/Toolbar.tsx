@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import Modal from "react-responsive-modal";
 import { Views, Navigate } from "../types";
-import { EventCardForm } from "./EventCardForm";
+import { CreateEventForm } from "./CreateEventForm";
 
 export type ToolbarProps = {
   view: Views;
@@ -67,7 +67,7 @@ export const Toolbar = (props: ToolbarProps) => {
         </Button>
       </ButtonGroup>
       <Modal open={open} onClose={onCloseModal} center>
-        <EventCardForm onCloseModal={onCloseModal}></EventCardForm>
+        <CreateEventForm onCloseModal={onCloseModal}></CreateEventForm>
       </Modal>
     </StyledToolbar>
   );

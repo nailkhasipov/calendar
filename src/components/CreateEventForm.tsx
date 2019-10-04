@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import { getToday, getFullDate, getTime } from "../utils";
 
-export const EventCardForm = (props: any) => {
+export const CreateEventForm = (props: any) => {
   const date = getToday();
   const getEvents = () => JSON.parse(localStorage.getItem("events") || "[]");
   const [events, setEvents] = useState(getEvents());

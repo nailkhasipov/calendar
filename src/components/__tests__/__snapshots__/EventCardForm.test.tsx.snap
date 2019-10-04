@@ -65,14 +65,14 @@ exports[`EventCardForm component render correctly 1`] = `
     data-testid="eventInput"
     name="startTime"
     type="time"
-    value="00:45"
+    value="06:53"
   />
   <input
     class="c2"
     data-testid="eventInput"
     name="endTime"
     type="time"
-    value="00:55"
+    value="06:63"
   />
   <input
     class="c1"

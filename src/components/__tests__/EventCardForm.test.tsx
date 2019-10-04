@@ -2,20 +2,20 @@ import React from "react";
 import { render, fireEvent, cleanup } from "react-testing-library";
 import "jest-styled-components";
 import "jest-dom/extend-expect";
-import { EventCardForm } from "../EventCardForm";
+import { CreateEventForm } from "../CreateEventForm";
 
 afterEach(cleanup);
 
-describe("EventCardForm component", () => {
+describe("CreateEventForm component", () => {
   it("render correctly", () => {
-    const { container } = render(<EventCardForm></EventCardForm>);
+    const { container } = render(<CreateEventForm></CreateEventForm>);
     expect(container.firstChild).toMatchSnapshot();
   });
 
   it("change eventForm", () => {
     const onCloseModal = jest.fn();
     const { getByTestId } = render(
-      <EventCardForm onCloseModal={onCloseModal} />
+      <CreateEventForm onCloseModal={onCloseModal} />
     );
     const contentInput = getByTestId("eventInput");
     const submitButton = getByTestId("save");
@@ -26,4 +26,6 @@ describe("EventCardForm component", () => {
     //@ts-ignore
     expect(contentInput.value).toEqual("new content");
   });
+
+  //@TODO test date inputs
 });
