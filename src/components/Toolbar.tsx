@@ -22,27 +22,29 @@ export const Toolbar = (props: ToolbarProps) => {
 
   return (
     <StyledToolbar>
-      <ButtonGroup>
-        <Button onClick={() => onOpen()}>Create</Button>
-        <Button
-          data-testid="navigate-today"
-          onClick={() => props.onNavigate(Navigate.TODAY)}
-        >
-          Today
-        </Button>
-        <Button
-          data-testid="navigate-previous"
-          onClick={() => props.onNavigate(Navigate.PREVIOUS)}
-        >
-          {"<"}
-        </Button>
-        <Button
-          data-testid="navigate-next"
-          onClick={() => props.onNavigate(Navigate.NEXT)}
-        >
-          {">"}
-        </Button>
-      </ButtonGroup>
+      <ToolbarLeftActions>
+        <ButtonGroup>
+          <Button
+            data-testid="navigate-today"
+            onClick={() => props.onNavigate(Navigate.TODAY)}
+          >
+            Today
+          </Button>
+          <Button
+            data-testid="navigate-previous"
+            onClick={() => props.onNavigate(Navigate.PREVIOUS)}
+          >
+            {"<"}
+          </Button>
+          <Button
+            data-testid="navigate-next"
+            onClick={() => props.onNavigate(Navigate.NEXT)}
+          >
+            {">"}
+          </Button>
+        </ButtonGroup>
+        <AddNewEventButton onClick={() => onOpen()}>+</AddNewEventButton>
+      </ToolbarLeftActions>
       <ButtonGroup>
         <Button
           className={props.view === Views.DAY ? "active" : ""}
@@ -85,6 +87,11 @@ const StyledToolbar = styled.div`
   align-items: center;
 `;
 
+const ToolbarLeftActions = styled.div`
+  display: flex;
+  flex-direction: row;
+`;
+
 const Button = styled.button`
   /* Structure */
   display: inline-block;
@@ -116,6 +123,10 @@ const Button = styled.button`
       rgba(0, 0, 0, 0.1)
     );
   }
+`;
+
+const AddNewEventButton = styled(Button)`
+  margin-left: 16px;
 `;
 
 const ButtonGroup = styled.div`
