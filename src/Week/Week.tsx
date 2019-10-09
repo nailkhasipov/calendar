@@ -5,6 +5,7 @@ import { getCurrentWeekDates } from "../utils";
 import { VEvent } from "../types";
 import { HoursLabels } from "../Day/HoursLabels";
 import { DayGrid } from "../Day/DayGrid";
+import { WeekEvent } from "./WeekViewEvent";
 
 const StyledWeek = styled.div`
   flex-grow: 1;
@@ -32,6 +33,7 @@ export const Week = (props: WeekProps) => {
   const week = getCurrentWeekDates();
   return (
     <StyledWeek>
+      <WeekEvent date={week}></WeekEvent>
       <HoursLabels />
       {week.map((date, index) => (
         <DayGrid key={index} full={false} date={date} />
