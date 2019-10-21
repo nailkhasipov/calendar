@@ -119,8 +119,33 @@ export const getCurrentWeekDates = () => {
     let day = new Date(curr.setDate(first));
     week.push(day);
   }
-
   return week;
+};
+
+export const getCurrentWeekDatesWithEvents = () => {
+  const weekEvents: Array<Object> = [];
+  const weekDates = getCurrentWeekDates();
+  const items = JSON.parse(localStorage.getItem("events") || "[]");
+  items.filter((event: any) => {
+    const eventDateString = new Date(event.startDate).toDateString();
+    for (var i = 0; i < weekDates.length; i++) {
+      const currentWeekString = weekDates[i].toDateString();
+      if (eventDateString === currentWeekString) {
+        weekEvents.push(event);
+      }
+    }
+  });
+  return weekEvents;
+};
+
+export const getCurrentDayWithEvents = (date: Date) => {
+  const items = JSON.parse(localStorage.getItem("events") || "[]");
+  const currentDateString = date.toDateString();
+  const currentDateEvents = items.filter((event: any) => {
+    const eventDateString = new Date(event.startDate).toDateString();
+    return eventDateString === currentDateString;
+  });
+  return currentDateEvents;
 };
 
 export const translatePositionByPxToDate = (

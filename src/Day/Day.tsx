@@ -1,10 +1,9 @@
 import React from "react";
 
-import { VEvent } from "../types";
 import { HoursLabels } from "./HoursLabels";
 import { DayGrid } from "./DayGrid";
-import { DayEvent } from "./DayViewEvent";
-
+import { DayEvent } from "../components/ViewEvent";
+import { getCurrentDayWithEvents } from "../utils";
 import { FullCalViewGrid } from "../styled/FullCal";
 
 type DayProps = {
@@ -12,10 +11,11 @@ type DayProps = {
 };
 
 export const Day = (props: DayProps) => {
+  const dayEvents = getCurrentDayWithEvents(props.date);
   return (
     <FullCalViewGrid>
       <HoursLabels />
-      <DayEvent date={props.date}></DayEvent>
+      <DayEvent events={dayEvents} date={props.date}></DayEvent>
       <DayGrid full={true} date={props.date} />
     </FullCalViewGrid>
   );
