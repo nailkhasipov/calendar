@@ -1,6 +1,5 @@
 import React from "react";
 import styled from "styled-components";
-import { VEvent } from "../types";
 import { getMonthArrayWithOffsetAndEvents } from "../utils";
 
 import { MonthDay } from "./MonthDay";

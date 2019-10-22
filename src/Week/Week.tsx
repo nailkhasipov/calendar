@@ -30,7 +30,7 @@ export const Week = (props: WeekProps) => {
       <DayEvent events={weekEvents} date={week}></DayEvent>
       <HoursLabels />
       {week.map((date, index) => (
-        <DayGrid key={index} full={false} date={date} />
+        <DayGrid key={index} full={false} events={weekEvents} date={date} />
       ))}
     </StyledWeek>
   );

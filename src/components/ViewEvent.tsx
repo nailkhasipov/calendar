@@ -31,7 +31,7 @@ export const DayEvent = (props: any) => {
 const DayViewEvent = styled.div`
   position: absolute;
   width: 13%;
-  background: #339af0;
+  background: none;
   color: white;
   padding: 5px;
   cursor: pointer;

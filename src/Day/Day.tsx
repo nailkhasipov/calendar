@@ -16,7 +16,7 @@ export const Day = (props: DayProps) => {
     <FullCalViewGrid>
       <HoursLabels />
       <DayEvent events={dayEvents} date={props.date}></DayEvent>
-      <DayGrid full={true} date={props.date} />
+      <DayGrid full={true} events={dayEvents} date={props.date} />
     </FullCalViewGrid>
   );
 };
