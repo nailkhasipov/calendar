@@ -3,6 +3,7 @@ import styled from "styled-components";
 import { getMonthArrayWithOffsetAndEvents } from "../utils";
 
 import { MonthDay } from "./MonthDay";
+import { DayGrid } from "../Day/DayGrid";
 
 type MonthProps = {
   date: Date;
@@ -24,7 +25,7 @@ export const Month = (props: MonthProps) => {
   return (
     <MonthTable>
       {monthArray.map((day: any, index) => (
-        <MonthDay key={index} date={day.date} />
+        <MonthDay key={index} events={day.events} date={day.date} />
       ))}
     </MonthTable>
   );

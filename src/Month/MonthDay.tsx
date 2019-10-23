@@ -1,8 +1,9 @@
-import React from 'react';
-import styled from 'styled-components';
+import React from "react";
+import styled from "styled-components";
 
 type MonthDayProps = {
   date: Date;
+  events: any;
 };
 
 const StyledMonthDay = styled.div`
@@ -20,14 +21,22 @@ const MonthDayLabel = styled.span`
   font-size: 13px;
 `;
 
-const MonthTableDayEvent = styled.div`
-  background: #339af0;
+const Event = styled.div`
+  height: 20px;
+  color: white;
+  text-align: left;
+  background-color: #339af0;
 `;
 
 export const MonthDay = (props: MonthDayProps) => {
   return (
     <StyledMonthDay>
-      <MonthDayLabel>{props.date.getDate()}</MonthDayLabel>
+      <MonthDayLabel>
+        {props.date.getDate()}
+        {props.events.map((item: any) => {
+          return <Event>{item.title}</Event>;
+        })}
+      </MonthDayLabel>
     </StyledMonthDay>
   );
 };

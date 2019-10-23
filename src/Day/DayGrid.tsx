@@ -32,7 +32,6 @@ export const DayGrid = (props: DayGridProps) => {
     const eventDateString = new Date(event.startDate).toDateString();
     return eventDateString === currentDateString;
   });
-  console.log(currentDateEvents);
   return (
     <StyledDayGrid full={props.full}>
       {[...Array(24)].map((element, index) => {

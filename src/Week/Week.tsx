@@ -4,7 +4,6 @@ import styled from "styled-components";
 import { getCurrentWeekDates } from "../utils";
 import { HoursLabels } from "../Day/HoursLabels";
 import { DayGrid } from "../Day/DayGrid";
-import { DayEvent } from "../components/ViewEvent";
 import { getCurrentWeekDatesWithEvents } from "../utils";
 
 const StyledWeek = styled.div`
@@ -27,7 +26,6 @@ export const Week = (props: WeekProps) => {
   const weekEvents = getCurrentWeekDatesWithEvents();
   return (
     <StyledWeek>
-      <DayEvent events={weekEvents} date={week}></DayEvent>
       <HoursLabels />
       {week.map((date, index) => (
         <DayGrid key={index} full={false} events={weekEvents} date={date} />

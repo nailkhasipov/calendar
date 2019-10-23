@@ -63,9 +63,18 @@ export const getMonthArrayWithOffsetAndEvents = (
     const day = {
       date: new Date(startDate),
       offset: false,
-      selected: false
+      selected: false,
+      events: []
     };
-
+    const events = getCurrentMonthDatesWithEvents(date);
+    events.map((item, index) => {
+      //@ts-ignore
+      const eventDate = new Date(item.startDate);
+      if (eventDate.getDate() == date.getDate()) {
+        //@ts-ignore
+        day.events.push(item);
+      }
+    });
     if (date.getMonth() != selectedDay.getMonth()) day.offset = true;
     if (
       date.getMonth() === selectedDay.getMonth() &&
@@ -136,6 +145,22 @@ export const getCurrentWeekDatesWithEvents = () => {
     }
   });
   return weekEvents;
+};
+
+export const getCurrentMonthDatesWithEvents = (date: Date) => {
+  const monthEvents: Array<Object> = [];
+  const monthDates = getMonthArray(date);
+  const items = JSON.parse(localStorage.getItem("events") || "[]");
+  items.filter((event: any) => {
+    const eventDateString = new Date(event.startDate).toDateString();
+    for (var i = 0; i < monthDates.length; i++) {
+      const currentWeekString = monthDates[i].toDateString();
+      if (eventDateString === currentWeekString) {
+        monthEvents.push(event);
+      }
+    }
+  });
+  return monthEvents;
 };
 
 export const getCurrentDayWithEvents = (date: Date) => {

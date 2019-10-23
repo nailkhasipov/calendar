@@ -58,7 +58,7 @@ export const CreateEventForm = (props: any) => {
             name="startTime"
             type="time"
             data-testid="eventInput"
-            defaultValue="12:00"
+            defaultValue={getTime(date, "startTime")}
             onChange={e => handleEventChange(e)}
           ></EventTime>
         </FormField>
@@ -74,7 +74,7 @@ export const CreateEventForm = (props: any) => {
             name="endTime"
             type="time"
             data-testid="eventInput"
-            defaultValue="13:00"
+            defaultValue={getTime(date, "endTime")}
             onChange={e => handleEventChange(e)}
           ></EventTime>
         </FormField>
