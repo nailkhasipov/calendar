@@ -13,17 +13,8 @@ export enum Views {
 
 export interface VEvent {
   title: string;
-  start: number;
-  end: number;
-}
-
-export interface IDayPosition {
-  1: number;
-  2: number;
-  3: number;
-  4: number;
-  5: number;
-  6: number;
-  7: number;
-  [key: number]: number;
+  startDate: number;
+  endDate: number;
+  startTime: number;
+  endTime: number;
 }

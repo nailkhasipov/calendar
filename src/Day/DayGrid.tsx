@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import { VEvent } from "../types";
 
 type DayGridProps = {
   full?: boolean;
@@ -28,7 +29,7 @@ const Hour = styled.div`
 
 export const DayGrid = (props: DayGridProps) => {
   const currentDateString = props.date.toDateString();
-  const currentDateEvents = props.events.filter((event: any) => {
+  const currentDateEvents = props.events.filter((event: VEvent) => {
     const eventDateString = new Date(event.startDate).toDateString();
     return eventDateString === currentDateString;
   });
@@ -37,10 +38,10 @@ export const DayGrid = (props: DayGridProps) => {
       {[...Array(24)].map((element, index) => {
         return (
           <Hour>
-            {currentDateEvents.map((item: any, el: any) => {
+            {currentDateEvents.map((item: any) => {
               const hours = item.startTime.slice(0, -3);
               if (index == hours) {
-                return <DayViewEvent>{item.title}</DayViewEvent>;
+                return <DayViewEvent key={index}>{item.title}</DayViewEvent>;
               }
             })}
           </Hour>

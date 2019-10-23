@@ -1,3 +1,5 @@
+import { VEvent } from "./types";
+
 export const isOffsetDay = (date: Date, selectedDate: Date) =>
   date.getMonth() != selectedDate.getMonth();
 export const isSelectedDay = (date: Date, selectedDate: Date) =>
@@ -67,8 +69,7 @@ export const getMonthArrayWithOffsetAndEvents = (
       events: []
     };
     const events = getCurrentMonthDatesWithEvents(date);
-    events.map((item, index) => {
-      //@ts-ignore
+    events.map((item: any, index) => {
       const eventDate = new Date(item.startDate);
       if (eventDate.getDate() == date.getDate()) {
         //@ts-ignore
@@ -135,7 +136,7 @@ export const getCurrentWeekDatesWithEvents = () => {
   const weekEvents: Array<Object> = [];
   const weekDates = getCurrentWeekDates();
   const items = JSON.parse(localStorage.getItem("events") || "[]");
-  items.filter((event: any) => {
+  items.filter((event: VEvent) => {
     const eventDateString = new Date(event.startDate).toDateString();
     for (var i = 0; i < weekDates.length; i++) {
       const currentWeekString = weekDates[i].toDateString();
@@ -151,7 +152,7 @@ export const getCurrentMonthDatesWithEvents = (date: Date) => {
   const monthEvents: Array<Object> = [];
   const monthDates = getMonthArray(date);
   const items = JSON.parse(localStorage.getItem("events") || "[]");
-  items.filter((event: any) => {
+  items.filter((event: VEvent) => {
     const eventDateString = new Date(event.startDate).toDateString();
     for (var i = 0; i < monthDates.length; i++) {
       const currentWeekString = monthDates[i].toDateString();
@@ -166,7 +167,7 @@ export const getCurrentMonthDatesWithEvents = (date: Date) => {
 export const getCurrentDayWithEvents = (date: Date) => {
   const items = JSON.parse(localStorage.getItem("events") || "[]");
   const currentDateString = date.toDateString();
-  const currentDateEvents = items.filter((event: any) => {
+  const currentDateEvents = items.filter((event: VEvent) => {
     const eventDateString = new Date(event.startDate).toDateString();
     return eventDateString === currentDateString;
   });
