@@ -41,7 +41,14 @@ export const DayGrid = (props: DayGridProps) => {
             {currentDateEvents.map((item: any) => {
               const hours = item.startTime.slice(0, -3);
               if (index == hours) {
-                return <DayViewEvent key={index}>{item.title}</DayViewEvent>;
+                return (
+                  <DayViewEvent
+                    style={{ height: item.height + "px" }}
+                    key={index}
+                  >
+                    {item.title}
+                  </DayViewEvent>
+                );
               }
             })}
           </Hour>
@@ -53,7 +60,10 @@ export const DayGrid = (props: DayGridProps) => {
 
 const DayViewEvent = styled.div`
   position: absolute;
+  text-align: center;
+  padding-top: 10px;
   width: 135px;
+  height: 50px;
   background: #339af0;
   color: white;
   padding: 5px;
