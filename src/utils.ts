@@ -71,7 +71,10 @@ export const getMonthArrayWithOffsetAndEvents = (
     const events = getCurrentMonthDatesWithEvents(date);
     events.map((item: any, index) => {
       const eventDate = new Date(item.startDate);
-      if (eventDate.getDate() == date.getDate()) {
+      if (
+        eventDate.getDate() == date.getDate() &&
+        eventDate.getMonth() == date.getMonth()
+      ) {
         //@ts-ignore
         day.events.push(item);
       }

@@ -30,7 +30,7 @@ export const CreateEventForm = (props: any) => {
     39;
   const handleAddEvent = () => {
     const event = {
-      title: eventValue.title,
+      title: eventValue.title == "" ? "Нет заголовка" : eventValue.title,
       startTime: eventValue.startTime,
       endTime: eventValue.endTime,
       startDate: eventValue.startDate,
