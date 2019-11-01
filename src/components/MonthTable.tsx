@@ -9,10 +9,8 @@ import {
   isToday
 } from "../utils";
 
-const today = new Date();
-
 const getDayComponent = (monthArrayDate: Date, selectedDate: Date) => {
-  if (isOffsetDay(monthArrayDate, today))
+  if (isOffsetDay(monthArrayDate, selectedDate))
     return <OffsetDay>{monthArrayDate.getDate()}</OffsetDay>;
   if (isSelectedDay(monthArrayDate, selectedDate))
     return <CurrentDay>{monthArrayDate.getDate()}</CurrentDay>;

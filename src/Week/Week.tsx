@@ -2,9 +2,9 @@ import React from "react";
 import styled from "styled-components";
 
 import { getCurrentWeekDates } from "../utils";
-import { VEvent } from "../types";
 import { HoursLabels } from "../Day/HoursLabels";
 import { DayGrid } from "../Day/DayGrid";
+import { getCurrentWeekDatesWithEvents } from "../utils";
 
 const StyledWeek = styled.div`
   flex-grow: 1;
@@ -17,24 +17,18 @@ const StyledWeek = styled.div`
   padding-left: 32px;
 `;
 
-const WeekWrapper = styled.div`
-  display: flex;
-  flex-direction: row;
-  position: relative;
-  flex-grow: 1;
-`;
-
 type WeekProps = {
   date: Date;
 };
 
 export const Week = (props: WeekProps) => {
   const week = getCurrentWeekDates();
+  const weekEvents = getCurrentWeekDatesWithEvents();
   return (
     <StyledWeek>
       <HoursLabels />
       {week.map((date, index) => (
-        <DayGrid key={index} full={false} date={date} />
+        <DayGrid key={index} full={false} events={weekEvents} date={date} />
       ))}
     </StyledWeek>
   );

@@ -1,3 +1,5 @@
+import { VEvent } from "./types";
+
 export const isOffsetDay = (date: Date, selectedDate: Date) =>
   date.getMonth() != selectedDate.getMonth();
 export const isSelectedDay = (date: Date, selectedDate: Date) =>
@@ -63,9 +65,20 @@ export const getMonthArrayWithOffsetAndEvents = (
     const day = {
       date: new Date(startDate),
       offset: false,
-      selected: false
+      selected: false,
+      events: []
     };
-
+    const events = getCurrentMonthDatesWithEvents(date);
+    events.map((item: any, index) => {
+      const eventDate = new Date(item.startDate);
+      if (
+        eventDate.getDate() == date.getDate() &&
+        eventDate.getMonth() == date.getMonth()
+      ) {
+        //@ts-ignore
+        day.events.push(item);
+      }
+    });
     if (date.getMonth() != selectedDay.getMonth()) day.offset = true;
     if (
       date.getMonth() === selectedDay.getMonth() &&
@@ -119,8 +132,49 @@ export const getCurrentWeekDates = () => {
     let day = new Date(curr.setDate(first));
     week.push(day);
   }
-
   return week;
+};
+
+export const getCurrentWeekDatesWithEvents = () => {
+  const weekEvents: Array<Object> = [];
+  const weekDates = getCurrentWeekDates();
+  const items = JSON.parse(localStorage.getItem("events") || "[]");
+  items.filter((event: VEvent) => {
+    const eventDateString = new Date(event.startDate).toDateString();
+    for (var i = 0; i < weekDates.length; i++) {
+      const currentWeekString = weekDates[i].toDateString();
+      if (eventDateString === currentWeekString) {
+        weekEvents.push(event);
+      }
+    }
+  });
+  return weekEvents;
+};
+
+export const getCurrentMonthDatesWithEvents = (date: Date) => {
+  const monthEvents: Array<Object> = [];
+  const monthDates = getMonthArray(date);
+  const items = JSON.parse(localStorage.getItem("events") || "[]");
+  items.filter((event: VEvent) => {
+    const eventDateString = new Date(event.startDate).toDateString();
+    for (var i = 0; i < monthDates.length; i++) {
+      const currentWeekString = monthDates[i].toDateString();
+      if (eventDateString === currentWeekString) {
+        monthEvents.push(event);
+      }
+    }
+  });
+  return monthEvents;
+};
+
+export const getCurrentDayWithEvents = (date: Date) => {
+  const items = JSON.parse(localStorage.getItem("events") || "[]");
+  const currentDateString = date.toDateString();
+  const currentDateEvents = items.filter((event: VEvent) => {
+    const eventDateString = new Date(event.startDate).toDateString();
+    return eventDateString === currentDateString;
+  });
+  return currentDateEvents;
 };
 
 export const translatePositionByPxToDate = (

@@ -14,20 +14,28 @@ export const CreateEventForm = (props: any) => {
     startTime: getTime(date, "startTime"),
     startDate: getFullDate(date),
     endTime: getTime(date, "endTime"),
-    endDate: getFullDate(date)
+    endDate: getFullDate(date),
+    height: 39
   });
   const handleEventChange = (e: { target: HTMLInputElement }) => {
     const name = e.target.name;
     const value = e.target.value;
     setEventValue({ ...eventValue, [name]: value });
   };
+  const addHourTime = Number(eventValue.endTime.slice(3, 5)) > 30 ? 1 : 0;
+  const height =
+    (Number(eventValue.endTime.slice(0, -3)) +
+      addHourTime -
+      Number(eventValue.startTime.slice(0, -3))) *
+    39;
   const handleAddEvent = () => {
     const event = {
-      title: eventValue.title,
+      title: eventValue.title == "" ? "Нет заголовка" : eventValue.title,
       startTime: eventValue.startTime,
       endTime: eventValue.endTime,
       startDate: eventValue.startDate,
-      endDate: eventValue.endDate
+      endDate: eventValue.endDate,
+      height: height
     };
     setEvents([...events, event]);
     localStorage.setItem("events", JSON.stringify([...events, event]));
@@ -58,7 +66,7 @@ export const CreateEventForm = (props: any) => {
             name="startTime"
             type="time"
             data-testid="eventInput"
-            defaultValue="12:00"
+            defaultValue={getTime(date, "startTime")}
             onChange={e => handleEventChange(e)}
           ></EventTime>
         </FormField>
@@ -74,7 +82,7 @@ export const CreateEventForm = (props: any) => {
             name="endTime"
             type="time"
             data-testid="eventInput"
-            defaultValue="13:00"
+            defaultValue={getTime(date, "endTime")}
             onChange={e => handleEventChange(e)}
           ></EventTime>
         </FormField>

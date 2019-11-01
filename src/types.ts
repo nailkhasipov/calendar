@@ -13,6 +13,8 @@ export enum Views {
 
 export interface VEvent {
   title: string;
-  start: number;
-  end: number;
+  startDate: number;
+  endDate: number;
+  startTime: number;
+  endTime: number;
 }
